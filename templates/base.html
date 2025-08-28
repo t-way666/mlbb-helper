@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="dark">
+<head>
+    {% block head_meta %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <title>{% block title %}MLBB Helper{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Боковая навигация -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <a href="{{ url_for('index') }}" class="navbar-brand">MLBB Helper</a>
+                <button id="sidebarCollapse" class="btn btn-link d-md-none">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            
+            <ul class="list-unstyled components">
+                <li class="{% if request.endpoint == 'index' %}active{% endif %}">
+                    <a href="{{ url_for('index') }}">
+                        <i class="bi bi-house-door"></i> Главная
+                    </a>
+                </li>
+                <li class="nav-item-header">Калькуляторы</li>
+                <li class="{% if request.endpoint == 'mini_damage_calculator' %}active{% endif %}">
+                    <a href="{{ url_for('mini_damage_calculator') }}">
+                        <i class="bi bi-calculator"></i> Мини-калькулятор урона
+                    </a>
+                </li>
+                <li class="{% if request.endpoint == 'defense_calculator' %}active{% endif %}">
+                    <a href="{{ url_for('defense_calculator') }}">
+                        <i class="bi bi-shield"></i> Защита и снижение урона
+                    </a>
+                </li>
+                <li class="{% if request.endpoint == 'winrate_calculator' %}active{% endif %}">
+                    <a href="{{ url_for('winrate_calculator') }}">
+                        <i class="bi bi-graph-up"></i> Корректировка винрейта
+                    </a>
+                </li>
+                <li class="{% if request.endpoint == 'season_progress' %}active{% endif %}">
+                    <a href="{{ url_for('season_progress') }}">
+                        <i class="bi bi-calendar-check"></i> Прогресс сезона
+                    </a>
+                </li>
+                <li class="{% if request.endpoint == 'hero_base_stats' %}active{% endif %}">
+                    <a href="{{ url_for('hero_base_stats') }}">
+                        <i class="bi bi-table"></i> Базовые характеристики героев
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="feedback-section mb-3">
+                    <h6 class="nav-item-header">Обратная связь</h6>
+                    <a href="https://t.me/T_w_a_y" target="_blank" class="btn btn-outline-primary w-100 mb-2">
+                        <i class="bi bi-telegram"></i>
+                        <span class="ms-2">Telegram</span>
+                    </a>
+                </div>
+
+                <button id="theme-toggle" class="btn btn-outline-primary w-100 mb-2" title="Переключить тему">
+                    <i id="theme-icon" class="bi bi-sun-fill"></i>
+                    <span class="ms-2">Сменить тему</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Основной контент -->
+        <div id="content">
+            <!-- Верхняя навигация для мобильных -->
+            <nav class="navbar navbar-expand-md d-md-none">
+                <div class="container-fluid">
+                    <button id="sidebarCollapseOpen" class="btn btn-link">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <a class="navbar-brand" href="{{ url_for('index') }}">MLBB Helper</a>
+                </div>
+            </nav>
+
+            <div class="content-wrapper">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

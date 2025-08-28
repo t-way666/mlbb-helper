@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Характеристики героев{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/hero_base_stats.css') }}">
+<style>
+    .hero-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 8px;
+        vertical-align: middle;
+        object-fit: cover;
+    }
+    .hero-name-with-avatar {
+        display: flex;
+        align-items: center;
+    }
+    .avatar-not-found {
+        background-color: #eee;
+        border: 1px solid #ddd;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-0">
+    <div class="row g-0">
+        <div class="col-12">
+            <div class="content-wrapper px-3">
+                <h1 class="mb-4">Базовые характеристики героев</h1>
+
+                <!-- Фильтры -->
+                <div class="row mb-4 filters-section">
+                    <div class="col-12 mb-3">
+                        <label for="searchFilter" class="form-label">Поиск героя:</label>
+                        <input type="text" id="searchFilter" class="form-control" placeholder="Введите имя героя...">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="sortBy" class="form-label">Сортировать по:</label>
+                        <select id="sortBy" class="form-select">
+                            <option value="hero_name">Герой</option>
+                            <option value="role">Роль</option>
+                            <option value="hp">HP</option>
+                            <option value="regen_hp">Реген HP</option>
+                            <option value="resource">Мана/Энергия</option>
+                            <option value="regen_resource">Реген ресурса</option>
+                            <option value="phys_attack">Физ. атака</option>
+                            <option value="phys_def">Физ. защита</option>
+                            <option value="mag_def">Маг. защита</option>
+                            <option value="attack_speed">Скор. атаки</option>
+                            <option value="move_speed">Скор. движения</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="sortOrder" class="form-label">Порядок:</label>
+                        <select id="sortOrder" class="form-select">
+                            <option value="asc">По возрастанию</option>
+                            <option value="desc">По убыванию</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="roleFilter" class="form-label">Роль:</label>
+                        <select id="roleFilter" class="form-select">
+                            <option value="all">Все роли</option>
+                            <option value="Танк">Танк</option>
+                            <option value="Боец">Боец</option>
+                            <option value="Убийца">Убийца</option>
+                            <option value="Маг">Маг</option>
+                            <option value="Стрелок">Стрелок</option>
+                            <option value="Поддержка">Поддержка</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Слайдер уровня -->
+                <div class="mb-4">
+                    <label for="heroLevel" class="form-label">Уровень героя: <span id="heroLevelValue">1</span></label>
+                    <input type="range" class="form-range" id="heroLevel" min="1" max="15" value="1">
+                </div>
+
+                <!-- Управление колонками -->
+                <div class="table-controls-sticky">
+                    <div class="column-toggle-container">
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="role">Роль</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="hp">HP</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="hp_regen">Реген HP</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="mana">Мана/Энергия</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="mana_regen">Реген ресурса</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="phys_attack">Физ. атака</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="phys_def">Физ. защита</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="mag_def">Маг. защита</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="attack_speed">Скор. атаки</button>
+                        <button type="button" class="btn btn-column-toggle column-control" data-column="move_speed">Скор. движения</button>
+                    </div>
+                </div>
+
+                <!-- Таблица -->
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="hero-name-header">Герой</th>
+                                <th class="column-role">Роль</th>
+                                <th class="column-hp">HP (Рост)</th>
+                                <th class="column-hp_regen">Реген HP (Рост)</th>
+                                <th class="column-mana">Мана/Энергия (Рост)</th>
+                                <th class="column-mana_regen">Реген ресурса (Рост)</th>
+                                <th class="column-phys_attack">Физ. атака (Рост)</th>
+                                <th class="column-phys_def">Физ. защита (Рост)</th>
+                                <th class="column-mag_def">Маг. защита (Рост)</th>
+                                <th class="column-attack_speed">Скор. атаки (Коэф.)</th>
+                                <th class="column-move_speed">Скор. движения</th>
+                            </tr>
+                        </thead>
+                        <tbody id="heroesTableBody">
+                            {% for hero in heroes %}
+                            <tr>
+                                <td class="hero-name-cell">
+                                    <div class="hero-name-with-avatar">
+                                        {% if hero.hero_name %}
+                                        {% set hero_name_lower = hero.hero_name.lower() %}
+                                        {% set hero_name_fixed = hero_name_lower
+                                           .replace('a', 'а')
+                                           .replace('e', 'е')
+                                           .replace('o', 'о')
+                                           .replace('p', 'р')
+                                           .replace('c', 'с')
+                                           .replace('x', 'х')
+                                           .replace('y', 'у')
+                                           .replace('b', 'в')
+                                           .replace('n', 'н')
+                                           .replace('m', 'м')
+                                           .replace('t', 'т') %}
+                                        {% set avatar_path = 'images/hero_base_avatar_icons/' ~ hero_name_fixed ~ '.png' %}
+                                        <img src="{{ url_for('static', filename=avatar_path) }}" alt="{{ hero.hero_name }}" class="hero-avatar" onerror="this.onerror=null; this.classList.add('avatar-not-found');">
+                                        {% else %}
+                                        <div class="hero-avatar-placeholder" style="width: 32px; height: 32px; background-color: #eee; border-radius: 50%; display: inline-block; margin-right: 8px;"></div>
+                                        {% endif %}
+                                        <span>{{ hero.hero_name }}</span>
+                                    </div>
+                                </td>
+                                <td class="column-role">{{ hero.main_role }}{% if hero.extra_role %}/{{ hero.extra_role }}{% endif %}</td>
+                                <td class="column-hp">{{ hero.hp }} ({{ "%.1f"|format(hero.growth_hp) }})</td>
+                                <td class="column-hp_regen">{{ "%.1f"|format(hero.regen_hp) }} ({{ "%.2f"|format(hero.growth_regen_hp) }})</td>
+                                <td class="column-mana">{{ hero.resource if hero.resource else 'N/A' }} ({{ "%.1f"|format(hero.growth_resource) if hero.growth_resource else 'N/A' }})</td>
+                                <td class="column-mana_regen">{{ "%.1f"|format(hero.regen_resource) if hero.regen_resource else 'N/A' }} ({{ "%.2f"|format(hero.growth_regen_resource) if hero.growth_regen_resource else 'N/A' }})</td>
+                                <td class="column-phys_attack">{{ hero.phys_attack }} ({{ "%.1f"|format(hero.growth_phys_attack) }})</td>
+                                <td class="column-phys_def">{{ hero.phys_def }} ({{ "%.1f"|format(hero.growth_phys_def) }})</td>
+                                <td class="column-mag_def">{{ hero.mag_def }} ({{ "%.1f"|format(hero.growth_mag_def) }})</td>
+                                <td class="column-attack_speed">{{ "%.3f"|format(hero.attack_speed) }} ({{ "%.1f"|format(hero.attack_speed_coefficient_percent) }}%)</td>
+                                <td class="column-move_speed">{{ hero.move_speed }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/column_controls.js') }}"></script>
+<script src="{{ url_for('static', filename='js/hero_base_stats.js') }}"></script>
+{% endblock %}

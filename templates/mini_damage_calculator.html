@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}MLBB Helper - Мини-калькулятор урона{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mini_damage_calculator.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-8 mx-auto">
+            <h1 class="mb-4">Калькулятор урона</h1>
+
+            <div class="calculator-container">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Параметры цели</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="targetDefense" class="form-label">Базовая защита цели:</label>
+                            <input type="number" class="form-control" id="targetDefense" value="0" min="0">
+                            <div class="form-text">Базовое значение защиты цели до применения дебафов.</div>
+                            <div class="form-text mt-2">Базовое снижение урона от защиты: <span id="baseDamageReductionDisplay" class="text-primary">0%</span></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="adaptiveDefenseReductionFlat" class="form-label">Снижение защиты (фиксированное):</label>
+                            <input type="number" class="form-control" id="adaptiveDefenseReductionFlat" value="0" min="0">
+                            <div class="form-text">Фиксированное значение, которое вычитается из защиты цели.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="adaptiveDefenseReductionPercent" class="form-label">Снижение защиты (%):</label>
+                            <input type="number" class="form-control" id="adaptiveDefenseReductionPercent" value="0" min="0" max="100">
+                            <div class="form-text">Процентное снижение защиты цели (применяется после фиксированного снижения).</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="additionalTargetDamageReductionPercent" class="form-label">Доп. снижение урона цели (%):</label>
+                            <input type="number" class="form-control" id="additionalTargetDamageReductionPercent" value="0" min="0" max="100">
+                            <div class="form-text">Дополнительное процентное снижение урона(полученное из любых сторонних источников), применяемое к цели.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Варианты</h5>
+                        <button class="btn btn-primary btn-sm" id="addOptionBtn">
+                            <i class="bi bi-plus-lg"></i> Добавить вариант
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="optionsContainer"></div>
+                        <div class="mt-3">
+                            <button class="btn btn-primary w-100" id="calculateBtn">Рассчитать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card d-none" id="resultsContainer">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Результаты</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="resultsList" class="list-group"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/mini_damage_calculator.js') }}"></script>
+{% endblock %}
