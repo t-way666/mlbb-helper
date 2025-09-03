@@ -1,4 +1,3 @@
-
 import sqlite3
 import logging
 
@@ -35,8 +34,8 @@ class DataManager:
             'coeff_atk_speed_percent': 'attack_speed_coefficient_percent',
             'magic_power_all_lvl': 'mag_power',
             'move_speed': 'move_speed',
-            'min_basic_atk_range': 'min_basic_attack_range',
-            'max_basic_atk_range': 'max_basic_attack_range',
+            'min_basic_atk_range': 'min_basic_atk_range',
+            'max_basic_atk_range': 'max_basic_atk_range',
         }
 
         for db_key, app_key in key_map.items():
@@ -49,10 +48,8 @@ class DataManager:
                 
                 if stat_name == 'mag_def_1lvl':
                     stat_15lvl_name = 'mag_def'
-                # --- ИСПРАВЛЕНИЕ: Особый случай для regen_resource ---
                 if stat_name == 'regen_resouce_1lvl':
                     stat_15lvl_name = 'regen_resource_15lvl'
-                # ---------------------------------------------------
 
                 value_15lvl = row_dict.get(stat_15lvl_name)
                 if value_15lvl is not None:
@@ -73,6 +70,7 @@ class DataManager:
         else:
             hero_dict['resource_type'] = None
             
+        # Добавляем стандартные характеристики, если они отсутствуют
         default_stats = {
             'crit_chance_percent': 0,
             'crit_damage_percent': 200,
@@ -92,18 +90,28 @@ class DataManager:
             if stat not in hero_dict:
                 hero_dict[stat] = value
 
-        hero_dict['main_role'] = 'TBD'
-        hero_dict['extra_role'] = None
+        # Добавляем роли героя
+        hero_dict['main_role'] = row_dict.get('primary_role_name_ru')
+        hero_dict['extra_role'] = row_dict.get('extra_role_name_ru')
 
         return hero_dict
-
     def get_all_heroes(self):
-        """Возвращает всех героев с их базовыми характеристиками в старом формате."""
+        """Возвращает всех героев с их базовыми характеристиками и ролями в старом формате."""
         heroes_list = []
         conn = get_db_connection()
         try:
             cursor = conn.cursor()
-            sql = "SELECT h.name_ru, hs.* FROM heroes h JOIN hero_stats hs ON h.id = hs.hero_id"
+            sql = """
+            SELECT
+                h.name_ru, hs.*,
+                pr.role_name_ru AS primary_role_name_ru,
+                er.role_name_ru AS extra_role_name_ru
+            FROM heroes h
+            JOIN hero_stats hs ON h.id = hs.hero_id
+            LEFT JOIN hero_roles hr ON h.id = hr.hero_id
+            LEFT JOIN roles pr ON hr.primary_role_id = pr.role_id
+            LEFT JOIN roles er ON hr.extra_role_id = er.role_id
+            """
             cursor.execute(sql)
             rows = cursor.fetchall()
             for row in rows:
@@ -113,14 +121,24 @@ class DataManager:
         finally:
             conn.close()
         return heroes_list
-
     def get_hero_by_name(self, hero_name):
         """Возвращает одного героя по имени в старом формате."""
         hero = None
         conn = get_db_connection()
         try:
             cursor = conn.cursor()
-            sql = "SELECT h.name_ru, hs.* FROM heroes h JOIN hero_stats hs ON h.id = hs.hero_id WHERE h.name_ru LIKE ?"
+            sql = """
+            SELECT 
+                h.name_ru, hs.*, 
+                pr.role_name_ru AS primary_role_name_ru,
+                er.role_name_ru AS extra_role_name_ru
+            FROM heroes h
+            JOIN hero_stats hs ON h.id = hs.hero_id
+            LEFT JOIN hero_roles hr ON h.id = hr.hero_id
+            LEFT JOIN roles pr ON hr.primary_role_id = pr.role_id
+            LEFT JOIN roles er ON hr.extra_role_id = er.role_id
+            WHERE h.name_ru LIKE ?
+            """
             cursor.execute(sql, (hero_name,))
             row = cursor.fetchone()
             if row:
@@ -158,7 +176,18 @@ class DataManager:
         conn = get_db_connection()
         try:
             cursor = conn.cursor()
-            sql = "SELECT h.name_ru, hs.* FROM heroes h JOIN hero_stats hs ON h.id = hs.hero_id WHERE h.name_ru LIKE ?"
+            sql = """
+            SELECT 
+                h.name_ru, hs.*, 
+                pr.role_name_ru AS primary_role_name_ru,
+                er.role_name_ru AS extra_role_name_ru
+            FROM heroes h
+            JOIN hero_stats hs ON h.id = hs.hero_id
+            LEFT JOIN hero_roles hr ON h.id = hr.hero_id
+            LEFT JOIN roles pr ON hr.primary_role_id = pr.role_id
+            LEFT JOIN roles er ON hr.extra_role_id = er.role_id
+            WHERE h.name_ru LIKE ?
+            """
             cursor.execute(sql, (f'%{query}%',))
             rows = cursor.fetchall()
             for row in rows:
@@ -169,25 +198,55 @@ class DataManager:
             conn.close()
         return results
 
+    def get_heroes_by_role(self, role):
+        """Возвращает героев определенной роли."""
+        heroes_list = []
+        conn = get_db_connection()
+        try:
+            cursor = conn.cursor()
+            sql = """
+            SELECT 
+                h.name_ru, hs.*, 
+                pr.role_name_ru AS primary_role_name_ru,
+                er.role_name_ru AS extra_role_name_ru
+            FROM heroes h
+            JOIN hero_stats hs ON h.id = hs.hero_id
+            LEFT JOIN hero_roles hr ON h.id = hr.hero_id
+            LEFT JOIN roles pr ON hr.primary_role_id = pr.role_id
+            LEFT JOIN roles er ON hr.extra_role_id = er.role_id
+            WHERE pr.role_name_ru = ? OR er.role_name_ru = ?
+            """
+            cursor.execute(sql, (role, role))
+            rows = cursor.fetchall()
+            for row in rows:
+                heroes_list.append(self._map_row_to_hero_dict(row))
+        except sqlite3.Error as e:
+            logger.error(f"Ошибка при получении героев по роли '{role}': {e}")
+        finally:
+            conn.close()
+        return heroes_list
+
     # --- Заглушки для нереализованных методов --- #
-    def get_heroes_by_role(self, role): return []
     def get_emblems(self): return []
     def get_items(self): return []
 
-# Глобальный экземпляр для совместимости
 data_manager = DataManager()
 
 if __name__ == '__main__':
     print("--- Тестирование DataManager ---")
-    hero_name = 'Аврора'
-    aurora = data_manager.get_hero_by_name(hero_name)
-    if aurora:
-        print(f"Найден герой: {aurora['hero_name']}")
-        print(f"Базовый реген ресурса: {aurora.get('regen_resource')}")
-        print(f"Прирост регена ресурса: {aurora.get('growth_regen_resource')}")
-        
-        aurora_lvl_10 = data_manager.get_hero_stats_at_level(hero_name, 10)
-        if aurora_lvl_10:
-            print(f"Реген ресурса Авроры на 10 уровне: {aurora_lvl_10['regen_resource']:.2f}")
+    hero_name = 'Мия'
+    miya = data_manager.get_hero_by_name(hero_name)
+    if miya:
+        print(f"Найден герой: {miya['hero_name']}")
+        print(f"Основная роль: {miya.get('main_role')}")
+        print(f"Дополнительная роль: {miya.get('extra_role')}")
     else:
         print(f"Герой {hero_name} не найден.")
+
+    print("\n--- Тестирование get_heroes_by_role (Стрелок) ---")
+    marksmen = data_manager.get_heroes_by_role('Стрелок')
+    if marksmen:
+        for hero in marksmen:
+            print(f"- {hero['hero_name']} ({hero.get('main_role')}{f'/{hero.get('extra_role')}' if hero.get('extra_role') else ''})")
+    else:
+        print("Стрелки не найдены.")
