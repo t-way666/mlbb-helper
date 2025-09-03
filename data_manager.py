@@ -247,6 +247,7 @@ if __name__ == '__main__':
     marksmen = data_manager.get_heroes_by_role('Стрелок')
     if marksmen:
         for hero in marksmen:
-            print(f"- {hero['hero_name']} ({hero.get('main_role')}{f'/{hero.get('extra_role')}' if hero.get('extra_role') else ''})")
+            extra_role = f"/{hero.get('extra_role')}" if hero.get('extra_role') else ''
+            print(f"- {hero['hero_name']} ({hero.get('main_role')}{extra_role})")
     else:
         print("Стрелки не найдены.")
