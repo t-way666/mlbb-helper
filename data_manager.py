@@ -1,3 +1,4 @@
+
 import sqlite3
 import logging
 
@@ -31,7 +32,7 @@ class DataManager:
             'phis_def_1lvl': 'phys_def',
             'mag_def_1lvl': 'mag_def',
             'atk_speed_1lvl': 'attack_speed',
-            'coeff_atk_speed_percent': 'attack_speed_coefficient_percent', # <-- ИСПРАВЛЕНИЕ
+            'coeff_atk_speed_percent': 'attack_speed_coefficient_percent',
             'magic_power_all_lvl': 'mag_power',
             'move_speed': 'move_speed',
             'min_basic_atk_range': 'min_basic_attack_range',
@@ -48,6 +49,10 @@ class DataManager:
                 
                 if stat_name == 'mag_def_1lvl':
                     stat_15lvl_name = 'mag_def'
+                # --- ИСПРАВЛЕНИЕ: Особый случай для regen_resource ---
+                if stat_name == 'regen_resouce_1lvl':
+                    stat_15lvl_name = 'regen_resource_15lvl'
+                # ---------------------------------------------------
 
                 value_15lvl = row_dict.get(stat_15lvl_name)
                 if value_15lvl is not None:
@@ -68,7 +73,6 @@ class DataManager:
         else:
             hero_dict['resource_type'] = None
             
-        # Установка значений по умолчанию, включая критические
         default_stats = {
             'crit_chance_percent': 0,
             'crit_damage_percent': 200,
@@ -175,12 +179,15 @@ data_manager = DataManager()
 
 if __name__ == '__main__':
     print("--- Тестирование DataManager ---")
-    hero_name = 'Мия'
-    miya = data_manager.get_hero_by_name(hero_name)
-    if miya:
-        print(f"Найден герой: {miya['hero_name']}")
-        print(f"Коэф. скор. атаки: {miya.get('attack_speed_coefficient_percent')}")
-        print(f"Шанс крита: {miya.get('crit_chance_percent')}")
-        print(f"Крит. урон: {miya.get('crit_damage_percent')}")
+    hero_name = 'Аврора'
+    aurora = data_manager.get_hero_by_name(hero_name)
+    if aurora:
+        print(f"Найден герой: {aurora['hero_name']}")
+        print(f"Базовый реген ресурса: {aurora.get('regen_resource')}")
+        print(f"Прирост регена ресурса: {aurora.get('growth_regen_resource')}")
+        
+        aurora_lvl_10 = data_manager.get_hero_stats_at_level(hero_name, 10)
+        if aurora_lvl_10:
+            print(f"Реген ресурса Авроры на 10 уровне: {aurora_lvl_10['regen_resource']:.2f}")
     else:
         print(f"Герой {hero_name} не найден.")
