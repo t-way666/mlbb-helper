@@ -81,6 +81,11 @@ def winrate_calculator():
 def season_progress():
     return render_template('season_progress.html')
 
+@app.route('/advanced_damage_calculator')
+def advanced_damage_calculator():
+    heroes = data_manager.get_all_heroes()
+    return render_template('advanced_damage_calculator.html', heroes=heroes)
+
 @app.route('/api/heroes')
 def get_heroes():
     try:
@@ -90,6 +95,18 @@ def get_heroes():
         return jsonify(heroes)
     except Exception as e:
         logger.error(f"Error in get_heroes API: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/hero_stats/<hero_name>/<int:level>')
+def get_hero_stats(hero_name, level):
+    try:
+        stats = data_manager.get_hero_stats_at_level(hero_name, level)
+        if stats:
+            return jsonify(stats)
+        else:
+            return jsonify({"error": "Hero not found or invalid level"}), 404
+    except Exception as e:
+        logger.error(f"Error in get_hero_stats API: {e}")
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/heroes/search')

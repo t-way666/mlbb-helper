@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}MLBB Helper - Калькулятор урона{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/advanced_damage_calculator.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Калькулятор урона</h1>
+    <div class="row">
+        <!-- Атакующий -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Атакующий</div>
+                <div class="card-body">
+                    <div class="form-group mb-3">
+                        <label for="attacker-hero-select">Выберите героя:</label>
+                        <div class="hero-selection">
+                            <img id="attacker-hero-avatar" src="{{ url_for('static', filename='images/roles/Fighter.png') }}" alt="Attacker Avatar">
+                            <select id="attacker-hero-select" class="form-control">
+                                <option value="">-- Выберите героя --</option>
+                                {% for hero in heroes %}
+                                    <option value="{{ hero.hero_name }}" data-role="{{ hero.main_role }}">{{ hero.hero_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="attacker-hero-level">Уровень героя: <span id="attacker-level-display">1</span></label>
+                        <input type="range" id="attacker-hero-level" class="form-range" value="1" min="1" max="15">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Защищающийся -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Защищающийся</div>
+                <div class="card-body">
+                    <div class="form-group mb-3">
+                        <label for="defender-hero-select">Выберите героя:</label>
+                        <div class="hero-selection">
+                            <img id="defender-hero-avatar" src="{{ url_for('static', filename='images/roles/Fighter.png') }}" alt="Defender Avatar">
+                            <select id="defender-hero-select" class="form-control">
+                                <option value="">-- Выберите героя --</option>
+                                {% for hero in heroes %}
+                                    <option value="{{ hero.hero_name }}" data-role="{{ hero.main_role }}">{{ hero.hero_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="defender-hero-level">Уровень героя: <span id="defender-level-display">1</span></label>
+                        <input type="range" id="defender-hero-level" class="form-range" value="1" min="1" max="15">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <button id="calculate-btn" class="btn btn-primary w-100">Рассчитать</button>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">Результаты</div>
+                <div class="card-body">
+                    <div id="results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/advanced_damage_calculator.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,11 @@
+.hero-selection {
+    display: flex;
+    align-items: center;
+}
+
+.hero-selection img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}

@@ -33,9 +33,9 @@
                     </a>
                 </li>
                 <li class="nav-item-header">Калькуляторы</li>
-                <li class="{% if request.endpoint == 'mini_damage_calculator' %}active{% endif %}">
-                    <a href="{{ url_for('mini_damage_calculator') }}">
-                        <i class="bi bi-calculator"></i> Мини-калькулятор урона
+                <li class="{% if request.endpoint == 'advanced_damage_calculator' %}active{% endif %}">
+                    <a href="{{ url_for('advanced_damage_calculator') }}">
+                        <i class="bi bi-calculator"></i> Калькулятор урона
                     </a>
                 </li>
                 <li class="{% if request.endpoint == 'defense_calculator' %}active{% endif %}">
