@@ -9,3 +9,26 @@
     margin-right: 10px;
     border-radius: 50%;
 }
+
+/* Иконки эмблем и предметов в списках */
+.list-group .list-group-item img,
+.emblem-slot img,
+.item-slot .item-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+/* Большие слоты предметов */
+.item-slot .item-icon {
+    width: 48px;
+    height: 48px;
+}
+
+/* Стили контейнера модалки для чистоты */
+#emblem-list-container .list-group-item,
+#item-list-container .list-group-item {
+    cursor: pointer;
+}

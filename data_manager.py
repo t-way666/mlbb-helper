@@ -11,7 +11,7 @@ def get_db_connection():
     return conn
 
 class DataManager:
-    """Класс для управления данными, адаптированный для возврата данных в старом формате."""
+    """Класс для управления данными."""
 
     def __init__(self):
         pass
@@ -26,30 +26,26 @@ class DataManager:
             'hp_1lvl': 'hp',
             'regen_hp_1lvl': 'regen_hp',
             'resource_1lvl': 'resource',
-            'regen_resouce_1lvl': 'regen_resource',
-            'phis_atk_1lvl': 'phys_attack',
-            'phis_def_1lvl': 'phys_def',
+            'regen_resource_1lvl': 'regen_resource',
+            'phys_atk_1lvl': 'phys_attack',
+            'phys_def_1lvl': 'phys_def',
             'mag_def_1lvl': 'mag_def',
             'atk_speed_1lvl': 'attack_speed',
-            'coeff_atk_speed_percent': 'attack_speed_coefficient_percent',
-            'magic_power_all_lvl': 'mag_power',
+            'coeff_atk_speed_fraction': 'attack_speed_coefficient_fraction',
+            'mag_power_all_lvl': 'mag_power',
             'move_speed': 'move_speed',
             'min_basic_atk_range': 'min_basic_atk_range',
             'max_basic_atk_range': 'max_basic_atk_range',
+            'resource_type': 'resource_type',
         }
 
         for db_key, app_key in key_map.items():
-            if db_key in row_dict:
+            if db_key in row_dict and row_dict[db_key] is not None:
                 hero_dict[app_key] = row_dict[db_key]
 
         for stat_name, base_value in row_dict.items():
             if stat_name.endswith('_1lvl'):
                 stat_15lvl_name = stat_name.replace('_1lvl', '_15lvl')
-                
-                if stat_name == 'mag_def_1lvl':
-                    stat_15lvl_name = 'mag_def'
-                if stat_name == 'regen_resouce_1lvl':
-                    stat_15lvl_name = 'regen_resource_15lvl'
 
                 value_15lvl = row_dict.get(stat_15lvl_name)
                 if value_15lvl is not None:
@@ -62,29 +58,21 @@ class DataManager:
                     if app_key:
                         hero_dict[f'growth_{app_key}'] = round(growth, 2)
 
-        resource_val = hero_dict.get('resource', 0)
-        if resource_val == 100:
-            hero_dict['resource_type'] = 'Energy'
-        elif resource_val > 100:
-            hero_dict['resource_type'] = 'Mana'
-        else:
-            hero_dict['resource_type'] = None
-            
         # Добавляем стандартные характеристики, если они отсутствуют
         default_stats = {
-            'crit_chance_percent': 0,
-            'crit_damage_percent': 200,
-            'cd_reduction_percent': 0,
+            'crit_chance_fraction': 0,
+            'crit_damage_fraction': 2.0, # 200%
+            'cooldown_reduction_fraction': 0,
             'phys_penetration': 0,
-            'phys_penetration_percent': 0,
+            'phys_penetration_fraction': 0,
             'mag_penetration': 0,
-            'mag_penetration_percent': 0,
-            'lifesteal_percent': 0,
-            'spell_vamp_percent': 0,
-            'resilience_percent': 0,
-            'crit_damage_reduction_percent': 0,
-            'healing_effect_percent': 0,
-            'healing_received_percent': 0
+            'mag_penetration_fraction': 0,
+            'lifesteal_fraction': 0,
+            'spell_vamp_fraction': 0,
+            'resilience_fraction': 0,
+            'crit_damage_reduction_fraction': 0,
+            'healing_effect_fraction': 0,
+            'healing_received_fraction': 0
         }
         for stat, value in default_stats.items():
             if stat not in hero_dict:
@@ -95,8 +83,9 @@ class DataManager:
         hero_dict['extra_role'] = row_dict.get('extra_role_name_ru')
 
         return hero_dict
+
     def get_all_heroes(self):
-        """Возвращает всех героев с их базовыми характеристиками и ролями в старом формате."""
+        """Возвращает всех героев с их базовыми характеристиками и ролями."""
         heroes_list = []
         conn = get_db_connection()
         try:
@@ -121,8 +110,9 @@ class DataManager:
         finally:
             conn.close()
         return heroes_list
+
     def get_hero_by_name(self, hero_name):
-        """Возвращает одного героя по имени в старом формате."""
+        """Возвращает одного героя по имени."""
         hero = None
         conn = get_db_connection()
         try:
@@ -226,9 +216,46 @@ class DataManager:
             conn.close()
         return heroes_list
 
-    # --- Заглушки для нереализованных методов --- #
-    def get_emblems(self): return []
-    def get_items(self): return []
+    def get_emblems(self):
+        """Возвращает список всех эмблем с их характеристиками."""
+        emblems_list = []
+        conn = get_db_connection()
+        try:
+            cursor = conn.cursor()
+            sql = """
+            SELECT e.*, es.* FROM emblems e
+            LEFT JOIN emblem_stats es ON e.emblem_id = es.emblem_id
+            """
+            cursor.execute(sql)
+            rows = cursor.fetchall()
+            for row in rows:
+                emblems_list.append(dict(row))
+        except sqlite3.Error as e:
+            logger.error(f"Ошибка при получении эмблем: {e}")
+        finally:
+            conn.close()
+        return emblems_list
+
+    def get_items(self):
+        """Возвращает список всех предметов с их характеристиками."""
+        items_list = []
+        conn = get_db_connection()
+        try:
+            cursor = conn.cursor()
+            # Используем LEFT JOIN на случай, если у предмета нет записей в item_stats
+            sql = """
+            SELECT i.*, s.* FROM items i
+            LEFT JOIN item_stats s ON i.item_id = s.item_id
+            """
+            cursor.execute(sql)
+            rows = cursor.fetchall()
+            for row in rows:
+                items_list.append(dict(row))
+        except sqlite3.Error as e:
+            logger.error(f"Ошибка при получении предметов: {e}")
+        finally:
+            conn.close()
+        return items_list
 
 data_manager = DataManager()
 
@@ -240,6 +267,8 @@ if __name__ == '__main__':
         print(f"Найден герой: {miya['hero_name']}")
         print(f"Основная роль: {miya.get('main_role')}")
         print(f"Дополнительная роль: {miya.get('extra_role')}")
+        print(f"Тип ресурса: {miya.get('resource_type')}")
+        print(f"Коэф. скорости атаки: {miya.get('attack_speed_coefficient_fraction')}")
     else:
         print(f"Герой {hero_name} не найден.")
 

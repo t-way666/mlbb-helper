@@ -31,6 +31,22 @@
                         <label for="attacker-hero-level">Уровень героя: <span id="attacker-level-display">1</span></label>
                         <input type="range" id="attacker-hero-level" class="form-range" value="1" min="1" max="15">
                     </div>
+                    <hr>
+                    <h5>Эмблема</h5>
+                    <div class="emblem-slot d-flex align-items-center mb-3">
+                        <img id="attacker-emblem-icon" src="{{ url_for('static', filename='images/emblems/Базовая обычная эмблема.png') }}" alt="Attacker Emblem" class="me-2">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#emblemSelectionModal" data-target="attacker">Выбрать эмблему</button>
+                    </div>
+                    <hr>
+                    <h5>Снаряжение</h5>
+                    <div class="item-slots d-flex flex-wrap justify-content-start">
+                        {% for i in range(6) %}
+                        <div class="item-slot me-2 mb-2">
+                            <img id="attacker-item-{{ i+1 }}-icon" src="{{ url_for('static', filename='images/equipments/Ботинки.png') }}" alt="Item {{ i+1 }}" class="item-icon">
+                            <button type="button" class="btn btn-outline-secondary btn-sm item-select-btn" data-bs-toggle="modal" data-bs-target="#itemSelectionModal" data-slot-id="{{ i+1 }}" data-target="attacker">Выбрать</button>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,6 +72,22 @@
                         <label for="defender-hero-level">Уровень героя: <span id="defender-level-display">1</span></label>
                         <input type="range" id="defender-hero-level" class="form-range" value="1" min="1" max="15">
                     </div>
+                    <hr>
+                    <h5>Эмблема</h5>
+                    <div class="emblem-slot d-flex align-items-center mb-3">
+                        <img id="defender-emblem-icon" src="{{ url_for('static', filename='images/emblems/Базовая обычная эмблема.png') }}" alt="Defender Emblem" class="me-2">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#emblemSelectionModal" data-target="defender">Выбрать эмблему</button>
+                    </div>
+                    <hr>
+                    <h5>Снаряжение</h5>
+                    <div class="item-slots d-flex flex-wrap justify-content-start">
+                        {% for i in range(6) %}
+                        <div class="item-slot me-2 mb-2">
+                            <img id="defender-item-{{ i+1 }}-icon" src="{{ url_for('static', filename='images/equipments/Ботинки.png') }}" alt="Item {{ i+1 }}" class="item-icon">
+                            <button type="button" class="btn btn-outline-secondary btn-sm item-select-btn" data-bs-toggle="modal" data-bs-target="#itemSelectionModal" data-slot-id="{{ i+1 }}" data-target="defender">Выбрать</button>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,6 +110,49 @@
         </div>
     </div>
 </div>
+
+<!-- Модальное окно для выбора эмблемы -->
+<div class="modal fade" id="emblemSelectionModal" tabindex="-1" aria-labelledby="emblemSelectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="emblemSelectionModalLabel">Выбрать эмблему</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group" id="emblem-list-container">
+                    <!-- Эмблемы будут загружены сюда через JS -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для выбора предмета -->
+<div class="modal fade" id="itemSelectionModal" tabindex="-1" aria-labelledby="itemSelectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemSelectionModalLabel">Выбрать предмет</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group" id="item-list-container">
+                    <!-- Предметы будут загружены сюда через JS -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="emblem-data" type="application/json">{{ emblems | tojson }}</script>
+<script id="item-data" type="application/json">{{ items | tojson }}</script>
 {% endblock %}
 
 {% block scripts %}

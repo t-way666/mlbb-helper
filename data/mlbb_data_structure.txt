@@ -1,0 +1,62 @@
+--[[
+СПРАВОЧНИК СТАНДАРТИЗИРОВАННЫХ НАЗВАНИЙ ХАРАКТЕРИСТИК
+---------------------------------------------------------
+Этот список служит единым стандартом для именования столбцов с характеристиками во всех таблицах.
+Используйте короткие префиксы: 'phys_' для физических и 'mag_' для магических.
+
+Основные:
+- hp
+- regen_hp
+- mana
+- regen_mana
+- resource (для маны/энергии/ярости у героев)
+- regen_resource
+- resource_type (TEXT: Mana, Energy, Rage, None)
+
+Атака:
+- phys_attack
+- mag_power
+- adaptive_attack
+- attack_speed_fraction
+- crit_chance_fraction
+- crit_damage_fraction
+
+Проникновение:
+- phys_penetration
+- mag_penetration
+- adaptive_penetration
+
+Защита:
+- phys_def
+- mag_def
+- hybrid_def
+- resilience_fraction (стойкость, уменьшение контроля)
+- crit_damage_reduction_fraction
+
+Вампиризм и исцеление:
+- lifesteal_fraction (физический вампиризм)
+- spell_vamp_fraction (вампиризм от умений)
+- hybrid_vamp_fraction
+- healing_effect_fraction (усиление своего исцеления)
+- healing_received_fraction (усиление получаемого исцеления)
+
+Прочее:
+- move_speed_flat (в единицах)
+- move_speed_fraction (в процентах)
+- cooldown_reduction_fraction (уменьшение перезарядки)
+
+]]--
+
+CREATE TABLE "emblem_stats" ( "emblem_id" INTEGER NOT NULL, "hp" INTEGER, "regen_hp" INTEGER, "mana" INTEGER, "regen_mana" INTEGER, "hybrid_regen" INTEGER, "adaptive_attack" INTEGER, "phys_attack" INTEGER, "mag_power" INTEGER, "hybrid_def" INTEGER, "phys_def" INTEGER, "mag_def" INTEGER, "adaptive_penetration" INTEGER, "phys_penetration" INTEGER, "mag_penetration" INTEGER, "hybrid_vamp_fraction" REAL, "lifesteal_fraction" REAL, "spell_vamp_fraction" REAL, "move_speed_flat" INTEGER, "move_speed_fraction" REAL, "cooldown_reduction_fraction" REAL, "attack_speed_fraction" REAL, "healing_effect_fraction" REAL, FOREIGN KEY("emblem_id") REFERENCES "emblems"("emblem_id") )
+
+CREATE TABLE "emblems" ( "emblem_id" INTEGER NOT NULL UNIQUE, "emblem_name_ru" TEXT, "emblem_name_en" TEXT, PRIMARY KEY("emblem_id") )
+
+CREATE TABLE hero_stats ( hero_id INTEGER NOT NULL UNIQUE, "hp_1lvl" REAL, "hp_15lvl" REAL, "regen_hp_1lvl" REAL, "regen_hp_15lvl" REAL, "resource_1lvl" REAL, "resource_15lvl" REAL, "regen_resource_1lvl" REAL, "regen_resource_15lvl" REAL, "phys_atk_1lvl" REAL, "phys_atk_15lvl" REAL, "mag_power_all_lvl" REAL, "phys_def_1lvl" REAL, "phys_def_15lvl" REAL, "mag_def_1lvl" REAL, "mag_def_15lvl" REAL, "atk_speed_1lvl" REAL, "atk_speed_15lvl" REAL, "coeff_atk_speed_fraction" REAL, "move_speed" REAL, "min_basic_atk_range" REAL, "max_basic_atk_range" REAL, "resource_type" TEXT, FOREIGN KEY (hero_id) REFERENCES heroes (id) )
+
+CREATE TABLE hero_roles ( hero_id INTEGER NOT NULL, primary_role_id INTEGER NOT NULL, extra_role_id INTEGER, FOREIGN KEY (hero_id) REFERENCES heroes (id), FOREIGN KEY (primary_role_id) REFERENCES roles (role_id), FOREIGN KEY (extra_role_id) REFERENCES roles (role_id) )
+
+CREATE TABLE heroes ( id INTEGER PRIMARY KEY AUTOINCREMENT, name_ru TEXT NOT NULL UNIQUE, name_en TEXT )
+
+CREATE TABLE roles ( role_id INTEGER PRIMARY KEY AUTOINCREMENT, role_name_ru TEXT NOT NULL UNIQUE, role_name_en TEXT NOT NULL UNIQUE )
+
+CREATE TABLE sqlite_sequence(name,seq)

@@ -149,7 +149,7 @@
                                 <td class="column-phys_attack">{{ hero.phys_attack }} ({{ "%.1f"|format(hero.growth_phys_attack) }})</td>
                                 <td class="column-phys_def">{{ hero.phys_def }} ({{ "%.1f"|format(hero.growth_phys_def) }})</td>
                                 <td class="column-mag_def">{{ hero.mag_def }} ({{ "%.1f"|format(hero.growth_mag_def) }})</td>
-                                <td class="column-attack_speed">{{ "%.3f"|format(hero.attack_speed) }} ({{ "%.1f"|format(hero.attack_speed_coefficient_percent) }}%)</td>
+                                <td class="column-attack_speed">{{ "%.3f"|format(hero.attack_speed) }} ({{ "%.1f"|format((hero.attack_speed_coefficient_fraction or 0) * 100) }}%)</td>
                                 <td class="column-move_speed">{{ hero.move_speed }}</td>
                             </tr>
                             {% endfor %}

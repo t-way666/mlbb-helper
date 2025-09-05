@@ -74,8 +74,8 @@ function formatAvatarPath(heroName) {
 
 function updateDisplay() {
     if (!window.columnController) {
-        console.error('Column controller not found');
-        return;
+        console.warn('Column controller not found yet — продолжим рендер таблицы, колонками управим позже.');
+        // не возвращаемся — дадим рендеру выполниться, затем, если контроллер появится, обновим видимость колонок
     }
 
     const roleFilter = document.getElementById('roleFilter');
@@ -161,14 +161,18 @@ function updateDisplay() {
             <td class="column-phys_attack">${Math.round(currentStats.phys_attack)} (${(hero.growth_phys_attack || 0).toFixed(1)})</td>
             <td class="column-phys_def">${Math.round(currentStats.phys_def)} (${(hero.growth_phys_def || 0).toFixed(1)})</td>
             <td class="column-mag_def">${Math.round(currentStats.mag_def)} (${(hero.growth_mag_def || 0).toFixed(1)})</td>
-            <td class="column-attack_speed">${(hero.attack_speed || 0).toFixed(3)} (${(hero.attack_speed_coefficient_percent || 0).toFixed(1)}%)</td>
+            <td class="column-attack_speed">${(hero.attack_speed || 0).toFixed(3)} (${((hero.attack_speed_coefficient_fraction || 0) * 100).toFixed(1)}%)</td>
             <td class="column-move_speed">${hero.move_speed || "N/A"}</td>
         `;
         row.innerHTML = rowHTML;
         tableBody.appendChild(row);
     });
     
-    window.columnController.updateColumnVisibility();
+    if (window.columnController && typeof window.columnController.updateColumnVisibility === 'function') {
+        window.columnController.updateColumnVisibility();
+    } else {
+        // если контроллер появится позже, он сам при инициализации применит видимость
+    }
 }
 
 function debounce(func, wait) {

@@ -84,7 +84,9 @@ def season_progress():
 @app.route('/advanced_damage_calculator')
 def advanced_damage_calculator():
     heroes = data_manager.get_all_heroes()
-    return render_template('advanced_damage_calculator.html', heroes=heroes)
+    items = data_manager.get_items()
+    emblems = data_manager.get_emblems()
+    return render_template('advanced_damage_calculator.html', heroes=heroes, items=items, emblems=emblems)
 
 @app.route('/api/heroes')
 def get_heroes():
@@ -173,7 +175,14 @@ import webbrowser
 def open_browser():
     # Даем серверу время запуститься
     time.sleep(1)
-    webbrowser.get('firefox').open('http://localhost:8080')
+    try:
+        # Попробуем открыть firefox, если доступен, иначе откроем любой доступный браузер
+        try:
+            webbrowser.get('firefox').open('http://localhost:8080')
+        except Exception:
+            webbrowser.open('http://localhost:8080')
+    except Exception as e:
+        logger.debug(f"Couldn't open browser automatically: {e}")
 
 if __name__ == '__main__':
     # Запускаем открытие браузера в отдельном потоке
