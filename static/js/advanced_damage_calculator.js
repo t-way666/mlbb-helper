@@ -534,6 +534,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const finalPhysDamage = physAttack * (1 - physDamageReduction);
                 const finalMagDamage = magAttack * (1 - magDamageReduction);
 
+                // Эффективная скорость атаки и ориентировочный DPS по автоатакам
+                const baseAttackSpeed = attackerStats.attack_speed || 0;
+                const attackSpeedBonusFraction = attackerBonuses.attack_speed_fraction || 0;
+                const effectiveAttackSpeed = baseAttackSpeed * (1 + attackSpeedBonusFraction);
+                const physDps = finalPhysDamage * (effectiveAttackSpeed || 0);
+
                 // Подготавливаем строки для отображения характеристик с бонусами
                 const attackerPhysBonus = (attackerBonuses.phys_attack || 0);
                 const attackerMagBonus = (attackerBonuses.mag_power || 0);
@@ -573,6 +579,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <ul>
                                 <li>Физ. атака: ${attackerPhysDisplay}</li>
                                 <li>Маг. сила: ${attackerMagDisplay}</li>
+                                <li>Скорость атаки: ${effectiveAttackSpeed ? effectiveAttackSpeed.toFixed(2) : '—'}</li>
                                 ${attackerPenetrationDisplay ? `<li>${attackerPenetrationDisplay}</li>` : ''}
                             </ul>
                         </div>
@@ -589,6 +596,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <ul>
                         <li>Физ урон: <strong>${Math.round(finalPhysDamage)}</strong></li>
                         <li>Маг урон: <strong>${Math.round(finalMagDamage)}</strong></li>
+                        <li>DPS (автоатаки, физ): <strong>${Math.round(physDps)}</strong></li>
                     </ul>
                 `;
                 
