@@ -175,4 +175,16 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
                 </div>
               ))}
               
-              {filteredItem
+              {filteredItems.length === 0 && (
+                <div className="col-span-full text-center text-slate-500 py-10">
+                  Предметы не найдены
+                </div>
+              )}
+            </div>
+            
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
