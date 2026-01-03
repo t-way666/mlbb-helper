@@ -1,0 +1,39 @@
+/* Стили для калькулятора защиты */
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.text-primary {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+/* Стили для секции формул */
+#formulasInfo ul {
+    padding-left: 1.2rem;
+}
+
+#formulasInfo li {
+    margin-bottom: 0.5rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+}

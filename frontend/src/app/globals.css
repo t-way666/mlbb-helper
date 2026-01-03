@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+}
+
+/* 
+  В Tailwind v4 переменные темы (как выше) автоматически доступны как классы.
+  Например, bg-background, text-foreground.
+  
+  Но нам нужно задать дефолтные стили для body.
+*/
+
+:root {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* 
+  Восстанавливаем утилиты, которые могли потеряться. 
+  В v4 они обычно не нужны, если используется @import "tailwindcss", 
+  но для совместимости с моим кодом (scrollbar-hide) добавим их.
+*/
+
+@utility scrollbar-hide {
+  /* Скрытие скроллбара */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

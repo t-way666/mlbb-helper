@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block title %}MLBB Helper - Прогресс сезона{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/season_progress.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="card-title h4 mb-0">Калькулятор прогресса сезона</h2>
+                </div>
+                <div class="card-body">
+                    <form id="seasonProgressForm">
+                        <!-- Начальный ранг -->
+                        <div class="mb-4">
+                            <h5 class="mb-3">Начальный ранг</h5>
+                            <div class="row">
+                                <div class="col-md-9 mb-3">
+                                    <label for="startRank" class="form-label">Ранг</label>
+                                    <select class="form-select" id="startRank" required>
+                                        <option value="">Выберите ранг</option>
+                                        <option value="Warrior III">Воин III</option>
+                                        <option value="Warrior II">Воин II</option>
+                                        <option value="Warrior I">Воин I</option>
+                                        <option value="Elite III">Элита III</option>
+                                        <option value="Elite II">Элита II</option>
+                                        <option value="Elite I">Элита I</option>
+                                        <option value="Master IV">Мастер IV</option>
+                                        <option value="Master III">Мастер III</option>
+                                        <option value="Master II">Мастер II</option>
+                                        <option value="Master I">Мастер I</option>
+                                        <option value="Grandmaster V">Грандмастер V</option>
+                                        <option value="Grandmaster IV">Грандмастер IV</option>
+                                        <option value="Grandmaster III">Грандмастер III</option>
+                                        <option value="Grandmaster II">Грандмастер II</option>
+                                        <option value="Grandmaster I">Грандмастер I</option>
+                                        <option value="Epic V">Эпик V</option>
+                                        <option value="Epic IV">Эпик IV</option>
+                                        <option value="Epic III">Эпик III</option>
+                                        <option value="Epic II">Эпик II</option>
+                                        <option value="Epic I">Эпик I</option>
+                                        <option value="Legend V">Легенда V</option>
+                                        <option value="Legend IV">Легенда IV</option>
+                                        <option value="Legend III">Легенда III</option>
+                                        <option value="Legend II">Легенда II</option>
+                                        <option value="Legend I">Легенда I</option>
+                                        <option value="Mythic">Мифик</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="startStars" class="form-label">Звезды</label>
+                                    <input type="number" class="form-control" id="startStars" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Текущий ранг -->
+                        <div class="mb-4">
+                            <h5 class="mb-3">Текущий ранг</h5>
+                            <div class="row">
+                                <div class="col-md-9 mb-3">
+                                    <label for="currentRank" class="form-label">Ранг</label>
+                                    <select class="form-select" id="currentRank" required>
+                                        <option value="">Выберите ранг</option>
+                                        <option value="Warrior III">Воин III</option>
+                                        <option value="Warrior II">Воин II</option>
+                                        <option value="Warrior I">Воин I</option>
+                                        <option value="Elite III">Элита III</option>
+                                        <option value="Elite II">Элита II</option>
+                                        <option value="Elite I">Элита I</option>
+                                        <option value="Master IV">Мастер IV</option>
+                                        <option value="Master III">Мастер III</option>
+                                        <option value="Master II">Мастер II</option>
+                                        <option value="Master I">Мастер I</option>
+                                        <option value="Grandmaster V">Грандмастер V</option>
+                                        <option value="Grandmaster IV">Грандмастер IV</option>
+                                        <option value="Grandmaster III">Грандмастер III</option>
+                                        <option value="Grandmaster II">Грандмастер II</option>
+                                        <option value="Grandmaster I">Грандмастер I</option>
+                                        <option value="Epic V">Эпик V</option>
+                                        <option value="Epic IV">Эпик IV</option>
+                                        <option value="Epic III">Эпик III</option>
+                                        <option value="Epic II">Эпик II</option>
+                                        <option value="Epic I">Эпик I</option>
+                                        <option value="Legend V">Легенда V</option>
+                                        <option value="Legend IV">Легенда IV</option>
+                                        <option value="Legend III">Легенда III</option>
+                                        <option value="Legend II">Легенда II</option>
+                                        <option value="Legend I">Легенда I</option>
+                                        <option value="Mythic">Мифик</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="currentStars" class="form-label">Звезды</label>
+                                    <input type="number" class="form-control" id="currentStars" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Целевой ранг -->
+                        <div class="mb-4">
+                            <h5 class="mb-3">Целевой ранг</h5>
+                            <div class="row">
+                                <div class="col-md-9 mb-3">
+                                    <label for="targetRank" class="form-label">Ранг</label>
+                                    <select class="form-select" id="targetRank" required>
+                                        <option value="">Выберите ранг</option>
+                                        <option value="Warrior III">Воин III</option>
+                                        <option value="Warrior II">Воин II</option>
+                                        <option value="Warrior I">Воин I</option>
+                                        <option value="Elite III">Элита III</option>
+                                        <option value="Elite II">Элита II</option>
+                                        <option value="Elite I">Элита I</option>
+                                        <option value="Master IV">Мастер IV</option>
+                                        <option value="Master III">Мастер III</option>
+                                        <option value="Master II">Мастер II</option>
+                                        <option value="Master I">Мастер I</option>
+                                        <option value="Grandmaster V">Грандмастер V</option>
+                                        <option value="Grandmaster IV">Грандмастер IV</option>
+                                        <option value="Grandmaster III">Грандмастер III</option>
+                                        <option value="Grandmaster II">Грандмастер II</option>
+                                        <option value="Grandmaster I">Грандмастер I</option>
+                                        <option value="Epic V">Эпик V</option>
+                                        <option value="Epic IV">Эпик IV</option>
+                                        <option value="Epic III">Эпик III</option>
+                                        <option value="Epic II">Эпик II</option>
+                                        <option value="Epic I">Эпик I</option>
+                                        <option value="Legend V">Легенда V</option>
+                                        <option value="Legend IV">Легенда IV</option>
+                                        <option value="Legend III">Легенда III</option>
+                                        <option value="Legend II">Легенда II</option>
+                                        <option value="Legend I">Легенда I</option>
+                                        <option value="Mythic">Мифик</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="targetStars" class="form-label">Звезды</label>
+                                    <input type="number" class="form-control" id="targetStars" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Дополнительные параметры -->
+                        <div class="mb-4">
+                            <h5 class="mb-3">Статистика</h5>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="currentWinrate" class="form-label">Текущий винрейт (%)</label>
+                                    <input type="number" class="form-control" id="currentWinrate" min="0" max="100" step="0.1" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="gamesPlayed" class="form-label">Количество сыгранных игр</label>
+                                    <input type="number" class="form-control" id="gamesPlayed" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Рассчитать</button>
+                    </form>
+
+                    <div id="results" class="mt-4" style="display: none;">
+                        <!-- Результаты будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/season_progress.js') }}"></script>
+{% endblock %}

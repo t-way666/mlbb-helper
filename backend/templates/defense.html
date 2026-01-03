@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}MLBB Helper - Калькулятор защиты{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/defense.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Калькулятор защиты</h2>
+
+    <div class="row">
+        <!-- Расчет защиты по снижению урона -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Расчет необходимой защиты</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Желаемое снижение урона (%):</label>
+                        <input type="number" class="form-control" id="desired_reduction" 
+                               min="0" max="99" step="0.1" value="50">
+                    </div>
+                    <div class="mt-3">
+                        <p class="h6">Необходимая защита: <span id="required_defense" class="text-primary">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Расчет снижения урона по защите -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Расчет снижения урона</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Значение защиты:</label>
+                        <input type="number" class="form-control" id="current_defense" 
+                               min="-500" step="1" value="100">
+                    </div>
+                    <div class="mt-3">
+                        <p class="h6">Снижение урона: <span id="damage_reduction" class="text-primary">0</span>%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Расчет урона с учетом защиты -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Расчет урона с учетом защиты</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Базовый урон:</label>
+                                <input type="number" class="form-control" id="base_damage" 
+                                       min="0" step="1" value="1000">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Защита цели:</label>
+                                <input type="number" class="form-control" id="armor" 
+                                       min="-500" step="1" value="100">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <p class="h6">Итоговый урон: <span id="final_damage" class="text-primary">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Формулы -->
+    <div class="card mt-3">
+        <div class="card-header bg-info text-white">
+            <button class="btn btn-link text-white" type="button" data-bs-toggle="collapse" data-bs-target="#formulasInfo">
+                Формулы расчета
+            </button>
+        </div>
+        <div id="formulasInfo" class="collapse">
+            <div class="card-body">
+                <ul>
+                    <li>Множитель урона = 120 / (120 + Эффективная защита)</li>
+                    <li>Снижение урона (%) = (1 - Множитель урона) × 100%</li>
+                    <li>Необходимая защита = (120 × Желаемое снижение%) / (100% - Желаемое снижение%)</li>
+                    <li>При отрицательной защите: Множитель урона = 2 - (120 / (120 + |Защита|))</li>
+                </ul>
+                <p class="text-muted mt-2">Пример: для снижения урона на 50% необходимо 120 единиц защиты</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/defense_calculator.js') }}"></script>
+{% endblock %}

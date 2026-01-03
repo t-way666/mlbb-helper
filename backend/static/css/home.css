@@ -1,0 +1,72 @@
+/* Стили для домашней страницы */
+.welcome-section {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.feature-card {
+    background-color: var(--bs-dark-bg-subtle);
+    border-radius: 0.375rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--bs-primary);
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-description {
+    color: var(--bs-secondary-color);
+}
+
+.news-section {
+    margin-top: 3rem;
+}
+
+.news-card {
+    margin-bottom: 1.5rem;
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .welcome-section {
+        padding: 2rem 0;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .feature-card {
+        padding: 1rem;
+    }
+}
