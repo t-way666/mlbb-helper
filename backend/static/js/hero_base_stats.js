@@ -59,17 +59,10 @@ function calculateStatForLevel(base, growth, level) {
     return numBase + (numGrowth * (numLevel - 1));
 }
 
-function formatAvatarPath(heroName) {
-    if (!heroName) return '';
-    let sanitizedName = heroName.toLowerCase().trim();
-    const replacements = {
-        'a': 'а', 'e': 'е', 'o': 'о', 'p': 'р', 'c': 'с',
-        'x': 'х', 'y': 'у', 'b': 'в', 'n': 'н', 'm': 'м', 't': 'т'
-    };
-    for (const [en, ru] of Object.entries(replacements)) {
-        sanitizedName = sanitizedName.replace(new RegExp(en, 'g'), ru);
-    }
-    return `images/hero_base_avatar_icons/${sanitizedName}.png`;
+function formatAvatarPath(heroNameEn) {
+    if (!heroNameEn) return '';
+    let sanitizedName = heroNameEn.toLowerCase().trim().replace(/[ .'-]/g, '_').replace(/__/g, '_');
+    return `images/hero_base_avatar_icons/${sanitizedName}.webp`;
 }
 
 function updateDisplay() {
@@ -142,7 +135,7 @@ function updateDisplay() {
             currentStats[key] = calculateStatForLevel(hero[key], hero[growthKey], currentLevel);
         }
 
-        const avatarPath = formatAvatarPath(hero.hero_name);
+        const avatarPath = formatAvatarPath(hero.hero_name_en);
         const heroNameCell = `
             <td class="hero-name-cell">
                 <div class="hero-name-with-avatar">

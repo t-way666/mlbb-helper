@@ -1,6 +1,7 @@
 'use client';
 
 import { Emblem } from '@/types/hero';
+import { ImageWithFallback } from '@/components/ImageWithFallback';
 
 interface EmblemSelectorProps {
   emblems: Emblem[];
@@ -29,12 +30,11 @@ export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: Emb
               onClick={() => onSelect(emblem)}
               title={emblem.emblem_name_ru}
             >
-              <img
-                src={`/static/images/emblems/${emblem.emblem_name_ru}.png`}
-                alt={emblem.emblem_name_ru}
-                className="w-full h-full object-contain"
-                onError={(e) => { (e.target as HTMLImageElement).src = '/static/images/roles/Unknown.png' }}
-              />
+                  <ImageWithFallback 
+                    srcBase={emblem.emblem_name_en ? `/static/images/emblems/${emblem.emblem_name_en.toLowerCase().replace(/'/g, '').replace(/[ .'-]/g, '_').replace(/__/g, '_')}` : ''} 
+                    alt={emblem.emblem_name_ru}
+                    className="w-full h-full object-contain"
+                  />
             </div>
           );
         })}

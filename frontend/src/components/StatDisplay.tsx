@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Item, Emblem } from '@/types/hero';
+import { ImageWithFallback } from '@/components/ImageWithFallback';
+import { transliterate } from '@/utils/translit';
 
 interface StatDisplayProps {
   label: string;
@@ -11,6 +13,7 @@ interface StatDisplayProps {
   emblem: Emblem | null;
   statKey: keyof Item; // Какой стат искать в предметах (например, 'phys_attack')
   emblemStatKey?: keyof Emblem; // Если в эмблеме ключ отличается (опционально)
+  isPercent?: boolean;
 }
 
 export function StatDisplay({ 
@@ -20,23 +23,27 @@ export function StatDisplay({
   items, 
   emblem, 
   statKey,
-  emblemStatKey 
+  emblemStatKey,
+  isPercent = false
 }: StatDisplayProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Форматтер значения
+  const fmt = (val: number) => isPercent ? `${Math.round(val * 100)}%` : Math.round(val);
+
   // 1. Собираем разбивку бонусов
-  const breakdown: { source: string; value: number; icon?: string }[] = [];
+  const breakdown: { source: string; value: number; srcBase?: string; isEmblem?: boolean }[] = [];
 
   // Предметы
   items.forEach(item => {
     if (item && item[statKey]) {
-      // @ts-ignore - мы проверили наличие ключа выше, но TS может ругаться на типы значений
+      // @ts-expect-error: dynamic key access
       const val = Number(item[statKey]); 
       if (val > 0) {
         breakdown.push({
           source: item.item_name_ru,
           value: val,
-          icon: `/static/images/equipments/${item.item_name_ru.replace(/[\s-]+/g, '_')}.png`
+          srcBase: `/static/images/equipments/${transliterate(item.item_name_ru)}`
         });
       }
     }
@@ -45,13 +52,14 @@ export function StatDisplay({
   // Эмблема
   const eKey = emblemStatKey || (statKey as keyof Emblem);
   if (emblem && emblem[eKey]) {
-     // @ts-ignore
+     // @ts-expect-error: dynamic key access
     const val = Number(emblem[eKey]);
     if (val > 0) {
       breakdown.push({
         source: `Эмблема (${emblem.emblem_name_ru})`,
         value: val,
-        icon: `/static/images/emblems/${emblem.emblem_name_ru}.png`
+        srcBase: `/static/images/emblems/${emblem.emblem_name_ru}`,
+        isEmblem: true
       });
     }
   }
@@ -59,25 +67,21 @@ export function StatDisplay({
   // 2. Считаем сумму бонусов
   const totalBonus = breakdown.reduce((sum, item) => sum + item.value, 0);
   
-  // Безопасный вывод
-  const displayBase = isNaN(baseValue) ? 0 : Math.round(baseValue);
-  const displayBonus = isNaN(totalBonus) ? 0 : Math.round(totalBonus);
-
   return (
     <div className="flex justify-between p-2 bg-slate-800 rounded relative">
       <span>{label}</span>
       <div className="flex items-center gap-1">
         {/* Базовое значение */}
-        <span className={valueColor}>{displayBase}</span>
+        <span className={valueColor}>{fmt(baseValue)}</span>
         
         {/* Бонусное значение (Кликабельное) */}
-        {displayBonus > 0 && (
+        {totalBonus > 0 && (
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="text-xs text-green-400 font-bold bg-green-900/30 px-1.5 py-0.5 rounded border border-green-800 hover:bg-green-900/50 hover:border-green-500 transition-all cursor-pointer"
             title="Нажмите для детализации"
           >
-            +{displayBonus}
+            +{fmt(totalBonus)}
           </button>
         )}
       </div>
@@ -94,16 +98,22 @@ export function StatDisplay({
                {breakdown.map((item, idx) => (
                  <li key={idx} className="flex items-center justify-between text-sm">
                    <div className="flex items-center gap-2">
-                     {item.icon && <img src={item.icon} className="w-5 h-5 rounded-full bg-slate-800" alt="" />}
+                     {item.srcBase && (
+                       <ImageWithFallback 
+                         srcBase={item.srcBase} 
+                         className="w-5 h-5 rounded-full bg-slate-800 object-cover" 
+                         alt="" 
+                       />
+                     )}
                      <span className="text-slate-200 truncate max-w-[140px]">{item.source}</span>
                    </div>
-                   <span className="text-green-400 font-mono">+{item.value}</span>
+                   <span className="text-green-400 font-mono">+{fmt(item.value)}</span>
                  </li>
                ))}
              </ul>
              <div className="mt-2 pt-2 border-t border-slate-700 flex justify-between text-xs font-bold">
                <span>Всего бонусов:</span>
-               <span className="text-green-400">+{totalBonus}</span>
+               <span className="text-green-400">+{fmt(totalBonus)}</span>
              </div>
           </div>
         </>

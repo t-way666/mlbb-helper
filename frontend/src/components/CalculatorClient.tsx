@@ -33,58 +33,98 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
   // --- ЛОГИКА РАСЧЕТОВ ---
 
   const getStatFromGrowth = (base: number | undefined, growth: number | undefined, level: number) => {
-    // Приводим к числу, так как из JSON могут прийти строки или null
     const b = Number(base) || 0;
     const g = Number(growth) || 0;
     return Math.round(b + g * (level - 1));
   };
 
-  // Функция для сбора всех бонусов (от предметов и эмблем)
+  // Функция "нормализации" эмблемы (превращает адаптивку в конкретный стат)
+  const getEffectiveEmblem = (
+    emblem: Emblem | null,
+    items: (Item | null)[]
+  ): Emblem | null => {
+    if (!emblem) return null;
+
+    let bonusPhys = 0;
+    let bonusMag = 0;
+    items.forEach(i => {
+        if (i) {
+            bonusPhys += i.phys_atk || 0;
+            bonusMag += i.mag_power || 0;
+        }
+    });
+
+    const effective = { ...emblem };
+
+    // Адаптивная Атака
+    if (effective.adaptive_attack) {
+        if (bonusPhys >= bonusMag) {
+            effective.phys_attack = (effective.phys_attack || 0) + effective.adaptive_attack;
+        } else {
+            effective.mag_power = (effective.mag_power || 0) + effective.adaptive_attack;
+        }
+        effective.adaptive_attack = 0;
+    }
+
+    return effective;
+  };
+
+  const attackerEffectiveEmblem = getEffectiveEmblem(attackerEmblem, attackerItems);
+  const defenderEffectiveEmblem = getEffectiveEmblem(defenderEmblem, defenderItems);
+
+
+  // Сбор статов
   const calculateTotalStats = (
     hero: Hero | null, 
     level: number, 
     currentItems: (Item | null)[], 
-    currentEmblem: Emblem | null
+    effectiveEmblem: Emblem | null
   ) => {
-    // 1. Базовые статы героя на уровне
+    // Базовые
     const basePhysAtk = getStatFromGrowth(hero?.phys_attack, hero?.growth_phys_attack, level);
     const baseMagPower = hero?.mag_power || 0;
     const basePhysDef = getStatFromGrowth(hero?.phys_def, hero?.growth_phys_def, level);
     const baseMagDef = getStatFromGrowth(hero?.mag_def, hero?.growth_mag_def, level);
 
-    // 2. Считаем бонусы (Extra Stats)
+    // Дополнительные
     let extraPhysAtk = 0;
     let extraMagPower = 0;
     let extraPhysDef = 0;
     let extraMagDef = 0;
-    let adaptiveAtk = 0; // Адаптивная атака
 
-    // От предметов
+    // Проникновение
+    let flatPhysPen = hero?.phys_penetration || 0;
+    let percentPhysPen = hero?.phys_penetration_fraction || 0;
+    let flatMagPen = hero?.mag_penetration || 0;
+    let percentMagPen = hero?.mag_penetration_fraction || 0;
+
+    // Сбор с предметов
     currentItems.forEach(item => {
       if (!item) return;
-      extraPhysAtk += item.phys_attack || 0;
+      extraPhysAtk += item.phys_atk || 0;
       extraMagPower += item.mag_power || 0;
       extraPhysDef += item.phys_def || 0;
       extraMagDef += item.mag_def || 0;
-      // В предметах тоже может быть адаптивка (пока редкость, но учтем на будущее)
+      
+      flatPhysPen += item.phys_penetration_flat || 0;
+      percentPhysPen += item.phys_penetration_fraction || 0;
+      flatMagPen += item.mag_penetration_flat || 0;
+      percentMagPen += item.mag_penetration_fraction || 0;
     });
 
-    // От эмблемы
-    if (currentEmblem) {
-      extraPhysAtk += currentEmblem.phys_attack || 0;
-      extraMagPower += currentEmblem.mag_power || 0;
-      // В базе поле называется adaptive_attack (если оно есть в emblem_stats), 
-      // но пока возьмем то что есть в типах. 
-      // Если у вас в Emblem типе нет adaptive_attack, добавьте его позже.
-      // Пока предположим, что эмблемы дают конкретный стат или мы добавим логику позже.
-    }
-
-    // 3. Распределяем Адаптивную Атаку
-    // Правило: Если доп. физ. атака >= доп. маг. силы, то адаптив -> физ.
-    if (extraPhysAtk >= extraMagPower) {
-        extraPhysAtk += adaptiveAtk;
-    } else {
-        extraMagPower += adaptiveAtk;
+    // Сбор с эмблем
+    if (effectiveEmblem) {
+      extraPhysAtk += effectiveEmblem.phys_attack || 0;
+      extraMagPower += effectiveEmblem.mag_power || 0;
+      
+      flatPhysPen += effectiveEmblem.phys_penetration || 0;
+      flatMagPen += effectiveEmblem.mag_penetration || 0;
+      
+      // Гибридное проникновение дает и физ, и маг
+      if (effectiveEmblem.hybrid_penetration) {
+          flatPhysPen += effectiveEmblem.hybrid_penetration;
+          flatMagPen += effectiveEmblem.hybrid_penetration;
+      }
     }
 
     return {
@@ -92,21 +132,41 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
       totalMagPower: baseMagPower + extraMagPower,
       totalPhysDef: basePhysDef + extraPhysDef,
       totalMagDef: baseMagDef + extraMagDef,
-      // Для UI полезно знать разбивку
-      basePhysAtk, extraPhysAtk,
-      baseMagPower, extraMagPower
+      
+      flatPhysPen, percentPhysPen,
+      flatMagPen, percentMagPen,
+
+      basePhysAtk, baseMagPower, basePhysDef, baseMagDef // Для UI
     };
   };
 
-  const attackerStats = calculateTotalStats(attacker, attackerLevel, attackerItems, attackerEmblem);
-  const defenderStats = calculateTotalStats(defender, defenderLevel, defenderItems, defenderEmblem);
+  const attackerStats = calculateTotalStats(attacker, attackerLevel, attackerItems, attackerEffectiveEmblem);
+  const defenderStats = calculateTotalStats(defender, defenderLevel, defenderItems, defenderEffectiveEmblem);
 
-  // Упрощенный расчет урона
-  const reduction = defenderStats.totalPhysDef > 0 
-    ? (defenderStats.totalPhysDef / (120 + defenderStats.totalPhysDef)) * 100 
-    : 0;
+  // === РАСЧЕТ УРОНА ===
   
-  const finalDamage = attackerStats.totalPhysAtk * (1 - reduction / 100);
+  // 1. Эффективная защита (после проникновения)
+  // Формула: (Def - FlatPen) * (1 - PercentPen)
+  let effectivePhysDef = (defenderStats.totalPhysDef - attackerStats.flatPhysPen);
+  if (effectivePhysDef < -60) effectivePhysDef = -60; // Кап негативной защиты
+  
+  // Применяем процентное проникновение (только если защита > 0, иначе оно не работает или усиливает минус? В MLBB работает на позитив)
+  if (effectivePhysDef > 0) {
+      effectivePhysDef = effectivePhysDef * (1 - attackerStats.percentPhysPen);
+  }
+  
+  // 2. Снижение урона (Damage Reduction)
+  let damageMultiplier = 0;
+  if (effectivePhysDef >= 0) {
+      // Стандартная формула: 120 / (120 + Def) -> множитель урона (меньше 1)
+      damageMultiplier = 120 / (120 + effectivePhysDef);
+  } else {
+      // Негативная защита: Увеличивает урон
+      // Формула: 1 - (0.01 * Def) -> множитель больше 1
+      damageMultiplier = 1 - (0.01 * effectivePhysDef);
+  }
+
+  const finalPhysDamage = attackerStats.totalPhysAtk * damageMultiplier;
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -127,45 +187,32 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
             </div>
           </div>
           
-          <HeroSelector 
-            label="Атакующего" 
-            heroes={heroes} 
-            selectedHero={attacker}
-            onSelect={setAttacker}
-          />
-
-          <EmblemSelector 
-            label="Эмблема" 
-            emblems={emblems} 
-            selectedEmblem={attackerEmblem} 
-            onSelect={setAttackerEmblem}
-          />
-
-          <ItemBuilder 
-            label="Снаряжение" 
-            items={items} 
-            selectedItems={attackerItems} 
-            onUpdate={setAttackerItems} 
-          />
+          <HeroSelector label="Атакующего" heroes={heroes} selectedHero={attacker} onSelect={setAttacker} />
+          <EmblemSelector label="Эмблема" emblems={emblems} selectedEmblem={attackerEmblem} onSelect={setAttackerEmblem} />
+          <ItemBuilder label="Снаряжение" items={items} selectedItems={attackerItems} onUpdate={setAttackerItems} />
 
           {/* Таблица статов */}
-          <div className="space-y-1 text-sm">
+          <div className="space-y-1 text-sm bg-slate-950/50 p-4 rounded-xl">
             <StatDisplay 
-              label="Физ. Атака" 
-              valueColor="text-yellow-400"
-              baseValue={attackerStats.basePhysAtk}
-              items={attackerItems}
-              emblem={attackerEmblem}
-              statKey="phys_atk"
-              emblemStatKey="phys_attack"
+              label="Физ. Атака" valueColor="text-yellow-400"
+              baseValue={attackerStats.basePhysAtk} items={attackerItems} emblem={attackerEffectiveEmblem}
+              statKey="phys_atk" emblemStatKey="phys_attack"
             />
             <StatDisplay 
-              label="Маг. Сила" 
-              valueColor="text-blue-400"
-              baseValue={attackerStats.baseMagPower}
-              items={attackerItems}
-              emblem={attackerEmblem}
+              label="Маг. Сила" valueColor="text-blue-400"
+              baseValue={attackerStats.baseMagPower} items={attackerItems} emblem={attackerEffectiveEmblem}
               statKey="mag_power"
+            />
+            <div className="h-px bg-slate-800 my-2"></div>
+            <StatDisplay 
+              label="Физ. Проникновение (Flat)" valueColor="text-red-400"
+              baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
+              statKey="phys_penetration_flat"
+            />
+             <StatDisplay 
+              label="Физ. Проникновение (%)" valueColor="text-red-400"
+              baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
+              statKey="phys_penetration_fraction" isPercent={true}
             />
           </div>
         </section>
@@ -185,42 +232,19 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
             </div>
           </div>
 
-          <HeroSelector 
-            label="Цель" 
-            heroes={heroes} 
-            selectedHero={defender}
-            onSelect={setDefender}
-          />
+          <HeroSelector label="Цель" heroes={heroes} selectedHero={defender} onSelect={setDefender} />
+          <EmblemSelector label="Эмблема" emblems={emblems} selectedEmblem={defenderEmblem} onSelect={setDefenderEmblem} />
+          <ItemBuilder label="Снаряжение" items={items} selectedItems={defenderItems} onUpdate={setDefenderItems} />
 
-          <EmblemSelector 
-            label="Эмблема" 
-            emblems={emblems} 
-            selectedEmblem={defenderEmblem} 
-            onSelect={setDefenderEmblem}
-          />
-
-           <ItemBuilder 
-            label="Снаряжение" 
-            items={items} 
-            selectedItems={defenderItems} 
-            onUpdate={setDefenderItems} 
-          />
-
-          <div className="space-y-1 text-sm">
+          <div className="space-y-1 text-sm bg-slate-950/50 p-4 rounded-xl">
              <StatDisplay 
-              label="Физ. Защита" 
-              valueColor="text-slate-300"
-              baseValue={defenderStats.basePhysDef}
-              items={defenderItems}
-              emblem={defenderEmblem}
+              label="Физ. Защита" valueColor="text-slate-300"
+              baseValue={defenderStats.basePhysDef} items={defenderItems} emblem={defenderEffectiveEmblem}
               statKey="phys_def"
             />
              <StatDisplay 
-              label="Маг. Защита" 
-              valueColor="text-slate-300"
-              baseValue={defenderStats.baseMagDef}
-              items={defenderItems}
-              emblem={defenderEmblem}
+              label="Маг. Защита" valueColor="text-slate-300"
+              baseValue={defenderStats.baseMagDef} items={defenderItems} emblem={defenderEffectiveEmblem}
               statKey="mag_def"
             />
           </div>
@@ -230,19 +254,26 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
 
       {/* Результаты */}
       <section className="mt-8 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 border border-slate-700">
-        <h3 className="text-lg font-bold text-green-400 mb-4">Результаты расчета (v2.1 + Эмблемы)</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+        <h3 className="text-lg font-bold text-green-400 mb-4">Результаты расчета</h3>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
             <div className="p-4 bg-black/20 rounded-lg">
-                <div className="text-slate-400 text-sm">Физ. Атака (Total)</div>
+                <div className="text-slate-400 text-sm">Физ. Атака</div>
                 <div className="text-2xl font-bold text-white">{attackerStats.totalPhysAtk}</div>
             </div>
             <div className="p-4 bg-black/20 rounded-lg">
-                <div className="text-slate-400 text-sm">Физ. снижение</div>
-                <div className="text-2xl font-bold text-white">{reduction.toFixed(1)}%</div>
+                <div className="text-slate-400 text-sm">Физ. Пробитие</div>
+                <div className="text-xl font-bold text-red-300">
+                    {attackerStats.flatPhysPen} | {(attackerStats.percentPhysPen * 100).toFixed(0)}%
+                </div>
             </div>
             <div className="p-4 bg-black/20 rounded-lg">
-                <div className="text-slate-400 text-sm">Урон по цели</div>
-                <div className="text-2xl font-bold text-green-400">{finalDamage.toFixed(0)}</div>
+                <div className="text-slate-400 text-sm">Эфф. Защита</div>
+                <div className="text-2xl font-bold text-white">{effectivePhysDef.toFixed(0)}</div>
+                <div className="text-xs text-slate-500">Снижение: {((1 - damageMultiplier) * 100).toFixed(1)}%</div>
+            </div>
+            <div className="p-4 bg-black/20 rounded-lg border border-green-500/30">
+                <div className="text-slate-400 text-sm">Итоговый Урон</div>
+                <div className="text-3xl font-bold text-green-400">{finalPhysDamage.toFixed(0)}</div>
             </div>
         </div>
       </section>

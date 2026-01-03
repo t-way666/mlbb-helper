@@ -1,5 +1,6 @@
 export interface Hero {
     hero_name: string;
+    hero_name_en: string;
     main_role: string;
     extra_role?: string;
     hp: number;
@@ -48,10 +49,10 @@ export interface Item {
     category: string;
     price: number;
     description?: string;
-    // Статы предметов (могут быть null, если стата нет)
+    // Статы предметов (соответствуют колонкам БД)
     phys_atk?: number;
     mag_power?: number;
-    attack_speed?: number;
+    attack_speed_fraction?: number;
     crit_chance_fraction?: number;
     hp?: number;
     mana?: number;
@@ -61,11 +62,11 @@ export interface Item {
     spell_vamp_fraction?: number;
     cooldown_reduction_fraction?: number;
     // Проникновение
-    phys_penetration?: number;
+    phys_penetration_flat?: number;
     phys_penetration_fraction?: number;
-    mag_penetration?: number;
+    mag_penetration_flat?: number;
     mag_penetration_fraction?: number;
-    move_speed?: number;
+    move_speed_flat?: number;
     move_speed_fraction?: number;
 }
 
@@ -73,6 +74,7 @@ export interface Emblem {
     emblem_id: number;
     emblem_name_ru: string;
     // Базовые статы эмблемы
+    adaptive_attack?: number;
     phys_attack?: number;
     mag_power?: number;
     hp?: number;

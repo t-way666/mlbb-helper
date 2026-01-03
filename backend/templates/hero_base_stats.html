@@ -119,21 +119,9 @@
                             <tr>
                                 <td class="hero-name-cell">
                                     <div class="hero-name-with-avatar">
-                                        {% if hero.hero_name %}
-                                        {% set hero_name_lower = hero.hero_name.lower() %}
-                                        {% set hero_name_fixed = hero_name_lower
-                                           .replace('a', 'а')
-                                           .replace('e', 'е')
-                                           .replace('o', 'о')
-                                           .replace('p', 'р')
-                                           .replace('c', 'с')
-                                           .replace('x', 'х')
-                                           .replace('y', 'у')
-                                           .replace('b', 'в')
-                                           .replace('n', 'н')
-                                           .replace('m', 'м')
-                                           .replace('t', 'т') %}
-                                        {% set avatar_path = 'images/hero_base_avatar_icons/' ~ hero_name_fixed ~ '.png' %}
+                                        {% if hero.hero_name_en %}
+                                        {% set avatar_filename = hero.hero_name_en.lower().replace(' ', '_').replace("'", "") ~ '.webp' %}
+                                        {% set avatar_path = 'images/hero_base_avatar_icons/' ~ avatar_filename %}
                                         <img src="{{ url_for('static', filename=avatar_path) }}" alt="{{ hero.hero_name }}" class="hero-avatar" onerror="this.onerror=null; this.classList.add('avatar-not-found');">
                                         {% else %}
                                         <div class="hero-avatar-placeholder" style="width: 32px; height: 32px; background-color: #eee; border-radius: 50%; display: inline-block; margin-right: 8px;"></div>

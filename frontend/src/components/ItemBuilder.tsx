@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Item } from '@/types/hero';
+import { ImageWithFallback } from '@/components/ImageWithFallback';
+import { transliterate } from '@/utils/translit';
 
 interface ItemBuilderProps {
   items: Item[];
@@ -10,21 +12,35 @@ interface ItemBuilderProps {
   label: string; // "Снаряжение атакующего"
 }
 
-// Категории предметов (как в игре)
+// Категории предметов (как в базе данных)
 const CATEGORIES = [
   { id: 'All', label: 'Все', icon: '∞' },
   { id: 'Атака', label: 'Атака', icon: '⚔️' },
   { id: 'Магия', label: 'Магия', icon: '🔮' },
   { id: 'Защита', label: 'Защита', icon: '🛡️' },
   { id: 'Движение', label: 'Движение', icon: '👞' },
-  { id: 'Охота', label: 'Лес', icon: '🌲' },
-  { id: 'Роум', label: 'Роум', icon: '🎭' },
+  { id: 'Прочее', label: 'Прочее', icon: '📦' },
 ];
+
+const getItemIconPath = (item: Item | null) => {
+  if (!item || !item.item_name_en) return '';
+  const normalized = item.item_name_en
+    .toLowerCase()
+    .replace(/'/g, '')
+    .replace(/[ .'-]/g, '_')
+    .replace(/__/g, '_');
+  return `/static/images/equipments/${normalized}`;
+};
 
 export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuilderProps) {
   const [activeSlotIndex, setActiveSlotIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Отладка
+  if (items.length > 0 && searchTerm === 'Когти') {
+    console.log('Поиск "Когти":', items.filter(i => i.item_name_ru.includes('Когти')));
+  }
 
   // Отфильтрованные предметы для модалки
   const filteredItems = items.filter(item => {
@@ -71,11 +87,10 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
           >
             {item ? (
               <>
-                <img 
-                  src={`/static/images/equipments/${item.item_name_ru.replace(/\s+/g, '_')}.png`} 
+                <ImageWithFallback 
+                  srcBase={`/static/images/equipments/${(item.item_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
                   alt={item.item_name_ru}
                   className="w-full h-full object-cover rounded-full"
-                  onError={(e) => { (e.target as HTMLImageElement).src = '/static/images/roles/Unknown.png' }}
                   title={item.item_name_ru}
                 />
                 {/* Кнопка удаления (появляется при наведении) */}
@@ -100,7 +115,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
             
             {/* Заголовок модалки */}
             <div className="p-4 border-b border-slate-700 flex justify-between items-center bg-slate-900 rounded-t-2xl z-10">
-              <h3 className="text-xl font-bold">Выберите предмет (Слот {activeSlotIndex + 1})</h3>
+              <h3 className="text-xl font-bold">Выбор предмета ({filteredItems.length})</h3>
               <button 
                 onClick={() => setActiveSlotIndex(null)}
                 className="text-slate-400 hover:text-white text-2xl"
@@ -140,37 +155,24 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
             </div>
 
             {/* Сетка предметов */}
-            <div className="flex-1 overflow-y-auto p-4 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3">
+            <div className="flex-1 overflow-y-auto p-4 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3 min-h-[300px]">
               {filteredItems.map(item => (
                 <div 
                   key={item.item_id}
-                  className="aspect-square bg-slate-800 rounded-full border border-slate-700 cursor-pointer hover:border-blue-400 hover:scale-105 transition-all relative group"
+                  className="flex flex-col items-center gap-1 group"
                   onClick={() => handleSelect(item)}
                 >
-                  <img 
-                    src={`/static/images/equipments/${item.item_name_ru.replace(/\s+/g, '_')}.png`}
-                    alt={item.item_name_ru}
-                    className="w-full h-full object-cover rounded-full"
-                    onError={(e) => { (e.target as HTMLImageElement).src = '/static/images/roles/Unknown.png' }}
-                  />
-                  {/* Всплывающее название */}
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none z-10">
-                    {item.item_name_ru}
-                    <div className="text-yellow-400 text-[10px]">{item.price} 🪙</div>
+                  <div className="aspect-square w-full bg-slate-800 rounded-full border border-slate-700 cursor-pointer hover:border-blue-400 hover:scale-105 transition-all relative">
+                    <ImageWithFallback 
+                      srcBase={`/static/images/equipments/${(item.item_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`}
+                      alt={item.item_name_ru}
+                      className="w-full h-full object-cover rounded-full"
+                    />
                   </div>
+                  <span className="text-[10px] text-slate-400 text-center leading-tight truncate w-full group-hover:text-blue-400">
+                    {item.item_name_ru}
+                  </span>
                 </div>
               ))}
               
-              {filteredItems.length === 0 && (
-                <div className="col-span-full text-center text-slate-500 py-10">
-                  Предметы не найдены
-                </div>
-              )}
-            </div>
-            
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+              {filteredItem

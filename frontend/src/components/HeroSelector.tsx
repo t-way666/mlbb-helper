@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Hero } from '@/types/hero';
+import { ImageWithFallback } from '@/components/ImageWithFallback';
+import { transliterate } from '@/utils/translit';
 
 interface HeroSelectorProps {
   label: string;
@@ -27,11 +29,10 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
       >
         {selectedHero ? (
           <div className="flex flex-col items-center">
-            <img 
-              src={`/static/images/hero_base_avatar_icons/${selectedHero.hero_name.toLowerCase()}.png`} 
+            <ImageWithFallback 
+              srcBase={`/static/images/hero_base_avatar_icons/${(selectedHero.hero_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
               alt={selectedHero.hero_name}
               className="w-16 h-16 rounded-full border-2 border-blue-500 mb-2 object-cover"
-              onError={(e) => { (e.target as HTMLImageElement).src = '/static/images/roles/Unknown.png' }}
             />
             <div className="text-xl font-bold">{selectedHero.hero_name}</div>
             <div className="text-sm text-slate-400">{selectedHero.main_role}</div>
@@ -70,11 +71,10 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
                   setSearchTerm('');
                 }}
               >
-                <img 
-                  src={`/static/images/hero_base_avatar_icons/${hero.hero_name.toLowerCase()}.png`} 
+                <ImageWithFallback 
+                  srcBase={`/static/images/hero_base_avatar_icons/${(hero.hero_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
                   alt=""
                   className="w-10 h-10 rounded-lg object-cover"
-                  onError={(e) => { (e.target as HTMLImageElement).src = '/static/images/roles/Unknown.png' }}
                 />
                 <div className="flex-1">
                     <div className="font-medium">{hero.hero_name}</div>

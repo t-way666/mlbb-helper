@@ -23,6 +23,7 @@ class DataManager:
 
         key_map = {
             'name_ru': 'hero_name',
+            'name_en': 'hero_name_en',
             'hp_1lvl': 'hp',
             'regen_hp_1lvl': 'regen_hp',
             'resource_1lvl': 'resource',
@@ -92,7 +93,7 @@ class DataManager:
             cursor = conn.cursor()
             sql = """
             SELECT
-                h.name_ru, hs.*,
+                h.name_ru, h.name_en, hs.*,
                 pr.role_name_ru AS primary_role_name_ru,
                 er.role_name_ru AS extra_role_name_ru
             FROM heroes h
@@ -119,7 +120,7 @@ class DataManager:
             cursor = conn.cursor()
             sql = """
             SELECT 
-                h.name_ru, hs.*, 
+                h.name_ru, h.name_en, hs.*, 
                 pr.role_name_ru AS primary_role_name_ru,
                 er.role_name_ru AS extra_role_name_ru
             FROM heroes h
@@ -168,7 +169,7 @@ class DataManager:
             cursor = conn.cursor()
             sql = """
             SELECT 
-                h.name_ru, hs.*, 
+                h.name_ru, h.name_en, hs.*, 
                 pr.role_name_ru AS primary_role_name_ru,
                 er.role_name_ru AS extra_role_name_ru
             FROM heroes h
@@ -196,7 +197,7 @@ class DataManager:
             cursor = conn.cursor()
             sql = """
             SELECT 
-                h.name_ru, hs.*, 
+                h.name_ru, h.name_en, hs.*, 
                 pr.role_name_ru AS primary_role_name_ru,
                 er.role_name_ru AS extra_role_name_ru
             FROM heroes h
