@@ -26,7 +26,6 @@ const getItemIconPath = (item: Item | null) => {
   if (!item || !item.item_name_en) return '';
   const normalized = item.item_name_en
     .toLowerCase()
-    .replace(/'/g, '')
     .replace(/[ .'-]/g, '_')
     .replace(/__/g, '_');
   return `/static/images/equipments/${normalized}`;
@@ -88,7 +87,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
             {item ? (
               <>
                 <ImageWithFallback 
-                  srcBase={`/static/images/equipments/${(item.item_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
+                  srcBase={getItemIconPath(item)} 
                   alt={item.item_name_ru}
                   className="w-full h-full object-cover rounded-full"
                   title={item.item_name_ru}
@@ -164,7 +163,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
                 >
                   <div className="aspect-square w-full bg-slate-800 rounded-full border border-slate-700 cursor-pointer hover:border-blue-400 hover:scale-105 transition-all relative">
                     <ImageWithFallback 
-                      srcBase={`/static/images/equipments/${(item.item_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`}
+                      srcBase={getItemIconPath(item)}
                       alt={item.item_name_ru}
                       className="w-full h-full object-cover rounded-full"
                     />

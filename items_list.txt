@@ -1,0 +1,98 @@
+Malefic Gun|Губительный пулемет
+Great Dragon Spear|Копье великого дракона
+Sea Halberd|Трезубец
+Rose Gold Meteor|Золотой метеор
+Hunter Strike|Удар охотника
+Blade of Despair|Клинок отчаяния
+Blade of the Heptaseas|Клинок семи морей
+Windtalker|Говорящий с ветром
+Endless Battle|Бесконечная битва
+Berserker's Fury|Ярость берсерка
+Haas' Claws|Когти хааса
+Malefic Roar|Злобный рык
+Winter Crown|Зимняя корона
+Fleeting Time|Мимолетное время
+Sky Piercer|Пронзающий небеса
+War Axe|Топор войны
+Wind of Nature|Ветер природы
+Golden Staff|Золотой посох
+Corrosion Scythe|Коса коррозии
+Demon Hunter Sword|Меч охотника на демонов
+Magic Blade|Магический клинок
+Fury Hammer|Молот гнева
+Rogue Meteor|Кистень грабителя
+Ogre Tomahawk|Топор великана
+Legion Sword|Меч легионера
+Swift Crossbow|Быстрый арбалет
+Regular Spear|Обычное копье
+Expert Gloves|Перчатки эксперта
+Iron Hunting Bow|Железный лук охотника
+Vampire Mallet|Булава вампира
+Javelin|Копье
+Knife|Нож
+Dagger|Кинжал
+Power Potion|Зелье силы
+Wishing Lantern|Фонарь желаний
+Flask of the Oasis|Фляга оазиса
+Genius Wand|Палочка гения
+Lightning Truncheon|Жезл молний
+Blood Wings|Кровавые крылья
+Starlium Scythe|Старлиумовая коса
+Glowing Wand|Пылающий жезл
+Ice Queen Wand|Жезл снежной королевы
+Concentrated Energy|Концентрированная энергия
+Holy Crystal|Священный кристалл
+Divine Glaive|Божественный меч
+Clock of Destiny|Часы судьбы
+Feather of Heaven|Райское перо
+Enchanted Talisman|Зачарованный талисман
+Elegant Gem|Элегантный самоцвет
+Exotic Veil|Иноземная маска
+Azure Blade|Лазурный клинок
+Tome of Evil|Книга зла
+Magic Wand|Волшебная палочка
+Mystic Container|Загадочный сосуд
+Mystery Codex|Книга мудрости
+Magic Necklace|Магическое ожерелье
+Power Crystal|Кристалл силы
+Magic Necklace|Магическая книга
+Lantern of Hope|Фонарь надежды
+Flower of Hope|Цветок надежды
+Magic Potion|Зелье магии
+Radiant Armor|Сияющая броня
+Twilight Armor|Сумеречная броня
+Brute Force Breastplate|Кираса грубой силы
+Immortality|Бессмертие
+Dominance Ice|Господство льда
+Athena's Shield|Щит афины
+Oracle|Оракул
+Antique Cuirass|Древняя кираса
+Guardian Helmet|Защитный шлем
+Cursed Helmet|Проклятый шлем
+Thunder Belt|Штормовой пояс
+Queen's Wings|Крылья королевы
+Blade Armor|Шипованная броня
+Steel Legplates|Стальные ножные латы
+Chastise Pauldron|Броня неустрашимости
+Black Ice Shield|Щит из черного льда
+Silence Robe|Роба тишины
+Molten Essence|Расплавленная субстанция
+Ares Belt|Пояс ареса
+Hero's Ring|Кольцо героя
+Healing Necklace|Исцеляющее ожерелье
+Magic Resist Cloak|Плащ сопротивления магии
+Leather Jerkin|Кожаная броня
+Vitality Crystal|Кристалл здоровья
+Rock Potion|Зелье стойкости
+Demon Shoes|Ботинки демона
+Rapid Boots|Сапоги-скороходы
+Swift Boots|Сапоги спешки
+Arcane Boots|Сапоги заклинателя
+Magic Shoes|Магические ботинки
+Tough Boots|Прочные сапоги
+Warrior Boots|Сапоги воина
+Boots|Ботинки
+Throw Forbidden|Запрет броска
+Allow Throw|Разрешение броска
+Broken Heart|Разбитое сердце
+Resonating Heart|Отклик сердца

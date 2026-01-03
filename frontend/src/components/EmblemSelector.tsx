@@ -31,7 +31,7 @@ export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: Emb
               title={emblem.emblem_name_ru}
             >
                   <ImageWithFallback 
-                    srcBase={emblem.emblem_name_en ? `/static/images/emblems/${emblem.emblem_name_en.toLowerCase().replace(/'/g, '').replace(/[ .'-]/g, '_').replace(/__/g, '_')}` : ''} 
+                    srcBase={emblem.emblem_name_en ? `/static/images/emblems/${emblem.emblem_name_en.toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}` : ''} 
                     alt={emblem.emblem_name_ru}
                     className="w-full h-full object-contain"
                   />
