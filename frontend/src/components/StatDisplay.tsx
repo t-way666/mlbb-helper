@@ -43,7 +43,7 @@ export function StatDisplay({
         breakdown.push({
           source: item.item_name_ru,
           value: val,
-          srcBase: `/static/images/equipments/${transliterate(item.item_name_ru)}`
+          srcBase: `/assets/images/equipments/${transliterate(item.item_name_ru)}`
         });
       }
     }
@@ -58,7 +58,7 @@ export function StatDisplay({
       breakdown.push({
         source: `Эмблема (${emblem.emblem_name_ru})`,
         value: val,
-        srcBase: `/static/images/emblems/${emblem.emblem_name_ru}`,
+        srcBase: `/assets/images/emblems/${emblem.emblem_name_ru}`,
         isEmblem: true
       });
     }

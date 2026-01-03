@@ -1,38 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0f172a;
-  --color-foreground: #f8fafc;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-/* 
-  В Tailwind v4 переменные темы (как выше) автоматически доступны как классы.
-  Например, bg-background, text-foreground.
-  
-  Но нам нужно задать дефолтные стили для body.
-*/
-
 :root {
-  --background: #0f172a;
+  --background: #020617;
   --foreground: #f8fafc;
 }
 
 body {
-  background-color: var(--background);
+  background: var(--background);
   color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
 }
 
-/* 
-  Восстанавливаем утилиты, которые могли потеряться. 
-  В v4 они обычно не нужны, если используется @import "tailwindcss", 
-  но для совместимости с моим кодом (scrollbar-hide) добавим их.
-*/
+/* Анимации */
+@keyframes slideIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-@utility scrollbar-hide {
-  /* Скрытие скроллбара */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  &::-webkit-scrollbar {
-    display: none;
-  }
+.slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Скрытие скроллбара */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

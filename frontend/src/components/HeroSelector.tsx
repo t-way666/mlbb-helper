@@ -30,7 +30,7 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
         {selectedHero ? (
           <div className="flex flex-col items-center">
             <ImageWithFallback 
-              srcBase={`/static/images/hero_base_avatar_icons/${(selectedHero.hero_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
+              srcBase={`/assets/images/hero_base_avatar_icons/${(selectedHero.hero_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
               alt={selectedHero.hero_name}
               className="w-16 h-16 rounded-full border-2 border-blue-500 mb-2 object-cover"
             />
@@ -72,7 +72,7 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
                 }}
               >
                 <ImageWithFallback 
-                  srcBase={`/static/images/hero_base_avatar_icons/${(hero.hero_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
+                  srcBase={`/assets/images/hero_base_avatar_icons/${(hero.hero_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
                   alt=""
                   className="w-10 h-10 rounded-lg object-cover"
                 />

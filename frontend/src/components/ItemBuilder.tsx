@@ -23,12 +23,16 @@ const CATEGORIES = [
 ];
 
 const getItemIconPath = (item: Item | null) => {
-  if (!item || !item.item_name_en) return '';
-  const normalized = item.item_name_en
+  if (!item) return '';
+  
+  // Приоритет - английское название из БД
+  const nameToNormalize = item.item_name_en || item.item_name_ru;
+  const normalized = nameToNormalize
     .toLowerCase()
     .replace(/[ .'-]/g, '_')
     .replace(/__/g, '_');
-  return `/static/images/equipments/${normalized}`;
+    
+  return `/assets/images/equipments/${normalized}`;
 };
 
 export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuilderProps) {
