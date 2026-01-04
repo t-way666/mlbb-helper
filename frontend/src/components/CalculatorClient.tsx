@@ -7,6 +7,8 @@ import { ItemBuilder } from '@/components/ItemBuilder';
 import { EmblemSelector } from '@/components/EmblemSelector';
 import { StatDisplay } from '@/components/StatDisplay';
 import { Reveal } from '@/components/Reveal';
+import { ChevronDown, ChevronUp, BarChart3 } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface CalculatorClientProps {
   heroes: Hero[];
@@ -30,6 +32,11 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
   // Эмблемы
   const [attackerEmblem, setAttackerEmblem] = useState<Emblem | null>(null);
   const [defenderEmblem, setDefenderEmblem] = useState<Emblem | null>(null);
+  
+  // UI State
+  const [showAttackerStats, setShowAttackerStats] = useState(false);
+  const [showDefenderStats, setShowDefenderStats] = useState(false);
+  const [activeSection, setActiveSection] = useState<'attacker' | 'defender' | null>(null);
 
   // --- ЛОГИКА РАСЧЕТОВ ---
 
@@ -64,6 +71,16 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
             effective.stats.mag_power = (effective.stats.mag_power || 0) + effective.stats.adaptive_attack;
         }
         effective.stats.adaptive_attack = 0;
+    }
+
+    // Адаптивное Проникновение
+    if (effective.stats.adaptive_penetration) {
+        if (bonusPhys >= bonusMag) {
+            effective.stats.phys_penetration = (effective.stats.phys_penetration || 0) + effective.stats.adaptive_penetration;
+        } else {
+            effective.stats.mag_penetration = (effective.stats.mag_penetration || 0) + effective.stats.adaptive_penetration;
+        }
+        effective.stats.adaptive_penetration = 0;
     }
 
     return effective;
@@ -181,7 +198,12 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
         
         {/* === АТАКУЮЩИЙ === */}
         <Reveal direction="right" delay={0.1}>
-          <section className="bg-card rounded-3xl md:rounded-[3rem] p-4 md:p-8 border-2 border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.2)] h-full relative z-10">
+          <section 
+            className={`bg-card rounded-3xl md:rounded-[3rem] p-4 md:p-8 border-2 border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.2)] h-full relative 
+            ${activeSection === 'attacker' ? 'z-50' : 'z-10'}`}
+            onMouseEnter={() => setActiveSection('attacker')}
+            onClick={() => setActiveSection('attacker')}
+          >
             <div className="flex flex-wrap items-center justify-between gap-2 px-2">
               <h2 className="text-xl md:text-2xl font-bold text-red-600 dark:text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.3)]">⚔️ Атакующий</h2>
               <div className="flex items-center gap-2 flex-grow sm:flex-grow-0 justify-end min-w-[140px]">
@@ -199,36 +221,86 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
             <EmblemSelector label="Эмблема" emblems={emblems} selectedEmblem={attackerEmblem} onSelect={setAttackerEmblem} />
             <ItemBuilder label="Снаряжение" items={items} selectedItems={attackerItems} onUpdate={setAttackerItems} />
 
-            {/* Таблица статов */}
-            <div className="space-y-1 text-sm bg-background/50 p-4 md:p-6 rounded-2xl md:rounded-[2rem] border-2 border-foreground/10 shadow-inner mt-auto">
-              <StatDisplay 
-                label="Физ. Атака" valueColor="text-orange-600 dark:text-yellow-400"
-                baseValue={attackerStats.basePhysAtk} items={attackerItems} emblem={attackerEffectiveEmblem}
-                statKey="phys_atk" emblemStatKey="phys_attack"
-              />
-              <StatDisplay 
-                label="Маг. Сила" valueColor="text-blue-600 dark:text-blue-400"
-                baseValue={attackerStats.baseMagPower} items={attackerItems} emblem={attackerEffectiveEmblem}
-                statKey="mag_power"
-              />
-              <div className="h-px bg-foreground/10 my-2"></div>
-              <StatDisplay 
-                label="Физ. Проникновение (Flat)" valueColor="text-red-600 dark:text-red-400"
-                baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
-                statKey="phys_penetration_flat"
-              />
-               <StatDisplay 
-                label="Физ. Проникновение (%)" valueColor="text-red-600 dark:text-red-400"
-                baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
-                statKey="phys_penetration_fraction" isPercent={true}
-              />
+            {/* Таблица статов (Collapsible) */}
+            <div className="mt-auto">
+              <button 
+                onClick={() => setShowAttackerStats(!showAttackerStats)}
+                className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 transition-all duration-300 group
+                  ${showAttackerStats 
+                    ? 'bg-red-500/10 border-red-500/30 text-red-500' 
+                    : 'bg-background/50 border-foreground/10 text-muted hover:border-red-500/30 hover:text-red-500'}
+                `}
+              >
+                <BarChart3 className="w-4 h-4" />
+                <span className="text-xs font-bold uppercase tracking-widest">
+                  {showAttackerStats ? 'Скрыть характеристики' : 'Показать характеристики'}
+                </span>
+                {showAttackerStats ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              </button>
+
+              <AnimatePresence>
+                {showAttackerStats && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0, overflow: 'hidden' }}
+                    animate={{ height: 'auto', opacity: 1, transitionEnd: { overflow: 'visible' } }}
+                    exit={{ height: 0, opacity: 0, overflow: 'hidden' }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  >
+                    <div className="space-y-1 text-sm bg-background/50 p-4 rounded-b-2xl md:rounded-b-[2rem] border-x-2 border-b-2 border-foreground/10 border-t-0 shadow-inner mt-2">
+                      <StatDisplay 
+                        label="Физ. Атака" valueColor="text-orange-600 dark:text-yellow-400"
+                        baseValue={attackerStats.basePhysAtk} items={attackerItems} emblem={attackerEffectiveEmblem}
+                        statKey="phys_atk" emblemStatKey="phys_attack"
+                        onToggle={(isOpen) => isOpen && setActiveSection('attacker')}
+                      />
+                      <StatDisplay 
+                        label="Маг. Сила" valueColor="text-blue-600 dark:text-blue-400"
+                        baseValue={attackerStats.baseMagPower} items={attackerItems} emblem={attackerEffectiveEmblem}
+                        statKey="mag_power"
+                        onToggle={(isOpen) => isOpen && setActiveSection('attacker')}
+                      />
+                      <div className="h-px bg-foreground/10 my-2"></div>
+                      <StatDisplay 
+                        label="Физ. Проникновение (Flat)" valueColor="text-red-600 dark:text-red-400"
+                        baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
+                        statKey="phys_penetration_flat" emblemStatKey="phys_penetration"
+                        onToggle={(isOpen) => isOpen && setActiveSection('attacker')}
+                      />
+                      <StatDisplay 
+                        label="Физ. Проникновение (%)" valueColor="text-red-600 dark:text-red-400"
+                        baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
+                        statKey="phys_penetration_fraction" isPercent={true}
+                        onToggle={(isOpen) => isOpen && setActiveSection('attacker')}
+                      />
+                      <div className="h-px bg-foreground/10 my-2"></div>
+                      <StatDisplay 
+                        label="Маг. Проникновение (Flat)" valueColor="text-purple-600 dark:text-purple-400"
+                        baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
+                        statKey="mag_penetration_flat" emblemStatKey="mag_penetration"
+                        onToggle={(isOpen) => isOpen && setActiveSection('attacker')}
+                      />
+                      <StatDisplay 
+                        label="Маг. Проникновение (%)" valueColor="text-purple-600 dark:text-purple-400"
+                        baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
+                        statKey="mag_penetration_fraction" isPercent={true}
+                        onToggle={(isOpen) => isOpen && setActiveSection('attacker')}
+                      />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </section>
         </Reveal>
 
         {/* === ЗАЩИЩАЮЩИЙСЯ === */}
         <Reveal direction="left" delay={0.2}>
-          <section className="bg-card rounded-3xl md:rounded-[3rem] p-4 md:p-8 border-2 border-blue-500/20 shadow-[0_0_30px_rgba(59,130,246,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] h-full relative z-0">
+          <section 
+            className={`bg-card rounded-3xl md:rounded-[3rem] p-4 md:p-8 border-2 border-blue-500/20 shadow-[0_0_30px_rgba(59,130,246,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] h-full relative 
+            ${activeSection === 'defender' ? 'z-50' : 'z-10'}`}
+            onMouseEnter={() => setActiveSection('defender')}
+            onClick={() => setActiveSection('defender')}
+          >
             <div className="flex flex-wrap items-center justify-between gap-2 px-2">
               <h2 className="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]">🛡️ Защищающийся</h2>
               <div className="flex items-center gap-2 flex-grow sm:flex-grow-0 justify-end min-w-[140px]">
@@ -246,17 +318,47 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
             <EmblemSelector label="Эмблема" emblems={emblems} selectedEmblem={defenderEmblem} onSelect={setDefenderEmblem} />
             <ItemBuilder label="Снаряжение" items={items} selectedItems={defenderItems} onUpdate={setDefenderItems} />
 
-            <div className="space-y-1 text-sm bg-background/50 p-4 md:p-6 rounded-2xl md:rounded-[2rem] border-2 border-foreground/10 shadow-inner mt-auto">
-               <StatDisplay 
-                label="Физ. Защита" valueColor="text-foreground/80"
-                baseValue={defenderStats.basePhysDef} items={defenderItems} emblem={defenderEffectiveEmblem}
-                statKey="phys_def"
-              />
-               <StatDisplay 
-                label="Маг. Защита" valueColor="text-foreground/80"
-                baseValue={defenderStats.baseMagDef} items={defenderItems} emblem={defenderEffectiveEmblem}
-                statKey="mag_def"
-              />
+            <div className="mt-auto">
+              <button 
+                onClick={() => setShowDefenderStats(!showDefenderStats)}
+                className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 transition-all duration-300 group
+                  ${showDefenderStats 
+                    ? 'bg-blue-500/10 border-blue-500/30 text-blue-500' 
+                    : 'bg-background/50 border-foreground/10 text-muted hover:border-blue-500/30 hover:text-blue-500'}
+                `}
+              >
+                <BarChart3 className="w-4 h-4" />
+                <span className="text-xs font-bold uppercase tracking-widest">
+                  {showDefenderStats ? 'Скрыть характеристики' : 'Показать характеристики'}
+                </span>
+                {showDefenderStats ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              </button>
+
+              <AnimatePresence>
+                {showDefenderStats && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0, overflow: 'hidden' }}
+                    animate={{ height: 'auto', opacity: 1, transitionEnd: { overflow: 'visible' } }}
+                    exit={{ height: 0, opacity: 0, overflow: 'hidden' }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  >
+                     <div className="space-y-1 text-sm bg-background/50 p-4 rounded-b-2xl md:rounded-b-[2rem] border-x-2 border-b-2 border-foreground/10 border-t-0 shadow-inner mt-2">
+                      <StatDisplay 
+                        label="Физ. Защита" valueColor="text-foreground/80"
+                        baseValue={defenderStats.basePhysDef} items={defenderItems} emblem={defenderEffectiveEmblem}
+                        statKey="phys_def"
+                        onToggle={(isOpen) => isOpen && setActiveSection('defender')}
+                      />
+                      <StatDisplay 
+                        label="Маг. Защита" valueColor="text-foreground/80"
+                        baseValue={defenderStats.baseMagDef} items={defenderItems} emblem={defenderEffectiveEmblem}
+                        statKey="mag_def"
+                        onToggle={(isOpen) => isOpen && setActiveSection('defender')}
+                      />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </section>
         </Reveal>

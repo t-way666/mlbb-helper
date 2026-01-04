@@ -14,6 +14,7 @@ interface StatDisplayProps {
   statKey: keyof Item['stats']; // Теперь берем из вложенного объекта stats
   emblemStatKey?: keyof Emblem['stats']; 
   isPercent?: boolean;
+  onToggle?: (isOpen: boolean) => void;
 }
 
 export function StatDisplay({ 
@@ -24,9 +25,15 @@ export function StatDisplay({
   emblem, 
   statKey,
   emblemStatKey,
-  isPercent = false
+  isPercent = false,
+  onToggle
 }: StatDisplayProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = (val: boolean) => {
+    setIsOpen(val);
+    onToggle?.(val);
+  };
 
   // Форматтер значения
   const fmt = (val: number) => isPercent ? `${Math.round(val * 100)}%` : Math.round(val);
@@ -51,7 +58,19 @@ export function StatDisplay({
   // Эмблема
   const eKey = emblemStatKey || (statKey as keyof Emblem['stats']);
   if (emblem && emblem.stats) {
-    const val = Number(emblem.stats[eKey]);
+    let val = Number(emblem.stats[eKey] || 0);
+
+    // Добавляем Гибридную защиту, если запрашиваем защиту
+    if ((statKey === 'phys_def' || statKey === 'mag_def') && emblem.stats.hybrid_def) {
+        val += emblem.stats.hybrid_def;
+    }
+    
+    // Добавляем Гибридное проникновение
+    if ((statKey === 'phys_penetration' || statKey === 'phys_penetration_flat' || 
+         statKey === 'mag_penetration' || statKey === 'mag_penetration_flat') && emblem.stats.hybrid_penetration) {
+        val += emblem.stats.hybrid_penetration;
+    }
+
     if (val > 0) {
               breakdown.push({
                 source: `Эмблема (${emblem.name.ru})`,
@@ -76,7 +95,7 @@ export function StatDisplay({
         {/* Бонусное значение (Кликабельное) */}
         {totalBonus > 0 && (
           <button 
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => handleToggle(!isOpen)}
             className="text-xs text-green-600 dark:text-green-400 font-bold bg-green-500/10 px-1.5 py-0.5 rounded border-2 border-green-500/30 hover:bg-green-500/20 hover:border-green-500 transition-all cursor-pointer"
             title="Нажмите для детализации"
           >
@@ -89,7 +108,7 @@ export function StatDisplay({
       {isOpen && (
         <>
           {/* Оверлей для закрытия кликом вне */}
-          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
+          <div className="fixed inset-0 z-10" onClick={() => handleToggle(false)} />
           
           <div className="absolute top-full right-0 mt-2 w-64 bg-card border-2 border-foreground/20 rounded-lg shadow-2xl z-20 p-3 animate-in fade-in zoom-in-95 duration-200">
              <h4 className="text-xs font-bold text-muted mb-2 uppercase tracking-wider border-b border-foreground/10 pb-1">Источник бонусов</h4>
