@@ -19,9 +19,9 @@ interface RoadmapItem {
 
 async function getHomeData() {
   try {
-    // Пути к файлам в корне проекта (выходим из frontend/src/app)
-    const newsPath = path.join(process.cwd(), '../backend/data/news.json');
-    const roadmapPath = path.join(process.cwd(), '../backend/data/roadmap.json');
+    // Пути к файлам теперь внутри src/data
+    const newsPath = path.join(process.cwd(), 'src/data/news.json');
+    const roadmapPath = path.join(process.cwd(), 'src/data/roadmap.json');
     
     const news = JSON.parse(fs.readFileSync(newsPath, 'utf8'));
     const roadmap = JSON.parse(fs.readFileSync(roadmapPath, 'utf8'));

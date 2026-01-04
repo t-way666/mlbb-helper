@@ -27,8 +27,8 @@ export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: Emb
 
   return (
     <div className="mt-4">
-      <h3 className="text-sm font-semibold text-foreground/50 mb-2">{label}</h3>
-      <div className="flex flex-wrap gap-2">
+      <h3 className="text-sm font-semibold text-foreground/50 mb-3 text-center md:text-left">{label}</h3>
+      <div className="flex flex-wrap gap-3 justify-center md:justify-start">
         {emblems.map((emblem) => {
           const isSelected = selectedEmblem?.id === emblem.id;
           const colors = isSelected ? getEmblemColor(emblem) : null;

@@ -59,7 +59,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
       <h3 className="text-sm font-semibold text-foreground/50 mb-2">{label}</h3>
       
       {/* Сетка из 6 слотов */}
-      <div className="grid grid-cols-6 gap-2">
+      <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
         {selectedItems.map((item, index) => (
           <div 
             key={index}

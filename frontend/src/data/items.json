@@ -1061,14 +1061,27 @@
     "id": "chastisepauldron_76",
     "image_id": "chastisepauldron",
     "name": {
-      "ru": "Броня неустрашимости",
+      "ru": "Наплечник наказания",
       "en": "Chastise Pauldron"
+    },
+    "cost": 2100,
+    "category": "Защита",
+    "stats": {
+      "hp": 900.0,
+      "phys_def": 40.0
+    }
+  },
+  {
+    "id": "dreadnaughtarmor_99",
+    "image_id": "dreadnaughtarmor",
+    "name": {
+      "ru": "Броня неустрашимости",
+      "en": "Dreadnaught Armor"
     },
     "cost": 730,
     "category": "Защита",
     "stats": {
-      "phys_def": 30.0,
-      "crit_damage_reduction_fraction": 0.2
+      "phys_def": 30.0
     }
   },
   {
