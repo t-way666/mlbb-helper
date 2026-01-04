@@ -22,24 +22,31 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
   );
 
   return (
-    <div className="relative">
+    <div className="relative flex flex-col items-center">
       <div 
-        className="h-32 border-2 border-dashed border-foreground/10 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 transition-colors bg-background/30"
+        className={`
+          w-40 h-40 border-2 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 bg-background/30 rounded-full
+          ${selectedHero 
+            ? 'border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] scale-105' 
+            : 'border-dashed border-foreground/20 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]'}
+        `}
         onClick={() => setIsOpen(!isOpen)}
       >
         {selectedHero ? (
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center p-2 text-center">
             <ImageWithFallback 
-              srcBase={`/assets/images/hero_base_avatar_icons/${(selectedHero.hero_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
+              srcBase={`/assets/images/hero_base_avatar_icons/${(selectedHero.hero_name_en || '').toLowerCase().replace(/[^a-z0-9]/g, '')}`} 
               alt={selectedHero.hero_name}
-              className="w-16 h-16 rounded-full border-2 border-blue-500 mb-2 object-cover"
+              className="w-20 h-20 rounded-full border-2 border-blue-500 mb-1 object-cover"
             />
-            <div className="text-xl font-bold">{selectedHero.hero_name}</div>
-            <div className="text-sm text-foreground/50">{selectedHero.main_role}</div>
-            <div className="text-xs text-green-500 mt-2">Нажмите, чтобы изменить</div>
+            <div className="text-sm font-bold truncate max-w-[120px]">{selectedHero.hero_name}</div>
+            <div className="text-[10px] text-foreground/50 uppercase tracking-tighter">{selectedHero.main_role}</div>
           </div>
         ) : (
-          <span className="text-foreground/30 font-medium">+ Выбрать {label}</span>
+          <div className="flex flex-col items-center text-center p-4">
+            <span className="text-3xl text-foreground/20 mb-1">+</span>
+            <span className="text-[10px] text-foreground/30 font-bold uppercase tracking-widest">{label}</span>
+          </div>
         )}
       </div>
 

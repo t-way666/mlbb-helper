@@ -170,14 +170,14 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         
         {/* === АТАКУЮЩИЙ === */}
-        <section className="bg-card rounded-2xl p-6 border border-foreground/10 shadow-xl flex flex-col gap-6 transition-colors">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-red-500">⚔️ Атакующий</h2>
+        <section className="bg-card rounded-[3rem] p-8 border-2 border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.2)]">
+          <div className="flex items-center justify-between px-4">
+            <h2 className="text-2xl font-bold text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]">⚔️ Атакующий</h2>
             <div className="flex items-center gap-3">
-               <span className="text-sm text-foreground/50">Ур. {attackerLevel}</span>
+               <span className="text-sm text-foreground/50 font-bold">Ур. {attackerLevel}</span>
                <input 
                 type="range" min="1" max="15" 
                 value={attackerLevel} 
@@ -192,7 +192,7 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
           <ItemBuilder label="Снаряжение" items={items} selectedItems={attackerItems} onUpdate={setAttackerItems} />
 
           {/* Таблица статов */}
-          <div className="space-y-1 text-sm bg-background/50 p-4 rounded-xl border border-foreground/5">
+          <div className="space-y-1 text-sm bg-background/50 p-6 rounded-[2rem] border border-foreground/5 shadow-inner">
             <StatDisplay 
               label="Физ. Атака" valueColor="text-orange-500 dark:text-yellow-400"
               baseValue={attackerStats.basePhysAtk} items={attackerItems} emblem={attackerEffectiveEmblem}
@@ -218,11 +218,11 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
         </section>
 
         {/* === ЗАЩИЩАЮЩИЙСЯ === */}
-        <section className="bg-card rounded-2xl p-6 border border-foreground/10 shadow-xl flex flex-col gap-6 transition-colors">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-blue-500">🛡️ Защищающийся</h2>
+        <section className="bg-card rounded-[3rem] p-8 border-2 border-blue-500/20 shadow-[0_0_30px_rgba(59,130,246,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]">
+          <div className="flex items-center justify-between px-4">
+            <h2 className="text-2xl font-bold text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">🛡️ Защищающийся</h2>
             <div className="flex items-center gap-3">
-               <span className="text-sm text-foreground/50">Ур. {defenderLevel}</span>
+               <span className="text-sm text-foreground/50 font-bold">Ур. {defenderLevel}</span>
                <input 
                 type="range" min="1" max="15" 
                 value={defenderLevel} 
@@ -236,7 +236,7 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
           <EmblemSelector label="Эмблема" emblems={emblems} selectedEmblem={defenderEmblem} onSelect={setDefenderEmblem} />
           <ItemBuilder label="Снаряжение" items={items} selectedItems={defenderItems} onUpdate={setDefenderItems} />
 
-          <div className="space-y-1 text-sm bg-background/50 p-4 rounded-xl border border-foreground/5">
+          <div className="space-y-1 text-sm bg-background/50 p-6 rounded-[2rem] border border-foreground/5 shadow-inner">
              <StatDisplay 
               label="Физ. Защита" valueColor="text-foreground/80"
               baseValue={defenderStats.basePhysDef} items={defenderItems} emblem={defenderEffectiveEmblem}
