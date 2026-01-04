@@ -8,15 +8,16 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-muted: var(--muted);
+  --color-primary: var(--primary);
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #020617;
-  --card: #f1f5f9; /* Сделал чуть темнее для контраста с белым фоном */
-  --card-foreground: #020617;
-  --muted: #64748b; /* Контрастный серый для подписей */
-  --primary: #2563eb; /* Чуть более глубокий синий */
+  --background: #f8fafc; /* Светлый Slate 50 */
+  --foreground: #0f172a; /* Темный Slate 900 */
+  --card: #ffffff;       /* Чисто белые карточки */
+  --card-foreground: #0f172a;
+  --muted: #475569;      /* Контрастный Slate 600 */
+  --primary: #2563eb; 
   --primary-foreground: #ffffff;
   --neon-color-1: #fb0094;
   --neon-color-2: #0000ff;
@@ -39,6 +40,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  /* Тонкая сетка для светлой темы, чтобы добавить текстуры */
+  background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.dark body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
 }
 
 /* Neon Glow Effect - Always active gradient on border, enhanced on interaction */
