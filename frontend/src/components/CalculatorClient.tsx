@@ -115,6 +115,16 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
       extraPhysAtk += effectiveEmblem.stats.phys_attack || 0;
       extraMagPower += effectiveEmblem.stats.mag_power || 0;
       
+      // Defense from regular stats
+      extraPhysDef += effectiveEmblem.stats.phys_def || 0;
+      extraMagDef += effectiveEmblem.stats.mag_def || 0;
+
+      // Hybrid Defense (Adds to BOTH)
+      if (effectiveEmblem.stats.hybrid_def) {
+          extraPhysDef += effectiveEmblem.stats.hybrid_def;
+          extraMagDef += effectiveEmblem.stats.hybrid_def;
+      }
+      
       flatPhysPen += effectiveEmblem.stats.phys_penetration || 0;
       flatMagPen += effectiveEmblem.stats.mag_penetration || 0;
       
@@ -171,7 +181,7 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
         
         {/* === АТАКУЮЩИЙ === */}
         <Reveal direction="right" delay={0.1}>
-          <section className="bg-card rounded-3xl md:rounded-[3rem] p-4 md:p-8 border-2 border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.2)] overflow-hidden h-full">
+          <section className="bg-card rounded-3xl md:rounded-[3rem] p-4 md:p-8 border-2 border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.2)] h-full relative z-10">
             <div className="flex flex-wrap items-center justify-between gap-2 px-2">
               <h2 className="text-xl md:text-2xl font-bold text-red-600 dark:text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.3)]">⚔️ Атакующий</h2>
               <div className="flex items-center gap-2 flex-grow sm:flex-grow-0 justify-end min-w-[140px]">
@@ -218,7 +228,7 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
 
         {/* === ЗАЩИЩАЮЩИЙСЯ === */}
         <Reveal direction="left" delay={0.2}>
-          <section className="bg-card rounded-3xl md:rounded-[3rem] p-4 md:p-8 border-2 border-blue-500/20 shadow-[0_0_30px_rgba(59,130,246,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] overflow-hidden h-full">
+          <section className="bg-card rounded-3xl md:rounded-[3rem] p-4 md:p-8 border-2 border-blue-500/20 shadow-[0_0_30px_rgba(59,130,246,0.15)] flex flex-col gap-6 transition-all hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] h-full relative z-0">
             <div className="flex flex-wrap items-center justify-between gap-2 px-2">
               <h2 className="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]">🛡️ Защищающийся</h2>
               <div className="flex items-center gap-2 flex-grow sm:flex-grow-0 justify-end min-w-[140px]">
