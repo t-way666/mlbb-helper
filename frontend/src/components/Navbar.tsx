@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
 
 const MENU_ITEMS = [
-  { title: 'Главная', href: '/' },
   { title: 'Калькулятор урона', href: '/calculator' },
   { title: 'Калькулятор защиты', href: '/defense' },
   { title: 'Винрейт', href: '/winrate' },

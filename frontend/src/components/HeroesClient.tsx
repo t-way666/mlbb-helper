@@ -25,9 +25,19 @@ export default function HeroesClient({ heroes }: HeroesClientProps) {
   const [level, setLevel] = useState(1);
   const [search, setSearch] = useState('');
   const [selectedRole, setSelectedRole] = useState('All');
+  const [isRoleOpen, setIsRoleOpen] = useState(false);
   const [sortKey, setSortKey] = useState<SortKey>('name');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   
+  const roleMap: { [key: string]: string } = {
+    'Убийца': 'Assassin',
+    'Боец': 'Fighter',
+    'Маг': 'Mage',
+    'Стрелок': 'Marksman',
+    'Поддержка': 'Support',
+    'Танк': 'Tank'
+  };
+
   // Состояние видимости колонок
   const [visibleColumns, setVisibleColumns] = useState<string[]>(['roles', 'hp', 'phys_atk', 'phys_def', 'mag_def', 'move_speed', 'atk_speed']);
 
@@ -122,15 +132,54 @@ export default function HeroesClient({ heroes }: HeroesClientProps) {
             />
           </div>
 
-          <div className="min-w-[150px] space-y-2">
+          <div className="min-w-[180px] space-y-2 relative">
             <label className="text-xs font-bold uppercase tracking-widest text-muted ml-2">Роль</label>
-            <select 
-              className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-3 focus:border-primary outline-none transition-all"
-              value={selectedRole}
-              onChange={(e) => setSelectedRole(e.target.value)}
+            <div 
+              className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-3 cursor-pointer flex items-center justify-between hover:border-primary transition-all"
+              onClick={() => setIsRoleOpen(!isRoleOpen)}
             >
-              {roles.map(r => <option key={r} value={r}>{r === 'All' ? 'Все роли' : r}</option>)}
-            </select>
+              <div className="flex items-center gap-2">
+                {selectedRole !== 'All' && (
+                  <img 
+                    src={`/assets/images/roles/${roleMap[selectedRole]}.webp`} 
+                    className="w-5 h-5 object-contain" 
+                    alt="" 
+                  />
+                )}
+                <span className="font-bold text-sm">
+                  {selectedRole === 'All' ? 'Все роли' : selectedRole}
+                </span>
+              </div>
+              <span className={`transition-transform duration-300 ${isRoleOpen ? 'rotate-180' : ''}`}>▼</span>
+            </div>
+
+            {isRoleOpen && (
+              <>
+                <div className="fixed inset-0 z-[60]" onClick={() => setIsRoleOpen(false)} />
+                <div className="absolute top-full left-0 w-full mt-2 bg-background border-2 border-foreground/10 rounded-2xl shadow-2xl z-[70] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                  <div 
+                    className="p-3 hover:bg-foreground/5 cursor-pointer font-bold text-sm border-b border-foreground/5"
+                    onClick={() => { setSelectedRole('All'); setIsRoleOpen(false); }}
+                  >
+                    Все роли
+                  </div>
+                  {roles.filter(r => r !== 'All').map(r => (
+                    <div 
+                      key={r}
+                      className="p-3 hover:bg-foreground/5 cursor-pointer flex items-center gap-3 border-b border-foreground/5 last:border-0"
+                      onClick={() => { setSelectedRole(r); setIsRoleOpen(false); }}
+                    >
+                      <img 
+                        src={`/assets/images/roles/${roleMap[r]}.webp`} 
+                        className="w-6 h-6 object-contain drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]" 
+                        alt="" 
+                      />
+                      <span className="font-bold text-sm">{r}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
           <div className="min-w-[200px] space-y-2 flex-grow sm:flex-grow-0">
