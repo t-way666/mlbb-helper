@@ -40,10 +40,14 @@ export function StatDisplay({
       // @ts-expect-error: dynamic key access
       const val = Number(item[statKey]); 
       if (val > 0) {
+        const itemImageName = (item.item_name_en || item.item_name_ru)
+          .toLowerCase()
+          .replace(/[ .'-_]/g, '');
+
         breakdown.push({
           source: item.item_name_ru,
           value: val,
-          srcBase: `/assets/images/equipments/${transliterate(item.item_name_ru)}`
+          srcBase: `/assets/images/equipments/${itemImageName}`
         });
       }
     }

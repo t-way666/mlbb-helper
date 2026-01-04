@@ -29,8 +29,7 @@ const getItemIconPath = (item: Item | null) => {
   const nameToNormalize = item.item_name_en || item.item_name_ru;
   const normalized = nameToNormalize
     .toLowerCase()
-    .replace(/[ .'-]/g, '_')
-    .replace(/__/g, '_');
+    .replace(/[ .'-_]/g, ''); // Удаляем пробелы, точки, апострофы, дефисы и подчеркивания
     
   return `/assets/images/equipments/${normalized}`;
 };
