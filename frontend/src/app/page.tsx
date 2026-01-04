@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal';
+import { ShareCard } from '@/components/ShareCard';
 import fs from 'fs';
 import path from 'path';
 
@@ -100,15 +101,7 @@ export default async function Home() {
           </div>
 
           <Reveal delay={0.8}>
-            <div className="bg-primary/10 rounded-2xl p-6 border-2 border-primary/20 mt-8 shadow-inner">
-              <h3 className="font-bold text-blue-600 dark:text-blue-400 mb-2 uppercase text-sm tracking-wide">Поддержать проект</h3>
-              <p className="text-muted text-xs leading-relaxed mb-4 font-medium">
-                Мы постоянно работаем над новыми функциями. Если вам нравится сервис, расскажите о нем друзьям!
-              </p>
-              <button className="w-full py-3 bg-card hover:bg-background border-2 border-foreground/10 rounded-xl text-xs font-bold transition-all text-foreground uppercase tracking-widest">
-                Копировать ссылку
-              </button>
-            </div>
+            <ShareCard />
           </Reveal>
         </div>
 

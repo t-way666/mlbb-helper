@@ -26,7 +26,7 @@ fi
 
 # Запускаем бэкенд в фоне
 echo "Starting Backend (Flask)..."
-python3 app.py &
+./venv/bin/python3 app.py &
 BACKEND_PID=$!
 cd ..
 
