@@ -40,11 +40,6 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Отладка
-  if (items.length > 0 && searchTerm === 'Когти') {
-    console.log('Поиск "Когти":', items.filter(i => i.item_name_ru.includes('Когти')));
-  }
-
   // Отфильтрованные предметы для модалки
   const filteredItems = items.filter(item => {
     const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
@@ -73,7 +68,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
 
   return (
     <div className="mt-6">
-      <h3 className="text-sm font-semibold text-slate-400 mb-2">{label}</h3>
+      <h3 className="text-sm font-semibold text-foreground/50 mb-2">{label}</h3>
       
       {/* Сетка из 6 слотов */}
       <div className="grid grid-cols-6 gap-2">
@@ -81,7 +76,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
           <div 
             key={index}
             className={`
-              aspect-square rounded-full border-2 border-slate-700 bg-slate-800 
+              aspect-square rounded-full border-2 border-foreground/10 bg-card 
               flex items-center justify-center cursor-pointer relative group
               hover:border-blue-500 transition-colors
               ${!item ? 'border-dashed' : ''}
@@ -105,7 +100,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
                 </button>
               </>
             ) : (
-              <span className="text-slate-600 text-2xl">+</span>
+              <span className="text-foreground/20 text-2xl">+</span>
             )}
           </div>
         ))}
@@ -114,21 +109,21 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
       {/* МОДАЛЬНОЕ ОКНО ВЫБОРА */}
       {activeSlotIndex !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="bg-slate-900 rounded-2xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-2xl border border-slate-700">
+          <div className="bg-card rounded-2xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-2xl border border-foreground/10 overflow-hidden">
             
             {/* Заголовок модалки */}
-            <div className="p-4 border-b border-slate-700 flex justify-between items-center bg-slate-900 rounded-t-2xl z-10">
+            <div className="p-4 border-b border-foreground/10 flex justify-between items-center bg-card">
               <h3 className="text-xl font-bold">Выбор предмета ({filteredItems.length})</h3>
               <button 
                 onClick={() => setActiveSlotIndex(null)}
-                className="text-slate-400 hover:text-white text-2xl"
+                className="text-foreground/50 hover:text-foreground text-2xl"
               >
                 &times;
               </button>
             </div>
 
             {/* Табы категорий */}
-            <div className="flex overflow-x-auto p-2 border-b border-slate-700 gap-2 scrollbar-hide bg-slate-900 z-10 shrink-0">
+            <div className="flex overflow-x-auto p-2 border-b border-foreground/10 gap-2 scrollbar-hide bg-card shrink-0">
               {CATEGORIES.map(cat => (
                 <button
                   key={cat.id}
@@ -136,8 +131,8 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
                   className={`
                     px-4 py-2 rounded-lg whitespace-nowrap text-sm font-medium transition-colors
                     ${activeCategory === cat.id 
-                      ? 'bg-blue-600 text-white' 
-                      : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' 
+                      : 'bg-background text-foreground/50 hover:bg-foreground/5'}
                   `}
                 >
                   {cat.icon} {cat.label}
@@ -150,7 +145,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
               <input 
                 type="text" 
                 placeholder="Поиск предмета..." 
-                className="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 text-white focus:border-blue-500 focus:outline-none"
+                className="w-full bg-background border border-foreground/10 rounded-lg p-3 text-foreground focus:border-blue-500 focus:outline-none"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 autoFocus
@@ -162,24 +157,24 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
               {filteredItems.map(item => (
                 <div 
                   key={item.item_id}
-                  className="flex flex-col items-center gap-1 group"
+                  className="flex flex-col items-center gap-1 group cursor-pointer"
                   onClick={() => handleSelect(item)}
                 >
-                  <div className="aspect-square w-full bg-slate-800 rounded-full border border-slate-700 cursor-pointer hover:border-blue-400 hover:scale-105 transition-all relative">
+                  <div className="aspect-square w-full bg-background rounded-full border border-foreground/5 hover:border-blue-400 hover:scale-105 transition-all relative">
                     <ImageWithFallback 
                       srcBase={getItemIconPath(item)}
                       alt={item.item_name_ru}
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
-                  <span className="text-[10px] text-slate-400 text-center leading-tight truncate w-full group-hover:text-blue-400">
+                  <span className="text-[10px] text-foreground/50 text-center leading-tight truncate w-full group-hover:text-blue-500">
                     {item.item_name_ru}
                   </span>
                 </div>
               ))}
               
               {filteredItems.length === 0 && (
-                <div className="col-span-full text-center text-slate-500 py-10">
+                <div className="col-span-full text-center text-foreground/30 py-10">
                   Предметы не найдены
                 </div>
               )}

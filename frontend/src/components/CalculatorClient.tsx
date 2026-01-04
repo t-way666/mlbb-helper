@@ -173,11 +173,11 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* === АТАКУЮЩИЙ === */}
-        <section className="bg-slate-900 rounded-2xl p-6 border border-slate-800 shadow-xl flex flex-col gap-6">
+        <section className="bg-card rounded-2xl p-6 border border-foreground/10 shadow-xl flex flex-col gap-6 transition-colors">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-red-400">⚔️ Атакующий</h2>
+            <h2 className="text-xl font-bold text-red-500">⚔️ Атакующий</h2>
             <div className="flex items-center gap-3">
-               <span className="text-sm text-slate-400">Ур. {attackerLevel}</span>
+               <span className="text-sm text-foreground/50">Ур. {attackerLevel}</span>
                <input 
                 type="range" min="1" max="15" 
                 value={attackerLevel} 
@@ -192,25 +192,25 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
           <ItemBuilder label="Снаряжение" items={items} selectedItems={attackerItems} onUpdate={setAttackerItems} />
 
           {/* Таблица статов */}
-          <div className="space-y-1 text-sm bg-slate-950/50 p-4 rounded-xl">
+          <div className="space-y-1 text-sm bg-background/50 p-4 rounded-xl border border-foreground/5">
             <StatDisplay 
-              label="Физ. Атака" valueColor="text-yellow-400"
+              label="Физ. Атака" valueColor="text-orange-500 dark:text-yellow-400"
               baseValue={attackerStats.basePhysAtk} items={attackerItems} emblem={attackerEffectiveEmblem}
               statKey="phys_atk" emblemStatKey="phys_attack"
             />
             <StatDisplay 
-              label="Маг. Сила" valueColor="text-blue-400"
+              label="Маг. Сила" valueColor="text-blue-500 dark:text-blue-400"
               baseValue={attackerStats.baseMagPower} items={attackerItems} emblem={attackerEffectiveEmblem}
               statKey="mag_power"
             />
-            <div className="h-px bg-slate-800 my-2"></div>
+            <div className="h-px bg-foreground/10 my-2"></div>
             <StatDisplay 
-              label="Физ. Проникновение (Flat)" valueColor="text-red-400"
+              label="Физ. Проникновение (Flat)" valueColor="text-red-500 dark:text-red-400"
               baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
               statKey="phys_penetration_flat"
             />
              <StatDisplay 
-              label="Физ. Проникновение (%)" valueColor="text-red-400"
+              label="Физ. Проникновение (%)" valueColor="text-red-500 dark:text-red-400"
               baseValue={0} items={attackerItems} emblem={attackerEffectiveEmblem}
               statKey="phys_penetration_fraction" isPercent={true}
             />
@@ -218,11 +218,11 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
         </section>
 
         {/* === ЗАЩИЩАЮЩИЙСЯ === */}
-        <section className="bg-slate-900 rounded-2xl p-6 border border-slate-800 shadow-xl flex flex-col gap-6">
+        <section className="bg-card rounded-2xl p-6 border border-foreground/10 shadow-xl flex flex-col gap-6 transition-colors">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-blue-400">🛡️ Защищающийся</h2>
+            <h2 className="text-xl font-bold text-blue-500">🛡️ Защищающийся</h2>
             <div className="flex items-center gap-3">
-               <span className="text-sm text-slate-400">Ур. {defenderLevel}</span>
+               <span className="text-sm text-foreground/50">Ур. {defenderLevel}</span>
                <input 
                 type="range" min="1" max="15" 
                 value={defenderLevel} 
@@ -236,14 +236,14 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
           <EmblemSelector label="Эмблема" emblems={emblems} selectedEmblem={defenderEmblem} onSelect={setDefenderEmblem} />
           <ItemBuilder label="Снаряжение" items={items} selectedItems={defenderItems} onUpdate={setDefenderItems} />
 
-          <div className="space-y-1 text-sm bg-slate-950/50 p-4 rounded-xl">
+          <div className="space-y-1 text-sm bg-background/50 p-4 rounded-xl border border-foreground/5">
              <StatDisplay 
-              label="Физ. Защита" valueColor="text-slate-300"
+              label="Физ. Защита" valueColor="text-foreground/80"
               baseValue={defenderStats.basePhysDef} items={defenderItems} emblem={defenderEffectiveEmblem}
               statKey="phys_def"
             />
              <StatDisplay 
-              label="Маг. Защита" valueColor="text-slate-300"
+              label="Маг. Защита" valueColor="text-foreground/80"
               baseValue={defenderStats.baseMagDef} items={defenderItems} emblem={defenderEffectiveEmblem}
               statKey="mag_def"
             />
@@ -253,27 +253,27 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
       </div>
 
       {/* Результаты */}
-      <section className="mt-8 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 border border-slate-700">
-        <h3 className="text-lg font-bold text-green-400 mb-4">Результаты расчета</h3>
+      <section className="mt-8 bg-card rounded-2xl p-6 border border-foreground/20 shadow-lg transition-colors">
+        <h3 className="text-lg font-bold text-green-500 dark:text-green-400 mb-4">Результаты расчета</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-            <div className="p-4 bg-black/20 rounded-lg">
-                <div className="text-slate-400 text-sm">Физ. Атака</div>
-                <div className="text-2xl font-bold text-white">{attackerStats.totalPhysAtk}</div>
+            <div className="p-4 bg-background/40 rounded-lg border border-foreground/5">
+                <div className="text-foreground/50 text-sm">Физ. Атака</div>
+                <div className="text-2xl font-bold">{attackerStats.totalPhysAtk}</div>
             </div>
-            <div className="p-4 bg-black/20 rounded-lg">
-                <div className="text-slate-400 text-sm">Физ. Пробитие</div>
-                <div className="text-xl font-bold text-red-300">
+            <div className="p-4 bg-background/40 rounded-lg border border-foreground/5">
+                <div className="text-foreground/50 text-sm">Физ. Пробитие</div>
+                <div className="text-xl font-bold text-red-500 dark:text-red-300">
                     {attackerStats.flatPhysPen} | {(attackerStats.percentPhysPen * 100).toFixed(0)}%
                 </div>
             </div>
-            <div className="p-4 bg-black/20 rounded-lg">
-                <div className="text-slate-400 text-sm">Эфф. Защита</div>
-                <div className="text-2xl font-bold text-white">{effectivePhysDef.toFixed(0)}</div>
-                <div className="text-xs text-slate-500">Снижение: {((1 - damageMultiplier) * 100).toFixed(1)}%</div>
+            <div className="p-4 bg-background/40 rounded-lg border border-foreground/5">
+                <div className="text-foreground/50 text-sm">Эфф. Защита</div>
+                <div className="text-2xl font-bold">{effectivePhysDef.toFixed(0)}</div>
+                <div className="text-xs text-foreground/40">Снижение: {((1 - damageMultiplier) * 100).toFixed(1)}%</div>
             </div>
-            <div className="p-4 bg-black/20 rounded-lg border border-green-500/30">
-                <div className="text-slate-400 text-sm">Итоговый Урон</div>
-                <div className="text-3xl font-bold text-green-400">{finalPhysDamage.toFixed(0)}</div>
+            <div className="p-4 bg-background/40 rounded-lg border border-green-500/30">
+                <div className="text-foreground/50 text-sm">Итоговый Урон</div>
+                <div className="text-3xl font-bold text-green-500 dark:text-green-400">{finalPhysDamage.toFixed(0)}</div>
             </div>
         </div>
       </section>

@@ -3,11 +3,32 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 }
 
 :root {
+  --background: #ffffff;
+  --foreground: #020617;
+  --card: #f8fafc;
+  --card-foreground: #020617;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --neon-color-1: #fb0094;
+  --neon-color-2: #0000ff;
+  --neon-color-3: #00ff00;
+  --neon-color-4: #ffff00;
+  --neon-color-5: #ff0000;
+}
+
+.dark {
   --background: #020617;
   --foreground: #f8fafc;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --primary: #60a5fa;
+  --primary-foreground: #020617;
 }
 
 body {
@@ -16,7 +37,93 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
-/* Анимации */
+/* Neon Glow Effect adapted from user example */
+.neon-button {
+  position: relative;
+  display: inline-block;
+  padding: 0; /* Padding handled by span */
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.neon-button span {
+  position: relative;
+  display: block;
+  margin: 1px; /* Creates the gap for the border */
+  padding: 12px 24px;
+  background: var(--background);
+  color: var(--foreground);
+  transition: 0.5s;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.neon-button:hover span {
+  color: #fff;
+  background: transparent;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    var(--neon-color-1), var(--neon-color-2), var(--neon-color-3), 
+    var(--neon-color-4), var(--neon-color-5), var(--neon-color-1), 
+    var(--neon-color-2), var(--neon-color-3), var(--neon-color-4), 
+    var(--neon-color-5)
+  );
+  background-size: 400%;
+  opacity: 1;
+  z-index: -1;
+  animation: neon-animate 20s linear infinite;
+}
+
+.neon-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    var(--neon-color-1), var(--neon-color-2), var(--neon-color-3), 
+    var(--neon-color-4), var(--neon-color-5), var(--neon-color-1), 
+    var(--neon-color-2), var(--neon-color-3), var(--neon-color-4), 
+    var(--neon-color-5)
+  );
+  background-size: 400%;
+  opacity: 0;
+  filter: blur(20px);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.neon-button:hover::before {
+  /* Ускоряем или усиливаем при наведении, если нужно, но база уже анимирована */
+}
+
+.neon-button:hover::after {
+  opacity: 1;
+  animation: neon-animate 20s linear infinite;
+}
+
+@keyframes neon-animate {
+  0% { background-position: 0 0; }
+  50% { background-position: 300% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Existing Animations */
 @keyframes slideIn {
   from { transform: translateY(-10px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }

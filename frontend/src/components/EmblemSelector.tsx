@@ -13,7 +13,7 @@ interface EmblemSelectorProps {
 export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: EmblemSelectorProps) {
   return (
     <div className="mt-4">
-      <h3 className="text-sm font-semibold text-slate-400 mb-2">{label}</h3>
+      <h3 className="text-sm font-semibold text-foreground/50 mb-2">{label}</h3>
       <div className="flex flex-wrap gap-2">
         {emblems.map((emblem) => {
           const isSelected = selectedEmblem?.emblem_id === emblem.emblem_id;
@@ -24,8 +24,8 @@ export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: Emb
               className={`
                 w-12 h-12 rounded-lg border-2 cursor-pointer transition-all flex items-center justify-center p-1
                 ${isSelected 
-                  ? 'border-blue-500 bg-blue-500/20 scale-110 shadow-[0_0_10px_rgba(59,130,246,0.5)]' 
-                  : 'border-slate-700 bg-slate-800 hover:border-slate-500'}
+                  ? 'border-blue-400 bg-blue-500/20 scale-110 shadow-[0_0_15px_rgba(96,165,250,0.8)]' 
+                  : 'border-foreground/10 bg-card hover:border-foreground/30'}
               `}
               onClick={() => onSelect(emblem)}
               title={emblem.emblem_name_ru}
