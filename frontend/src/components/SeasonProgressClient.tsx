@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Reveal } from '@/components/Reveal';
+import { RankSelect } from '@/components/RankSelect';
 
 const RANKS = [
   'Warrior III', 'Warrior II', 'Warrior I',
@@ -27,9 +28,9 @@ const RANK_CONFIG: { [key: string]: number } = {
 export default function SeasonProgressClient() {
   const [data, setData] = useState({
     startRank: 'Epic V',
-    startStars: 0,
+    startStars: 0 as number | '',
     currentRank: 'Epic II',
-    currentStars: 2,
+    currentStars: 2 as number | '',
     targetRank: 'Mythic',
     targetStars: 0,
     winrate: 55,
@@ -38,21 +39,13 @@ export default function SeasonProgressClient() {
 
   const getBaseRank = (full: string) => full.split(' ')[0];
   
-  const getRankIcon = (full: string) => {
-    const base = getBaseRank(full).toLowerCase();
-    if (full.includes('Honor')) return 'mythical-honor';
-    if (full.includes('Glory')) return 'mythical-glory';
-    if (full.includes('Immortal')) return 'mythical-immortal';
-    return base;
-  };
-
-  const calculateStars = (rank: string, stars: number) => {
+  const calculateStars = (rank: string, stars: number | string) => {
     let total = 0;
     const idx = RANKS.indexOf(rank);
     for (let i = 0; i < idx; i++) {
       total += RANK_CONFIG[getBaseRank(RANKS[i])];
     }
-    return total + stars;
+    return total + (Number(stars) || 0);
   };
 
   const results = useMemo(() => {
@@ -83,71 +76,47 @@ export default function SeasonProgressClient() {
           
           {/* START RANK */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <img 
-                src={`/assets/images/ranks/${getRankIcon(data.startRank)}.webp`} 
-                className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(37,99,235,0.4)]" 
-                alt=""
-              />
-              <h3 className="text-sm font-black uppercase tracking-widest text-primary">Откуда начали</h3>
-            </div>
-            <select 
+            <h3 className="text-sm font-black uppercase tracking-widest text-primary">Откуда начали</h3>
+            <RankSelect 
               value={data.startRank}
-              onChange={e => setData({...data, startRank: e.target.value})}
-              className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-3 outline-none focus:border-primary transition-all"
-            >
-              {RANKS.map(r => <option key={r} value={r}>{r}</option>)}
-            </select>
+              onChange={(val) => setData({...data, startRank: val})}
+              options={RANKS}
+              colorClass="text-primary"
+            />
             <input 
               type="number" placeholder="Звезды" 
               value={data.startStars}
-              onChange={e => setData({...data, startStars: parseInt(e.target.value) || 0})}
+              onChange={e => setData({...data, startStars: e.target.value === '' ? '' : parseInt(e.target.value)})}
               className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-3 outline-none focus:border-primary transition-all"
             />
           </div>
 
           {/* CURRENT RANK */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <img 
-                src={`/assets/images/ranks/${getRankIcon(data.currentRank)}.webp`} 
-                className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(34,197,94,0.4)]" 
-                alt=""
-              />
-              <h3 className="text-sm font-black uppercase tracking-widest text-green-500">Где сейчас</h3>
-            </div>
-            <select 
+            <h3 className="text-sm font-black uppercase tracking-widest text-green-500">Где сейчас</h3>
+            <RankSelect 
               value={data.currentRank}
-              onChange={e => setData({...data, currentRank: e.target.value})}
-              className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-3 outline-none focus:border-green-500 transition-all"
-            >
-              {RANKS.map(r => <option key={r} value={r}>{r}</option>)}
-            </select>
+              onChange={(val) => setData({...data, currentRank: val})}
+              options={RANKS}
+              colorClass="text-green-500"
+            />
             <input 
               type="number" placeholder="Звезды"
               value={data.currentStars}
-              onChange={e => setData({...data, currentStars: parseInt(e.target.value) || 0})}
+              onChange={e => setData({...data, currentStars: e.target.value === '' ? '' : parseInt(e.target.value)})}
               className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-3 outline-none focus:border-green-500 transition-all"
             />
           </div>
 
           {/* TARGET RANK */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <img 
-                src={`/assets/images/ranks/${getRankIcon(data.targetRank)}.webp`} 
-                className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]" 
-                alt=""
-              />
-              <h3 className="text-sm font-black uppercase tracking-widest text-orange-500">Цель</h3>
-            </div>
-            <select 
+            <h3 className="text-sm font-black uppercase tracking-widest text-orange-500">Цель</h3>
+            <RankSelect 
               value={data.targetRank}
-              onChange={e => setData({...data, targetRank: e.target.value})}
-              className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-3 outline-none focus:border-orange-500 transition-all"
-            >
-              {RANKS.map(r => <option key={r} value={r}>{r}</option>)}
-            </select>
+              onChange={(val) => setData({...data, targetRank: val})}
+              options={RANKS}
+              colorClass="text-orange-500"
+            />
             <div className="flex items-center gap-4">
               <div className="flex-1">
                 <div className="flex justify-between text-[10px] font-bold uppercase mb-1">

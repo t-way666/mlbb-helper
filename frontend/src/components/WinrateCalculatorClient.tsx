@@ -5,21 +5,23 @@ import { Reveal } from '@/components/Reveal';
 
 export default function WinrateCalculatorClient() {
   const [data, setData] = useState({
-    matches: 100,
-    winrate: 50,
+    matches: 100 as number | '',
+    winrate: 50 as number | '',
     target: 60
   });
 
   const calculation = useMemo(() => {
-    const currentWins = Math.round((data.matches * data.winrate) / 100);
+    const matches = Number(data.matches) || 0;
+    const winrate = Number(data.winrate) || 0;
+    const currentWins = Math.round((matches * winrate) / 100);
     const targetWR = data.target / 100;
 
-    if (data.target <= data.winrate) {
+    if (data.target <= winrate) {
       // Сколько можно проиграть, пока не упадет до цели
       // (Wins) / (Matches + Losses) = TargetWR
       // Losses = (Wins / TargetWR) - Matches
       const maxLosses = targetWR > 0 
-        ? Math.floor(currentWins / targetWR) - data.matches 
+        ? Math.floor(currentWins / targetWR) - matches 
         : 0;
       
       return {
@@ -33,7 +35,7 @@ export default function WinrateCalculatorClient() {
       // X = (TargetWR * Matches - Wins) / (1 - TargetWR)
       if (data.target >= 100) return { type: 'impossible', count: 0, text: '100% винрейт недостижим математически (если были поражения)' };
       
-      const winsNeeded = Math.ceil((targetWR * data.matches - currentWins) / (1 - targetWR));
+      const winsNeeded = Math.ceil((targetWR * matches - currentWins) / (1 - targetWR));
       
       return {
         type: 'win',
@@ -57,7 +59,7 @@ export default function WinrateCalculatorClient() {
                 type="number" 
                 className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-4 outline-none focus:border-primary transition-all font-mono text-xl"
                 value={data.matches}
-                onChange={e => setData({...data, matches: parseInt(e.target.value) || 0})}
+                onChange={e => setData({...data, matches: e.target.value === '' ? '' : parseInt(e.target.value)})}
               />
             </div>
 
@@ -67,7 +69,7 @@ export default function WinrateCalculatorClient() {
                 type="number" step="0.1"
                 className="w-full bg-background border-2 border-foreground/10 rounded-2xl p-4 outline-none focus:border-primary transition-all font-mono text-xl"
                 value={data.winrate}
-                onChange={e => setData({...data, winrate: parseFloat(e.target.value) || 0})}
+                onChange={e => setData({...data, winrate: e.target.value === '' ? '' : parseFloat(e.target.value)})}
               />
             </div>
           </div>
