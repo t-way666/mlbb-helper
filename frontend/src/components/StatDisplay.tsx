@@ -66,8 +66,7 @@ export function StatDisplay({
     }
     
     // Добавляем Гибридное проникновение
-    if ((statKey === 'phys_penetration' || statKey === 'phys_penetration_flat' || 
-         statKey === 'mag_penetration' || statKey === 'mag_penetration_flat') && emblem.stats.hybrid_penetration) {
+    if ((statKey === 'phys_penetration_flat' || statKey === 'mag_penetration_flat') && emblem.stats.hybrid_penetration) {
         val += emblem.stats.hybrid_penetration;
     }
 
