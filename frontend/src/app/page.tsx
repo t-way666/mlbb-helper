@@ -1,6 +1,4 @@
-import Link from 'next/link';
-import Navbar from '@/components/Navbar';
-import { NeonButton } from '@/components/NeonButton';
+import { Reveal } from '@/components/Reveal';
 import fs from 'fs';
 import path from 'path';
 
@@ -38,25 +36,20 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground pb-20">
-      <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 text-center bg-gradient-to-b from-primary/10 to-transparent">
+      <section className="pt-32 pb-16 px-4 text-center bg-gradient-to-b from-primary/20 to-transparent">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-            Mobile Legends Helper 2.0
-          </h1>
-          <p className="text-xl text-foreground/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Ваш надежный спутник в мире MLBB. Точные расчеты урона, база знаний и аналитика для победных матчей.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 items-center">
-            <NeonButton href="/calculator">
-              Начать расчеты
-            </NeonButton>
-            <Link href="/heroes" className="px-8 py-4 bg-card hover:bg-card/80 rounded-full font-bold transition-all hover:scale-105 border border-foreground/10">
-              База героев
-            </Link>
-          </div>
+          <Reveal direction="down" delay={0.1}>
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600 dark:from-blue-400 dark:via-cyan-400 dark:to-indigo-400 bg-clip-text text-transparent uppercase tracking-tight">
+              Mobile Legends Helper 2.0
+            </h1>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <p className="text-xl text-muted font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+              Ваш надежный спутник в мире MLBB. Точные расчеты урона, база знаний и аналитика для победных матчей.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -64,49 +57,59 @@ export default async function Home() {
         
         {/* News Column */}
         <div className="lg:col-span-2 space-y-8">
-          <div className="flex items-center justify-between mb-2">
-            <h2 className="text-2xl font-bold border-l-4 border-blue-500 pl-4">Последние обновления</h2>
-          </div>
+          <Reveal direction="left" delay={0.4}>
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-2xl font-bold border-l-4 border-blue-500 pl-4 text-foreground uppercase tracking-wide">Последние обновления</h2>
+            </div>
+          </Reveal>
           
           <div className="grid gap-6">
             {news.map((item: NewsItem, idx: number) => (
-              <article key={idx} className="bg-card rounded-2xl p-6 border border-foreground/5 hover:border-primary/30 transition-colors group">
-                <div className="flex justify-between items-start mb-4">
-                  <span className="text-xs font-semibold text-blue-400 uppercase tracking-wider">{item.date}</span>
-                </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors">{item.title}</h3>
-                <p className="text-foreground/60 leading-relaxed text-sm">{item.content}</p>
-              </article>
+              <Reveal key={idx} direction="left" delay={0.5 + (idx * 0.1)}>
+                <article className="bg-card rounded-2xl p-6 border-2 border-foreground/5 hover:border-primary/30 transition-all group">
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">{item.date}</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors text-foreground">{item.title}</h3>
+                  <p className="text-muted leading-relaxed text-sm font-medium">{item.content}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Roadmap Column */}
         <div className="space-y-8">
-          <div className="flex items-center justify-between mb-2">
-            <h2 className="text-2xl font-bold border-l-4 border-cyan-500 pl-4">Планы (Roadmap)</h2>
-          </div>
+          <Reveal direction="right" delay={0.4}>
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-2xl font-bold border-l-4 border-cyan-500 pl-4 text-foreground uppercase tracking-wide">Планы (Roadmap)</h2>
+            </div>
+          </Reveal>
           
-          <div className="relative border-l border-foreground/10 ml-4 space-y-10 py-4">
+          <div className="relative border-l-2 border-foreground/10 ml-4 space-y-10 py-4">
             {roadmap.map((item: RoadmapItem, idx: number) => (
-              <div key={idx} className="relative pl-8">
-                <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.5)]"></div>
-                <span className="text-xs font-bold text-cyan-400 uppercase mb-1 block">{item.date}</span>
-                <h4 className="text-lg font-bold mb-2">{item.title}</h4>
-                <p className="text-foreground/60 text-sm leading-relaxed">{item.description}</p>
-              </div>
+              <Reveal key={idx} direction="right" delay={0.6 + (idx * 0.1)}>
+                <div className="relative pl-8">
+                  <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)] border-2 border-background"></div>
+                  <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase mb-1 block tracking-wider">{item.date}</span>
+                  <h4 className="text-lg font-bold mb-2 text-foreground">{item.title}</h4>
+                  <p className="text-muted text-sm leading-relaxed font-medium">{item.description}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
 
-          <div className="bg-primary/5 rounded-2xl p-6 border border-primary/20 mt-8">
-            <h3 className="font-bold text-blue-400 mb-2">Поддержать проект</h3>
-            <p className="text-foreground/60 text-xs leading-relaxed mb-4">
-              Мы постоянно работаем над новыми функциями. Если вам нравится сервис, расскажите о нем друзьям!
-            </p>
-            <button className="w-full py-2 bg-card hover:bg-card/80 border border-foreground/10 rounded-lg text-xs font-bold transition-colors">
-              Копировать ссылку
-            </button>
-          </div>
+          <Reveal delay={0.8}>
+            <div className="bg-primary/10 rounded-2xl p-6 border-2 border-primary/20 mt-8 shadow-inner">
+              <h3 className="font-bold text-blue-600 dark:text-blue-400 mb-2 uppercase text-sm tracking-wide">Поддержать проект</h3>
+              <p className="text-muted text-xs leading-relaxed mb-4 font-medium">
+                Мы постоянно работаем над новыми функциями. Если вам нравится сервис, расскажите о нем друзьям!
+              </p>
+              <button className="w-full py-3 bg-card hover:bg-background border-2 border-foreground/10 rounded-xl text-xs font-bold transition-all text-foreground uppercase tracking-widest">
+                Копировать ссылку
+              </button>
+            </div>
+          </Reveal>
         </div>
 
       </div>

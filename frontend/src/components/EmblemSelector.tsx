@@ -27,7 +27,7 @@ export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: Emb
 
   return (
     <div className="mt-4">
-      <h3 className="text-sm font-semibold text-foreground/50 mb-3 text-center md:text-left">{label}</h3>
+      <h3 className="text-sm font-semibold text-muted mb-3 text-center md:text-left">{label}</h3>
       <div className="flex flex-wrap gap-3 justify-center md:justify-start">
         {emblems.map((emblem) => {
           const isSelected = selectedEmblem?.id === emblem.id;
@@ -40,7 +40,7 @@ export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: Emb
                 w-12 h-12 rounded-full border-2 cursor-pointer transition-all flex items-center justify-center p-1
                 ${isSelected 
                   ? `${colors?.border} ${colors?.bg} ${colors?.shadow} scale-110` 
-                  : 'border-foreground/10 bg-card hover:border-foreground/30'}
+                  : 'border-slate-400 dark:border-slate-700 bg-card hover:border-foreground/60'}
               `}
               onClick={() => onSelect(emblem)}
               title={emblem.name.ru}

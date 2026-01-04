@@ -6,14 +6,17 @@
   
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
 }
 
 :root {
   --background: #ffffff;
   --foreground: #020617;
-  --card: #f8fafc;
+  --card: #f1f5f9; /* Сделал чуть темнее для контраста с белым фоном */
   --card-foreground: #020617;
-  --primary: #3b82f6;
+  --muted: #64748b; /* Контрастный серый для подписей */
+  --primary: #2563eb; /* Чуть более глубокий синий */
   --primary-foreground: #ffffff;
   --neon-color-1: #fb0094;
   --neon-color-2: #0000ff;
@@ -27,6 +30,7 @@
   --foreground: #f8fafc;
   --card: #0f172a;
   --card-foreground: #f8fafc;
+  --muted: #94a3b8;
   --primary: #60a5fa;
   --primary-foreground: #020617;
 }
@@ -37,11 +41,11 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
-/* Neon Glow Effect adapted from user example */
+/* Neon Glow Effect - Always active gradient on border, enhanced on interaction */
 .neon-button {
   position: relative;
   display: inline-block;
-  padding: 0; /* Padding handled by span */
+  padding: 0;
   background: transparent;
   text-transform: uppercase;
   font-size: 1.25rem;
@@ -55,7 +59,7 @@ body {
 .neon-button span {
   position: relative;
   display: block;
-  margin: 1px; /* Creates the gap for the border */
+  margin: 1px;
   padding: 12px 24px;
   background: var(--background);
   color: var(--foreground);
@@ -64,7 +68,9 @@ body {
   border-radius: inherit;
 }
 
-.neon-button:hover span {
+/* На мобильных или при наведении делаем фон прозрачнее, чтобы видеть градиент внутри */
+.neon-button:hover span,
+.neon-button:active span {
   color: #fff;
   background: transparent;
 }
@@ -85,7 +91,7 @@ body {
   background-size: 400%;
   opacity: 1;
   z-index: -1;
-  animation: neon-animate 20s linear infinite;
+  animation: neon-animate 15s linear infinite; /* Замедлил до 15с */
 }
 
 .neon-button::after {
@@ -102,19 +108,96 @@ body {
     var(--neon-color-5)
   );
   background-size: 400%;
-  opacity: 0;
+  opacity: 0.3; /* Всегда небольшое свечение */
   filter: blur(20px);
   transition: 0.5s;
   z-index: -1;
+  animation: neon-animate 15s linear infinite; /* Замедлил до 15с */
 }
 
-.neon-button:hover::before {
-  /* Ускоряем или усиливаем при наведении, если нужно, но база уже анимирована */
-}
-
-.neon-button:hover::after {
+.neon-button:hover::after,
+.neon-button:active::after {
   opacity: 1;
-  animation: neon-animate 20s linear infinite;
+  filter: blur(30px);
+}
+
+/* Neon Card for Results */
+.neon-card-result {
+  position: relative;
+  z-index: 1;
+  background: var(--card);
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+.neon-card-result::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, #00ff00, #00ffff, #00ff00);
+  background-size: 200% 100%;
+  z-index: -1;
+  animation: neon-animate 10s linear infinite; /* Замедлил до 10с */
+}
+
+/* Анимированный текст с градиентом */
+/* Постоянная неоновая анимация для текста */
+.neon-text-active {
+  background: linear-gradient(90deg, 
+    var(--neon-color-1), var(--neon-color-2), var(--neon-color-3), 
+    var(--neon-color-4), var(--neon-color-5), var(--neon-color-1)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neon-animate 12s linear infinite; /* Замедлил до 12с */
+  display: inline-block;
+}
+
+/* Класс для иконок (SVG), использующий маску для наложения градиента */
+.neon-icon-mask {
+  background: linear-gradient(90deg, 
+    var(--neon-color-1), var(--neon-color-2), var(--neon-color-3), 
+    var(--neon-color-4), var(--neon-color-5), var(--neon-color-1)
+  );
+  background-size: 200% auto;
+  animation: neon-animate 12s linear infinite; /* Замедлил до 12с */
+  /* Центрирование маски */
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* Анимированная тонкая линия */
+.neon-line-bottom {
+  position: relative;
+}
+
+.neon-line-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    var(--neon-color-1), var(--neon-color-2), var(--neon-color-3), 
+    var(--neon-color-4), var(--neon-color-5), var(--neon-color-1)
+  );
+  background-size: 200% auto;
+  animation: neon-animate 15s linear infinite; /* Замедлил до 15с */
+  box-shadow: 0 0 10px rgba(251, 0, 148, 0.3);
+}
+
+/* Media query for touch devices to show 'filled' state more clearly */
+@media (hover: none) {
+  .neon-button span {
+    background: rgba(var(--background-rgb, 0, 0, 0), 0.8);
+  }
 }
 
 @keyframes neon-animate {
@@ -131,6 +214,15 @@ body {
 
 .slide-in {
   animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.98); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s infinite ease-in-out;
 }
 
 /* Скрытие скроллбара */

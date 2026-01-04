@@ -56,7 +56,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
 
   return (
     <div className="mt-6">
-      <h3 className="text-sm font-semibold text-foreground/50 mb-2">{label}</h3>
+      <h3 className="text-sm font-semibold text-muted mb-2">{label}</h3>
       
       {/* Сетка из 6 слотов */}
       <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
@@ -64,10 +64,12 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
           <div 
             key={index}
             className={`
-              aspect-square rounded-full border-2 border-foreground/10 bg-card 
+              aspect-square rounded-full border-2 bg-card 
               flex items-center justify-center cursor-pointer relative group
-              hover:border-blue-500 transition-colors
-              ${!item ? 'border-dashed' : ''}
+              transition-all duration-300 hover:border-blue-500
+              ${item 
+                ? 'border-foreground/20' 
+                : 'border-dashed border-slate-500 dark:border-slate-700 animate-pulse-subtle'}
             `}
             onClick={() => setActiveSlotIndex(index)}
           >
@@ -88,7 +90,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
                 </button>
               </>
             ) : (
-              <span className="text-foreground/20 text-2xl">+</span>
+              <span className="text-muted text-2xl">+</span>
             )}
           </div>
         ))}

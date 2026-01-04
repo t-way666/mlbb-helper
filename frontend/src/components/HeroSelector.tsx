@@ -10,11 +10,25 @@ interface HeroSelectorProps {
   heroes: Hero[];
   onSelect: (hero: Hero) => void;
   selectedHero: Hero | null;
+  variant?: 'red' | 'blue';
 }
 
-export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSelectorProps) {
+export function HeroSelector({ label, heroes, onSelect, selectedHero, variant = 'blue' }: HeroSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const colors = {
+    blue: {
+      border: 'border-blue-500',
+      shadow: 'shadow-[0_0_20px_rgba(59,130,246,0.4)]',
+      hover: 'hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]'
+    },
+    red: {
+      border: 'border-red-500',
+      shadow: 'shadow-[0_0_20px_rgba(239,68,68,0.4)]',
+      hover: 'hover:border-red-500/50 hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]'
+    }
+  }[variant];
 
   // Фильтрация героев по поиску
   const filteredHeroes = heroes.filter(hero => 
@@ -28,8 +42,8 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
         className={`
           w-40 h-40 border-2 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 bg-background/30 rounded-full
           ${selectedHero 
-            ? 'border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] scale-105' 
-            : 'border-dashed border-foreground/20 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]'}
+            ? `${colors.border} ${colors.shadow} scale-105` 
+            : `border-dashed border-slate-500 dark:border-slate-700 animate-pulse-subtle ${colors.hover}`}
         `}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -38,15 +52,15 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
             <ImageWithFallback 
               srcBase={`/assets/images/hero_base_avatar_icons/${selectedHero.image_id}`} 
               alt={selectedHero.name.ru}
-              className="w-20 h-20 rounded-full border-2 border-blue-500 mb-1 object-cover"
+              className={`w-20 h-20 rounded-full border-2 ${colors.border} mb-1 object-cover`}
             />
-            <div className="text-sm font-bold truncate max-w-[120px]">{selectedHero.name.ru}</div>
-            <div className="text-[10px] text-foreground/50 uppercase tracking-tighter">{selectedHero.roles.ru.join(' / ')}</div>
+            <div className="text-sm font-bold truncate max-w-[120px] text-foreground">{selectedHero.name.ru}</div>
+            <div className="text-[10px] text-muted uppercase tracking-tighter font-bold">{selectedHero.roles.ru.join(' / ')}</div>
           </div>
         ) : (
           <div className="flex flex-col items-center text-center p-4">
-            <span className="text-3xl text-foreground/20 mb-1">+</span>
-            <span className="text-[10px] text-foreground/30 font-bold uppercase tracking-widest">{label}</span>
+            <span className="text-3xl text-muted/40 mb-1">+</span>
+            <span className="text-[10px] text-muted font-bold uppercase tracking-widest">{label}</span>
           </div>
         )}
       </div>

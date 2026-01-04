@@ -25,6 +25,9 @@ export function ThemeToggle() {
         animate={{
           backgroundColor: isDark ? '#0f172a' : '#60a5fa',
           borderColor: isDark ? '#334155' : '#bfdbfe',
+          boxShadow: isDark 
+            ? '0 0 15px rgba(30, 41, 59, 0.5)' 
+            : '0 0 15px rgba(96, 165, 250, 0.5)'
         }}
         className="relative w-[80px] h-[40px] rounded-full p-1 border-2 focus:outline-none overflow-hidden"
         aria-label="Toggle theme"
