@@ -1,0 +1,1359 @@
+[
+  {
+    "id": "maleficgun_1",
+    "image_id": "maleficgun",
+    "name": {
+      "ru": "Губительный пулемет",
+      "en": "Malefic Gun"
+    },
+    "cost": 2120,
+    "category": "Прочее",
+    "stats": {
+      "phys_atk": 40.0,
+      "phys_penetration_fraction": 0.3,
+      "attack_speed_fraction": 0.2
+    }
+  },
+  {
+    "id": "greatdragonspear_2",
+    "image_id": "greatdragonspear",
+    "name": {
+      "ru": "Копье великого дракона",
+      "en": "Great Dragon Spear"
+    },
+    "cost": 2140,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 70.0,
+      "cooldown_reduction_fraction": 0.1,
+      "crit_chance_fraction": 0.2
+    }
+  },
+  {
+    "id": "seahalberd_3",
+    "image_id": "seahalberd",
+    "name": {
+      "ru": "Трезубец",
+      "en": "Sea Halberd"
+    },
+    "cost": 2050,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 80.0,
+      "attack_speed_fraction": 0.2
+    }
+  },
+  {
+    "id": "rosegoldmeteor_4",
+    "image_id": "rosegoldmeteor",
+    "name": {
+      "ru": "Золотой метеор",
+      "en": "Rose Gold Meteor"
+    },
+    "cost": 2030,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 40.0,
+      "lifesteal_fraction": 0.1,
+      "attack_speed_fraction": 0.2
+    }
+  },
+  {
+    "id": "hunterstrike_5",
+    "image_id": "hunterstrike",
+    "name": {
+      "ru": "Удар охотника",
+      "en": "Hunter Strike"
+    },
+    "cost": 2010,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 80.0,
+      "phys_penetration_flat": 15.0,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "bladeofdespair_6",
+    "image_id": "bladeofdespair",
+    "name": {
+      "ru": "Клинок отчаяния",
+      "en": "Blade of Despair"
+    },
+    "cost": 3010,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 160.0,
+      "move_speed_flat": 0.05
+    }
+  },
+  {
+    "id": "bladeoftheheptaseas_7",
+    "image_id": "bladeoftheheptaseas",
+    "name": {
+      "ru": "Клинок семи морей",
+      "en": "Blade of the Heptaseas"
+    },
+    "cost": 1950,
+    "category": "Атака",
+    "stats": {
+      "hp": 250.0,
+      "phys_atk": 70.0,
+      "phys_penetration_flat": 15.0
+    }
+  },
+  {
+    "id": "windtalker_8",
+    "image_id": "windtalker",
+    "name": {
+      "ru": "Говорящий с ветром",
+      "en": "Windtalker"
+    },
+    "cost": 1880,
+    "category": "Атака",
+    "stats": {
+      "move_speed_flat": 20.0,
+      "attack_speed_fraction": 0.35,
+      "crit_chance_fraction": 0.2
+    }
+  },
+  {
+    "id": "endlessbattle_9",
+    "image_id": "endlessbattle",
+    "name": {
+      "ru": "Бесконечная битва",
+      "en": "Endless Battle"
+    },
+    "cost": 2330,
+    "category": "Атака",
+    "stats": {
+      "hp": 250.0,
+      "regen_mana": 5.0,
+      "phys_atk": 60.0,
+      "move_speed_fraction": 0.05,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "berserkersfury_10",
+    "image_id": "berserkersfury",
+    "name": {
+      "ru": "Ярость берсерка",
+      "en": "Berserker's Fury"
+    },
+    "cost": 2390,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 65.0,
+      "crit_chance_fraction": 0.25
+    }
+  },
+  {
+    "id": "haasclaws_11",
+    "image_id": "haasclaws",
+    "name": {
+      "ru": "Когти хааса",
+      "en": "Haas' Claws"
+    },
+    "cost": 2020,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 40.0,
+      "attack_speed_fraction": 0.15,
+      "crit_chance_fraction": 0.2
+    }
+  },
+  {
+    "id": "maleficroar_12",
+    "image_id": "maleficroar",
+    "name": {
+      "ru": "Злобный рык",
+      "en": "Malefic Roar"
+    },
+    "cost": 2060,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 60.0,
+      "phys_penetration_fraction": 0.3
+    }
+  },
+  {
+    "id": "wintercrown_13",
+    "image_id": "wintercrown",
+    "name": {
+      "ru": "Зимняя корона",
+      "en": "Winter Crown"
+    },
+    "cost": 1910,
+    "category": "Магия",
+    "stats": {
+      "hp": 400.0,
+      "adaptive_attack": 45.0,
+      "cooldown_reduction_fraction": 0.05
+    }
+  },
+  {
+    "id": "fleetingtime_14",
+    "image_id": "fleetingtime",
+    "name": {
+      "ru": "Мимолетное время",
+      "en": "Fleeting Time"
+    },
+    "cost": 2050,
+    "category": "Магия",
+    "stats": {
+      "hp": 600.0,
+      "adaptive_attack": 30.0,
+      "cooldown_reduction_fraction": 0.15
+    }
+  },
+  {
+    "id": "skypiercer_15",
+    "image_id": "skypiercer",
+    "name": {
+      "ru": "Пронзающий небеса",
+      "en": "Sky Piercer"
+    },
+    "cost": 1500,
+    "category": "Атака",
+    "stats": {
+      "adaptive_attack": 60.0,
+      "move_speed_flat": 15.0
+    }
+  },
+  {
+    "id": "waraxe_16",
+    "image_id": "waraxe",
+    "name": {
+      "ru": "Топор войны",
+      "en": "War Axe"
+    },
+    "cost": 2100,
+    "category": "Атака",
+    "stats": {
+      "hp": 400.0,
+      "phys_atk": 35.0,
+      "spell_vamp_fraction": 0.12,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "windofnature_17",
+    "image_id": "windofnature",
+    "name": {
+      "ru": "Ветер природы",
+      "en": "Wind of Nature"
+    },
+    "cost": 1910,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 30.0,
+      "lifesteal_fraction": 0.1,
+      "attack_speed_fraction": 0.2
+    }
+  },
+  {
+    "id": "goldenstaff_18",
+    "image_id": "goldenstaff",
+    "name": {
+      "ru": "Золотой посох",
+      "en": "Golden Staff"
+    },
+    "cost": 2000,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 55.0,
+      "attack_speed_fraction": 0.15
+    }
+  },
+  {
+    "id": "corrosionscythe_19",
+    "image_id": "corrosionscythe",
+    "name": {
+      "ru": "Коса коррозии",
+      "en": "Corrosion Scythe"
+    },
+    "cost": 2050,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 30.0,
+      "move_speed_flat": 0.05,
+      "attack_speed_fraction": 0.3
+    }
+  },
+  {
+    "id": "demonhuntersword_20",
+    "image_id": "demonhuntersword",
+    "name": {
+      "ru": "Меч охотника на демонов",
+      "en": "Demon Hunter Sword"
+    },
+    "cost": 2180,
+    "category": "Атака",
+    "stats": {
+      "phys_atk": 35.0,
+      "lifesteal_fraction": 0.08,
+      "attack_speed_fraction": 0.2
+    }
+  },
+  {
+    "id": "magicblade_21",
+    "image_id": "magicblade",
+    "name": {
+      "ru": "Магический клинок",
+      "en": "Magic Blade"
+    },
+    "cost": 1050,
+    "category": "Прочее",
+    "stats": {
+      "phys_atk": 35.0,
+      "lifesteal_fraction": 0.1
+    }
+  },
+  {
+    "id": "furyhammer_22",
+    "image_id": "furyhammer",
+    "name": {
+      "ru": "Молот гнева",
+      "en": "Fury Hammer"
+    },
+    "cost": 830,
+    "category": "Прочее",
+    "stats": {
+      "phys_atk": 35.0,
+      "phys_penetration_flat": 12.0
+    }
+  },
+  {
+    "id": "roguemeteor_23",
+    "image_id": "roguemeteor",
+    "name": {
+      "ru": "Кистень грабителя",
+      "en": "Rogue Meteor"
+    },
+    "cost": 900,
+    "category": "Прочее",
+    "stats": {
+      "attack_speed_fraction": 0.15,
+      "crit_chance_fraction": 0.1
+    }
+  },
+  {
+    "id": "ogretomahawk_24",
+    "image_id": "ogretomahawk",
+    "name": {
+      "ru": "Топор великана",
+      "en": "Ogre Tomahawk"
+    },
+    "cost": 650,
+    "category": "Атака",
+    "stats": {
+      "hp": 230.0,
+      "phys_atk": 25.0
+    }
+  },
+  {
+    "id": "legionsword_25",
+    "image_id": "legionsword",
+    "name": {
+      "ru": "Меч легионера",
+      "en": "Legion Sword"
+    },
+    "cost": 910,
+    "category": "Прочее",
+    "stats": {
+      "phys_atk": 60.0
+    }
+  },
+  {
+    "id": "swiftcrossbow_26",
+    "image_id": "swiftcrossbow",
+    "name": {
+      "ru": "Быстрый арбалет",
+      "en": "Swift Crossbow"
+    },
+    "cost": 1000,
+    "category": "Прочее",
+    "stats": {
+      "attack_speed_fraction": 0.2
+    }
+  },
+  {
+    "id": "regularspear_27",
+    "image_id": "regularspear",
+    "name": {
+      "ru": "Обычное копье",
+      "en": "Regular Spear"
+    },
+    "cost": 600,
+    "category": "Прочее",
+    "stats": {
+      "phys_atk": 20.0,
+      "attack_speed_fraction": 0.1
+    }
+  },
+  {
+    "id": "expertgloves_28",
+    "image_id": "expertgloves",
+    "name": {
+      "ru": "Перчатки эксперта",
+      "en": "Expert Gloves"
+    },
+    "cost": 500,
+    "category": "Прочее",
+    "stats": {
+      "adaptive_attack": 30.0
+    }
+  },
+  {
+    "id": "ironhuntingbow_29",
+    "image_id": "ironhuntingbow",
+    "name": {
+      "ru": "Железный лук охотника",
+      "en": "Iron Hunting Bow"
+    },
+    "cost": 450,
+    "category": "Прочее",
+    "stats": {
+      "phys_atk": 10.0,
+      "cooldown_reduction_fraction": 0.05
+    }
+  },
+  {
+    "id": "vampiremallet_30",
+    "image_id": "vampiremallet",
+    "name": {
+      "ru": "Булава вампира",
+      "en": "Vampire Mallet"
+    },
+    "cost": 400,
+    "category": "Прочее",
+    "stats": {
+      "phys_atk": 8.0,
+      "lifesteal_fraction": 0.08
+    }
+  },
+  {
+    "id": "javelin_31",
+    "image_id": "javelin",
+    "name": {
+      "ru": "Копье",
+      "en": "Javelin"
+    },
+    "cost": 320,
+    "category": "Прочее",
+    "stats": {
+      "crit_chance_fraction": 0.08
+    }
+  },
+  {
+    "id": "knife_32",
+    "image_id": "knife",
+    "name": {
+      "ru": "Нож",
+      "en": "Knife"
+    },
+    "cost": 280,
+    "category": "Прочее",
+    "stats": {
+      "attack_speed_fraction": 0.1
+    }
+  },
+  {
+    "id": "dagger_33",
+    "image_id": "dagger",
+    "name": {
+      "ru": "Кинжал",
+      "en": "Dagger"
+    },
+    "cost": 250,
+    "category": "Прочее",
+    "stats": {
+      "phys_atk": 15.0
+    }
+  },
+  {
+    "id": "powerpotion_34",
+    "image_id": "powerpotion",
+    "name": {
+      "ru": "Зелье силы",
+      "en": "Power Potion"
+    },
+    "cost": 1500,
+    "category": "Прочее",
+    "stats": {}
+  },
+  {
+    "id": "wishinglantern_35",
+    "image_id": "wishinglantern",
+    "name": {
+      "ru": "Фонарь желаний",
+      "en": "Wishing Lantern"
+    },
+    "cost": 2250,
+    "category": "Магия",
+    "stats": {
+      "mana": 400.0,
+      "mag_power": 75.0,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "flaskoftheoasis_36",
+    "image_id": "flaskoftheoasis",
+    "name": {
+      "ru": "Фляга оазиса",
+      "en": "Flask of the Oasis"
+    },
+    "cost": 1850,
+    "category": "Прочее",
+    "stats": {
+      "hp": 300.0,
+      "mag_power": 60.0,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "geniuswand_37",
+    "image_id": "geniuswand",
+    "name": {
+      "ru": "Палочка гения",
+      "en": "Genius Wand"
+    },
+    "cost": 2000,
+    "category": "Магия",
+    "stats": {
+      "mag_power": 75.0,
+      "move_speed_flat": 0.05
+    }
+  },
+  {
+    "id": "lightningtruncheon_38",
+    "image_id": "lightningtruncheon",
+    "name": {
+      "ru": "Жезл молний",
+      "en": "Lightning Truncheon"
+    },
+    "cost": 2250,
+    "category": "Магия",
+    "stats": {
+      "mana": 400.0,
+      "mag_power": 75.0,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "bloodwings_39",
+    "image_id": "bloodwings",
+    "name": {
+      "ru": "Кровавые крылья",
+      "en": "Blood Wings"
+    },
+    "cost": 2100,
+    "category": "Магия",
+    "stats": {
+      "mag_power": 90.0
+    }
+  },
+  {
+    "id": "starliumscythe_40",
+    "image_id": "starliumscythe",
+    "name": {
+      "ru": "Старлиумовая коса",
+      "en": "Starlium Scythe"
+    },
+    "cost": 2220,
+    "category": "Магия",
+    "stats": {
+      "regen_mana": 6.0,
+      "mag_power": 70.0,
+      "hybrid_vamp_fraction": 0.08,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "glowingwand_41",
+    "image_id": "glowingwand",
+    "name": {
+      "ru": "Пылающий жезл",
+      "en": "Glowing Wand"
+    },
+    "cost": 2150,
+    "category": "Магия",
+    "stats": {
+      "hp": 400.0,
+      "mag_power": 75.0,
+      "move_speed_flat": 0.05
+    }
+  },
+  {
+    "id": "icequeenwand_42",
+    "image_id": "icequeenwand",
+    "name": {
+      "ru": "Жезл снежной королевы",
+      "en": "Ice Queen Wand"
+    },
+    "cost": 2040,
+    "category": "Магия",
+    "stats": {
+      "hp": 300.0,
+      "mag_power": 75.0,
+      "spell_vamp_fraction": 0.1,
+      "move_speed_flat": 0.07
+    }
+  },
+  {
+    "id": "concentratedenergy_43",
+    "image_id": "concentratedenergy",
+    "name": {
+      "ru": "Концентрированная энергия",
+      "en": "Concentrated Energy"
+    },
+    "cost": 2020,
+    "category": "Магия",
+    "stats": {
+      "hp": 400.0,
+      "mag_power": 70.0
+    }
+  },
+  {
+    "id": "holycrystal_44",
+    "image_id": "holycrystal",
+    "name": {
+      "ru": "Священный кристалл",
+      "en": "Holy Crystal"
+    },
+    "cost": 3000,
+    "category": "Магия",
+    "stats": {
+      "mag_power": 185.0
+    }
+  },
+  {
+    "id": "divineglaive_45",
+    "image_id": "divineglaive",
+    "name": {
+      "ru": "Божественный меч",
+      "en": "Divine Glaive"
+    },
+    "cost": 1970,
+    "category": "Магия",
+    "stats": {
+      "mag_power": 60.0,
+      "mag_penetration_fraction": 0.4
+    }
+  },
+  {
+    "id": "clockofdestiny_46",
+    "image_id": "clockofdestiny",
+    "name": {
+      "ru": "Часы судьбы",
+      "en": "Clock of Destiny"
+    },
+    "cost": 2030,
+    "category": "Магия",
+    "stats": {
+      "hp": 400.0,
+      "mana": 400.0,
+      "mag_power": 45.0,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "featherofheaven_47",
+    "image_id": "featherofheaven",
+    "name": {
+      "ru": "Райское перо",
+      "en": "Feather of Heaven"
+    },
+    "cost": 2030,
+    "category": "Магия",
+    "stats": {
+      "mag_power": 55.0,
+      "lifesteal_fraction": 0.1,
+      "cooldown_reduction_fraction": 0.05,
+      "attack_speed_fraction": 0.2
+    }
+  },
+  {
+    "id": "enchantedtalisman_48",
+    "image_id": "enchantedtalisman",
+    "name": {
+      "ru": "Зачарованный талисман",
+      "en": "Enchanted Talisman"
+    },
+    "cost": 1870,
+    "category": "Магия",
+    "stats": {
+      "hp": 250.0,
+      "mag_power": 50.0,
+      "cooldown_reduction_fraction": 0.2
+    }
+  },
+  {
+    "id": "elegantgem_49",
+    "image_id": "elegantgem",
+    "name": {
+      "ru": "Элегантный самоцвет",
+      "en": "Elegant Gem"
+    },
+    "cost": 700,
+    "category": "Прочее",
+    "stats": {
+      "hp": 300.0,
+      "mana": 380.0
+    }
+  },
+  {
+    "id": "exoticveil_50",
+    "image_id": "exoticveil",
+    "name": {
+      "ru": "Иноземная маска",
+      "en": "Exotic Veil"
+    },
+    "cost": 600,
+    "category": "Прочее",
+    "stats": {
+      "mag_power": 30.0,
+      "move_speed_flat": 0.05
+    }
+  },
+  {
+    "id": "azureblade_51",
+    "image_id": "azureblade",
+    "name": {
+      "ru": "Лазурный клинок",
+      "en": "Azure Blade"
+    },
+    "cost": 600,
+    "category": "Прочее",
+    "stats": {
+      "regen_mana": 5.0,
+      "cooldown_reduction_fraction": 0.05
+    }
+  },
+  {
+    "id": "tomeofevil_52",
+    "image_id": "tomeofevil",
+    "name": {
+      "ru": "Книга зла",
+      "en": "Tome of Evil"
+    },
+    "cost": 950,
+    "category": "Магия",
+    "stats": {
+      "regen_mana": 4.0,
+      "mag_power": 35.0,
+      "cooldown_reduction_fraction": 0.08
+    }
+  },
+  {
+    "id": "magicwand_53",
+    "image_id": "magicwand",
+    "name": {
+      "ru": "Волшебная палочка",
+      "en": "Magic Wand"
+    },
+    "cost": 820,
+    "category": "Прочее",
+    "stats": {
+      "mag_power": 45.0
+    }
+  },
+  {
+    "id": "mysticcontainer_54",
+    "image_id": "mysticcontainer",
+    "name": {
+      "ru": "Загадочный сосуд",
+      "en": "Mystic Container"
+    },
+    "cost": 500,
+    "category": "Прочее",
+    "stats": {
+      "mag_power": 15.0,
+      "spell_vamp_fraction": 0.08
+    }
+  },
+  {
+    "id": "mysterycodex_55",
+    "image_id": "mysterycodex",
+    "name": {
+      "ru": "Книга мудрости",
+      "en": "Mystery Codex"
+    },
+    "cost": 450,
+    "category": "Прочее",
+    "stats": {
+      "mag_power": 8.0,
+      "cooldown_reduction_fraction": 0.05
+    }
+  },
+  {
+    "id": "magicnecklace_56",
+    "image_id": "magicnecklace",
+    "name": {
+      "ru": "Магическое ожерелье",
+      "en": "Magic Necklace"
+    },
+    "cost": 120,
+    "category": "Прочее",
+    "stats": {
+      "regen_mana": 2.0
+    }
+  },
+  {
+    "id": "powercrystal_57",
+    "image_id": "powercrystal",
+    "name": {
+      "ru": "Кристалл силы",
+      "en": "Power Crystal"
+    },
+    "cost": 220,
+    "category": "Прочее",
+    "stats": {
+      "mana": 280.0
+    }
+  },
+  {
+    "id": "magicnecklace_58",
+    "image_id": "magicnecklace",
+    "name": {
+      "ru": "Магическая книга",
+      "en": "Magic Necklace"
+    },
+    "cost": 300,
+    "category": "Прочее",
+    "stats": {
+      "mag_power": 15.0
+    }
+  },
+  {
+    "id": "lanternofhope_59",
+    "image_id": "lanternofhope",
+    "name": {
+      "ru": "Фонарь надежды",
+      "en": "Lantern of Hope"
+    },
+    "cost": 0,
+    "category": "Прочее",
+    "stats": {
+      "mag_power": 20.0,
+      "move_speed_flat": 0.04,
+      "cooldown_reduction_fraction": 0.02
+    }
+  },
+  {
+    "id": "flowerofhope_60",
+    "image_id": "flowerofhope",
+    "name": {
+      "ru": "Цветок надежды",
+      "en": "Flower of Hope"
+    },
+    "cost": 0,
+    "category": "Прочее",
+    "stats": {
+      "adaptive_attack": 0.05
+    }
+  },
+  {
+    "id": "magicpotion_61",
+    "image_id": "magicpotion",
+    "name": {
+      "ru": "Зелье магии",
+      "en": "Magic Potion"
+    },
+    "cost": 1500,
+    "category": "Прочее",
+    "stats": {}
+  },
+  {
+    "id": "radiantarmor_62",
+    "image_id": "radiantarmor",
+    "name": {
+      "ru": "Сияющая броня",
+      "en": "Radiant Armor"
+    },
+    "cost": 1880,
+    "category": "Защита",
+    "stats": {
+      "hp": 950.0,
+      "regen_hp": 12.0,
+      "mag_def": 40.0
+    }
+  },
+  {
+    "id": "bruteforcebreastplate_64",
+    "image_id": "bruteforcebreastplate",
+    "name": {
+      "ru": "Кираса грубой силы",
+      "en": "Brute Force Breastplate"
+    },
+    "cost": 1870,
+    "category": "Защита",
+    "stats": {
+      "hp": 600.0,
+      "phys_def": 20.0,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "immortality_65",
+    "image_id": "immortality",
+    "name": {
+      "ru": "Бессмертие",
+      "en": "Immortality"
+    },
+    "cost": 2120,
+    "category": "Защита",
+    "stats": {
+      "hp": 800.0,
+      "phys_def": 15.0
+    }
+  },
+  {
+    "id": "dominanceice_66",
+    "image_id": "dominanceice",
+    "name": {
+      "ru": "Господство льда",
+      "en": "Dominance Ice"
+    },
+    "cost": 2010,
+    "category": "Защита",
+    "stats": {
+      "mana": 500.0,
+      "phys_def": 55.0,
+      "move_speed_flat": 0.05
+    }
+  },
+  {
+    "id": "athenasshield_67",
+    "image_id": "athenasshield",
+    "name": {
+      "ru": "Щит афины",
+      "en": "Athena's Shield"
+    },
+    "cost": 2150,
+    "category": "Защита",
+    "stats": {
+      "hp": 900.0,
+      "regen_hp": 2.0,
+      "mag_def": 48.0
+    }
+  },
+  {
+    "id": "oracle_68",
+    "image_id": "oracle",
+    "name": {
+      "ru": "Оракул",
+      "en": "Oracle"
+    },
+    "cost": 1860,
+    "category": "Защита",
+    "stats": {
+      "hp": 850.0,
+      "phys_def": 20.0,
+      "mag_def": 20.0,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "antiquecuirass_69",
+    "image_id": "antiquecuirass",
+    "name": {
+      "ru": "Древняя кираса",
+      "en": "Antique Cuirass"
+    },
+    "cost": 2170,
+    "category": "Защита",
+    "stats": {
+      "hp": 920.0,
+      "regen_hp": 4.0,
+      "phys_def": 40.0
+    }
+  },
+  {
+    "id": "guardianhelmet_70",
+    "image_id": "guardianhelmet",
+    "name": {
+      "ru": "Защитный шлем",
+      "en": "Guardian Helmet"
+    },
+    "cost": 2200,
+    "category": "Защита",
+    "stats": {
+      "hp": 1550.0,
+      "regen_hp": 20.0
+    }
+  },
+  {
+    "id": "cursedhelmet_71",
+    "image_id": "cursedhelmet",
+    "name": {
+      "ru": "Проклятый шлем",
+      "en": "Cursed Helmet"
+    },
+    "cost": 1910,
+    "category": "Защита",
+    "stats": {
+      "hp": 1200.0,
+      "mag_def": 20.0
+    }
+  },
+  {
+    "id": "thunderbelt_72",
+    "image_id": "thunderbelt",
+    "name": {
+      "ru": "Штормовой пояс",
+      "en": "Thunder Belt"
+    },
+    "cost": 1820,
+    "category": "Защита",
+    "stats": {
+      "hp": 800.0,
+      "phys_def": 15.0,
+      "mag_def": 15.0,
+      "move_speed_flat": 20.0
+    }
+  },
+  {
+    "id": "queenswings_73",
+    "image_id": "queenswings",
+    "name": {
+      "ru": "Крылья королевы",
+      "en": "Queen's Wings"
+    },
+    "cost": 2250,
+    "category": "Защита",
+    "stats": {
+      "hp": 600.0,
+      "adaptive_attack": 40.0,
+      "spell_vamp_fraction": 0.1,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "bladearmor_74",
+    "image_id": "bladearmor",
+    "name": {
+      "ru": "Шипованная броня",
+      "en": "Blade Armor"
+    },
+    "cost": 1910,
+    "category": "Защита",
+    "stats": {
+      "phys_def": 70.0
+    }
+  },
+  {
+    "id": "steellegplates_75",
+    "image_id": "steellegplates",
+    "name": {
+      "ru": "Стальные ножные латы",
+      "en": "Steel Legplates"
+    },
+    "cost": 630,
+    "category": "Прочее",
+    "stats": {
+      "phys_def": 35.0
+    }
+  },
+  {
+    "id": "chastisepauldron_76",
+    "image_id": "chastisepauldron",
+    "name": {
+      "ru": "Броня неустрашимости",
+      "en": "Chastise Pauldron"
+    },
+    "cost": 730,
+    "category": "Защита",
+    "stats": {
+      "phys_def": 30.0,
+      "crit_damage_reduction_fraction": 0.2
+    }
+  },
+  {
+    "id": "blackiceshield_77",
+    "image_id": "blackiceshield",
+    "name": {
+      "ru": "Щит из черного льда",
+      "en": "Black Ice Shield"
+    },
+    "cost": 880,
+    "category": "Прочее",
+    "stats": {
+      "mana": 400.0,
+      "phys_def": 18.0
+    }
+  },
+  {
+    "id": "silencerobe_78",
+    "image_id": "silencerobe",
+    "name": {
+      "ru": "Роба тишины",
+      "en": "Silence Robe"
+    },
+    "cost": 1020,
+    "category": "Прочее",
+    "stats": {
+      "hp": 540.0,
+      "mag_def": 23.0
+    }
+  },
+  {
+    "id": "moltenessence_79",
+    "image_id": "moltenessence",
+    "name": {
+      "ru": "Расплавленная субстанция",
+      "en": "Molten Essence"
+    },
+    "cost": 800,
+    "category": "Прочее",
+    "stats": {
+      "hp": 540.0
+    }
+  },
+  {
+    "id": "aresbelt_80",
+    "image_id": "aresbelt",
+    "name": {
+      "ru": "Пояс ареса",
+      "en": "Ares Belt"
+    },
+    "cost": 900,
+    "category": "Прочее",
+    "stats": {
+      "hp": 770.0
+    }
+  },
+  {
+    "id": "herosring_81",
+    "image_id": "herosring",
+    "name": {
+      "ru": "Кольцо героя",
+      "en": "Hero's Ring"
+    },
+    "cost": 450,
+    "category": "Прочее",
+    "stats": {
+      "hp": 150.0,
+      "cooldown_reduction_fraction": 0.05
+    }
+  },
+  {
+    "id": "healingnecklace_82",
+    "image_id": "healingnecklace",
+    "name": {
+      "ru": "Исцеляющее ожерелье",
+      "en": "Healing Necklace"
+    },
+    "cost": 140,
+    "category": "Прочее",
+    "stats": {
+      "regen_hp": 4.0
+    }
+  },
+  {
+    "id": "magicresistcloak_83",
+    "image_id": "magicresistcloak",
+    "name": {
+      "ru": "Плащ сопротивления магии",
+      "en": "Magic Resist Cloak"
+    },
+    "cost": 220,
+    "category": "Прочее",
+    "stats": {
+      "mag_def": 14.0
+    }
+  },
+  {
+    "id": "leatherjerkin_84",
+    "image_id": "leatherjerkin",
+    "name": {
+      "ru": "Кожаная броня",
+      "en": "Leather Jerkin"
+    },
+    "cost": 220,
+    "category": "Прочее",
+    "stats": {
+      "mag_def": 14.0
+    }
+  },
+  {
+    "id": "vitalitycrystal_85",
+    "image_id": "vitalitycrystal",
+    "name": {
+      "ru": "Кристалл здоровья",
+      "en": "Vitality Crystal"
+    },
+    "cost": 300,
+    "category": "Прочее",
+    "stats": {
+      "hp": 230.0
+    }
+  },
+  {
+    "id": "rockpotion_86",
+    "image_id": "rockpotion",
+    "name": {
+      "ru": "Зелье стойкости",
+      "en": "Rock Potion"
+    },
+    "cost": 1500,
+    "category": "Прочее",
+    "stats": {}
+  },
+  {
+    "id": "demonshoes_87",
+    "image_id": "demonshoes",
+    "name": {
+      "ru": "Ботинки демона",
+      "en": "Demon Shoes"
+    },
+    "cost": 720,
+    "category": "Движение",
+    "stats": {
+      "regen_mana": 10.0,
+      "move_speed_flat": 40.0
+    }
+  },
+  {
+    "id": "rapidboots_88",
+    "image_id": "rapidboots",
+    "name": {
+      "ru": "Сапоги-скороходы",
+      "en": "Rapid Boots"
+    },
+    "cost": 750,
+    "category": "Прочее",
+    "stats": {
+      "move_speed_flat": 65.0
+    }
+  },
+  {
+    "id": "swiftboots_89",
+    "image_id": "swiftboots",
+    "name": {
+      "ru": "Сапоги спешки",
+      "en": "Swift Boots"
+    },
+    "cost": 710,
+    "category": "Движение",
+    "stats": {
+      "move_speed_flat": 40.0,
+      "attack_speed_fraction": 0.15
+    }
+  },
+  {
+    "id": "arcaneboots_90",
+    "image_id": "arcaneboots",
+    "name": {
+      "ru": "Сапоги заклинателя",
+      "en": "Arcane Boots"
+    },
+    "cost": 690,
+    "category": "Движение",
+    "stats": {
+      "mag_penetration_flat": 10.0,
+      "move_speed_flat": 40.0
+    }
+  },
+  {
+    "id": "magicshoes_91",
+    "image_id": "magicshoes",
+    "name": {
+      "ru": "Магические ботинки",
+      "en": "Magic Shoes"
+    },
+    "cost": 710,
+    "category": "Движение",
+    "stats": {
+      "move_speed_flat": 40.0,
+      "cooldown_reduction_fraction": 0.1
+    }
+  },
+  {
+    "id": "toughboots_92",
+    "image_id": "toughboots",
+    "name": {
+      "ru": "Прочные сапоги",
+      "en": "Tough Boots"
+    },
+    "cost": 700,
+    "category": "Движение",
+    "stats": {
+      "mag_def": 18.0,
+      "move_speed_flat": 40.0
+    }
+  },
+  {
+    "id": "warriorboots_93",
+    "image_id": "warriorboots",
+    "name": {
+      "ru": "Сапоги воина",
+      "en": "Warrior Boots"
+    },
+    "cost": 720,
+    "category": "Движение",
+    "stats": {
+      "phys_def": 18.0,
+      "move_speed_flat": 40.0
+    }
+  },
+  {
+    "id": "boots_94",
+    "image_id": "boots",
+    "name": {
+      "ru": "Ботинки",
+      "en": "Boots"
+    },
+    "cost": 250,
+    "category": "Движение",
+    "stats": {
+      "move_speed_flat": 20.0
+    }
+  },
+  {
+    "id": "throwforbidden_95",
+    "image_id": "throwforbidden",
+    "name": {
+      "ru": "Запрет броска",
+      "en": "Throw Forbidden"
+    },
+    "cost": 0,
+    "category": "Прочее",
+    "stats": {}
+  },
+  {
+    "id": "allowthrow_96",
+    "image_id": "allowthrow",
+    "name": {
+      "ru": "Разрешение броска",
+      "en": "Allow Throw"
+    },
+    "cost": 0,
+    "category": "Прочее",
+    "stats": {}
+  },
+  {
+    "id": "brokenheart_97",
+    "image_id": "brokenheart",
+    "name": {
+      "ru": "Разбитое сердце",
+      "en": "Broken Heart"
+    },
+    "cost": 0,
+    "category": "Атака",
+    "stats": {}
+  },
+  {
+    "id": "resonatingheart_98",
+    "image_id": "resonatingheart",
+    "name": {
+      "ru": "Отклик сердца",
+      "en": "Resonating Heart"
+    },
+    "cost": 0,
+    "category": "Прочее",
+    "stats": {}
+  }
+]

@@ -1,0 +1,6897 @@
+[
+  {
+    "id": "aurora_1",
+    "image_id": "aurora",
+    "name": {
+      "ru": "Аврора",
+      "en": "Aurora"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2380.0,
+        "growth": 155.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 110.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "akai_2",
+    "image_id": "akai",
+    "name": {
+      "ru": "Акай",
+      "en": "Akai"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2560.0,
+        "growth": 243.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 5.643
+      },
+      "phys_def": {
+        "base": 24.0,
+        "growth": 6.643
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 2.1,
+        "max": 2.1
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "aldous_3",
+    "image_id": "aldous",
+    "name": {
+      "ru": "Алдос",
+      "en": "Aldous"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2490.0,
+        "growth": 205.0
+      },
+      "hp_regen": {
+        "base": 9.8,
+        "growth": 0.486
+      },
+      "phys_atk": {
+        "base": 129.0,
+        "growth": 10.714
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.04,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.4,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "alice_4",
+    "image_id": "alice",
+    "name": {
+      "ru": "Алиса",
+      "en": "Alice"
+    },
+    "roles": {
+      "ru": [
+        "Маг",
+        "Танк"
+      ],
+      "en": [
+        "Mage",
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2452.0,
+        "growth": 182.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 114.0,
+        "growth": 5.5
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "alucard_5",
+    "image_id": "alucard",
+    "name": {
+      "ru": "Алукард",
+      "en": "Alucard"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Убийца"
+      ],
+      "en": [
+        "Fighter",
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2443.0,
+        "growth": 225.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 123.0,
+        "growth": 8.643
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.12,
+        "growth": 0.03
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 4.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "alpha_6",
+    "image_id": "alpha",
+    "name": {
+      "ru": "Альфа",
+      "en": "Alpha"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2468.0,
+        "growth": 234.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.514
+      },
+      "phys_atk": {
+        "base": 121.0,
+        "growth": 8.357
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 4.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.13,
+        "growth": 0.031
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "angela_7",
+    "image_id": "angela",
+    "name": {
+      "ru": "Ангела",
+      "en": "Angela"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка"
+      ],
+      "en": [
+        "Support"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2300.0,
+        "growth": 140.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 7.214
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 3.857
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.99,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.9,
+        "max": 4.9
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "argus_8",
+    "image_id": "argus",
+    "name": {
+      "ru": "Аргус",
+      "en": "Argus"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2450.0,
+        "growth": 198.0
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.4
+      },
+      "phys_atk": {
+        "base": 111.0,
+        "growth": 6.0
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.09,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.9,
+        "max": 1.9
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "arlott_9",
+    "image_id": "arlott",
+    "name": {
+      "ru": "Арлотт",
+      "en": "Arlott"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Убийца"
+      ],
+      "en": [
+        "Fighter",
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2450.0,
+        "growth": 215.0
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.729
+      },
+      "phys_atk": {
+        "base": 120.0,
+        "growth": 10.0
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.09,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "atlas_10",
+    "image_id": "atlas",
+    "name": {
+      "ru": "Атлас",
+      "en": "Atlas"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2710.0,
+        "growth": 243.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 135.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 7.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 0.9
+    }
+  },
+  {
+    "id": "aulus_11",
+    "image_id": "aulus",
+    "name": {
+      "ru": "Аулус",
+      "en": "Aulus"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2580.0,
+        "growth": 220.0
+      },
+      "hp_regen": {
+        "base": 10.2,
+        "growth": 0.457
+      },
+      "phys_atk": {
+        "base": 90.0,
+        "growth": 12.714
+      },
+      "phys_def": {
+        "base": 24.0,
+        "growth": 4.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.92,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.9,
+        "max": 3.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "badang_12",
+    "image_id": "badang",
+    "name": {
+      "ru": "Баданг",
+      "en": "Badang"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2530.0,
+        "growth": 235.0
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.414
+      },
+      "phys_atk": {
+        "base": 111.0,
+        "growth": 9.5
+      },
+      "phys_def": {
+        "base": 23.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.12,
+        "growth": 0.031
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 2.3
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "baxia_13",
+    "image_id": "baxia",
+    "name": {
+      "ru": "Баксий",
+      "en": "Baxia"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2660.0,
+        "growth": 208.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 125.0,
+        "growth": 5.643
+      },
+      "phys_def": {
+        "base": 23.0,
+        "growth": 5.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 0.9
+    }
+  },
+  {
+    "id": "balmond_14",
+    "image_id": "balmond",
+    "name": {
+      "ru": "Бальмонд",
+      "en": "Balmond"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2558.0,
+        "growth": 261.0
+      },
+      "hp_regen": {
+        "base": 9.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 119.0,
+        "growth": 8.429
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 4.643
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "barats_15",
+    "image_id": "barats",
+    "name": {
+      "ru": "Бартс",
+      "en": "Barats"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Поддержка"
+      ],
+      "en": [
+        "Fighter",
+        "Support"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2450.0,
+        "growth": 244.0
+      },
+      "hp_regen": {
+        "base": 8.8,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 135.0,
+        "growth": 5.143
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 6.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 268.0,
+      "atk_range": {
+        "min": 1.7,
+        "max": 2.1
+      },
+      "atk_speed_ratio": 0.5
+    }
+  },
+  {
+    "id": "beatrix_16",
+    "image_id": "beatrix",
+    "name": {
+      "ru": "Беатрис",
+      "en": "Beatrix"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2280.0,
+        "growth": 170.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.2
+      },
+      "phys_atk": {
+        "base": 110.0,
+        "growth": 9.5
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.07,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 257.0,
+      "atk_range": {
+        "min": 4.0,
+        "max": 6.6
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "bane_17",
+    "image_id": "bane",
+    "name": {
+      "ru": "Бейн",
+      "en": "Bane"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Маг"
+      ],
+      "en": [
+        "Fighter",
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2381.0,
+        "growth": 245.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 117.0,
+        "growth": 10.857
+      },
+      "phys_def": {
+        "base": 23.0,
+        "growth": 4.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 3.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "belerick_18",
+    "image_id": "belerick",
+    "name": {
+      "ru": "Белерик",
+      "en": "Belerick"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2460.0,
+        "growth": 240.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 110.0,
+        "growth": 7.0
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 6.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "benedetta_19",
+    "image_id": "benedetta",
+    "name": {
+      "ru": "Бенедетта",
+      "en": "Benedetta"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Убийца"
+      ],
+      "en": [
+        "Fighter",
+        "Assassin"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2410.0,
+        "growth": 178.0
+      },
+      "hp_regen": {
+        "base": 6.6,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 113.0,
+        "growth": 10.214
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.1,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.9,
+        "max": 1.9
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "brody_20",
+    "image_id": "brody",
+    "name": {
+      "ru": "Броуди",
+      "en": "Brody"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2290.0,
+        "growth": 165.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.229
+      },
+      "phys_atk": {
+        "base": 105.0,
+        "growth": 12.0
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.2,
+        "growth": 0.05
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 253.0,
+      "atk_range": {
+        "min": 4.9,
+        "max": 4.9
+      },
+      "atk_speed_ratio": 0.7
+    }
+  },
+  {
+    "id": "bruno_21",
+    "image_id": "bruno",
+    "name": {
+      "ru": "Бруно",
+      "en": "Bruno"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2270.0,
+        "growth": 160.0
+      },
+      "hp_regen": {
+        "base": 6.0,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 145.0,
+        "growth": 14.5
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.8,
+        "max": 4.8
+      },
+      "atk_speed_ratio": 0.8
+    }
+  },
+  {
+    "id": "valentina_22",
+    "image_id": "valentina",
+    "name": {
+      "ru": "Валентина",
+      "en": "Valentina"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2580.0,
+        "growth": 200.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 6.429
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "valir_23",
+    "image_id": "valir",
+    "name": {
+      "ru": "Валир",
+      "en": "Valir"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2395.0,
+        "growth": 155.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 105.0,
+        "growth": 4.714
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "wanwan_24",
+    "image_id": "wanwan",
+    "name": {
+      "ru": "Ван Ван",
+      "en": "Wanwan"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2300.0,
+        "growth": 150.0
+      },
+      "hp_regen": {
+        "base": 5.4,
+        "growth": 0.2
+      },
+      "phys_atk": {
+        "base": 110.0,
+        "growth": 9.0
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 4.4,
+        "max": 4.4
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "vale_25",
+    "image_id": "vale",
+    "name": {
+      "ru": "Вейл",
+      "en": "Vale"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2280.0,
+        "growth": 145.5
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 7.143
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "vexana_26",
+    "image_id": "vexana",
+    "name": {
+      "ru": "Вексана",
+      "en": "Vexana"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2360.0,
+        "growth": 150.0
+      },
+      "hp_regen": {
+        "base": 7.6,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 112.0,
+        "growth": 5.786
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 4.8,
+        "max": 4.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "gatotkaca_27",
+    "image_id": "gatotkaca",
+    "name": {
+      "ru": "Гатоткача",
+      "en": "Gatotkaca"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Танк"
+      ],
+      "en": [
+        "Fighter",
+        "Tank"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2520.0,
+        "growth": 225.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 128.0,
+        "growth": 7.143
+      },
+      "phys_def": {
+        "base": 10.0,
+        "growth": 6.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.02,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.4,
+        "max": 2.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "guinevere_28",
+    "image_id": "guinevere",
+    "name": {
+      "ru": "Гвиневра",
+      "en": "Guinevere"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2350.0,
+        "growth": 212.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 126.0,
+        "growth": 9.214
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.13,
+        "growth": 0.031
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 4.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "gloo_29",
+    "image_id": "gloo",
+    "name": {
+      "ru": "Глу",
+      "en": "Gloo"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2710.0,
+        "growth": 255.0
+      },
+      "hp_regen": {
+        "base": 12.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 120.0,
+        "growth": 6.429
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 7.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 0.8
+    }
+  },
+  {
+    "id": "gord_30",
+    "image_id": "gord",
+    "name": {
+      "ru": "Горд",
+      "en": "Gord"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2357.0,
+        "growth": 142.5
+      },
+      "hp_regen": {
+        "base": 6.4,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 110.0,
+        "growth": 6.143
+      },
+      "phys_def": {
+        "base": 13.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.96,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "gusion_31",
+    "image_id": "gusion",
+    "name": {
+      "ru": "Госсен",
+      "en": "Gusion"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2419.0,
+        "growth": 180.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 119.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.11,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.7,
+        "max": 1.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "granger_32",
+    "image_id": "granger",
+    "name": {
+      "ru": "Грейнджер",
+      "en": "Granger"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2260.0,
+        "growth": 140.0
+      },
+      "hp_regen": {
+        "base": 5.4,
+        "growth": 0.2
+      },
+      "phys_atk": {
+        "base": 116.0,
+        "growth": 15.0
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.02,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "grock_33",
+    "image_id": "grock",
+    "name": {
+      "ru": "Грок",
+      "en": "Grock"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Танк"
+      ],
+      "en": [
+        "Fighter",
+        "Tank"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2710.0,
+        "growth": 255.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 135.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 7.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.7,
+        "max": 1.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "dyrroth_34",
+    "image_id": "dyrroth",
+    "name": {
+      "ru": "Дариус",
+      "en": "Dyrroth"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2580.0,
+        "growth": 230.0
+      },
+      "hp_regen": {
+        "base": 8.2,
+        "growth": 0.486
+      },
+      "phys_atk": {
+        "base": 117.0,
+        "growth": 10.643
+      },
+      "phys_def": {
+        "base": 22.0,
+        "growth": 4.643
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.13,
+        "growth": 0.031
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 265.0,
+      "atk_range": {
+        "min": 1.7,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "joy_35",
+    "image_id": "joy",
+    "name": {
+      "ru": "Джой",
+      "en": "Joy"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2519.0,
+        "growth": 210.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 119.0,
+        "growth": 9.714
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.12,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "johnson_36",
+    "image_id": "johnson",
+    "name": {
+      "ru": "Джонсон",
+      "en": "Johnson"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка",
+        "Танк"
+      ],
+      "en": [
+        "Support",
+        "Tank"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2700.0,
+        "growth": 250.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 120.0,
+        "growth": 6.357
+      },
+      "phys_def": {
+        "base": 27.0,
+        "growth": 8.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.4,
+        "max": 1.4
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "julian_37",
+    "image_id": "julian",
+    "name": {
+      "ru": "Джулиан",
+      "en": "Julian"
+    },
+    "roles": {
+      "ru": [
+        "Убийца",
+        "Боец"
+      ],
+      "en": [
+        "Assassin",
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2700.0,
+        "growth": 230.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.457
+      },
+      "phys_atk": {
+        "base": 128.0,
+        "growth": 9.214
+      },
+      "phys_def": {
+        "base": 24.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.1,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 262.0,
+      "atk_range": {
+        "min": 2.8,
+        "max": 2.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "diggie_38",
+    "image_id": "diggie",
+    "name": {
+      "ru": "Дигги",
+      "en": "Diggie"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка"
+      ],
+      "en": [
+        "Support"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2347.0,
+        "growth": 135.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 7.214
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 2.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "zhask_39",
+    "image_id": "zhask",
+    "name": {
+      "ru": "Заск",
+      "en": "Zhask"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2280.0,
+        "growth": 145.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 107.0,
+        "growth": 7.214
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 3.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.0
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "zilong_40",
+    "image_id": "zilong",
+    "name": {
+      "ru": "Зилонг",
+      "en": "Zilong"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2511.0,
+        "growth": 217.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.4
+      },
+      "phys_atk": {
+        "base": 123.0,
+        "growth": 6.643
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 4.643
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.2,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 265.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 2.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "yve_41",
+    "image_id": "yve",
+    "name": {
+      "ru": "Ив",
+      "en": "Yve"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2530.0,
+        "growth": 185.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 6.429
+      },
+      "phys_def": {
+        "base": 19.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "xborg_42",
+    "image_id": "xborg",
+    "name": {
+      "ru": "Иксборг",
+      "en": "X.Borg"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Energy",
+    "stats": {
+      "hp": {
+        "base": 917.0,
+        "growth": 116.5
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.414
+      },
+      "phys_atk": {
+        "base": 117.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 4.643
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 4.2
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "ixia_43",
+    "image_id": "ixia",
+    "name": {
+      "ru": "Иксия",
+      "en": "Ixia"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2320.0,
+        "growth": 170.0
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 100.0,
+        "growth": 8.5
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.04,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 5.0,
+        "max": 5.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "yin_44",
+    "image_id": "yin",
+    "name": {
+      "ru": "Инь",
+      "en": "Yin"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Убийца"
+      ],
+      "en": [
+        "Fighter",
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2400.0,
+        "growth": 205.0
+      },
+      "hp_regen": {
+        "base": 9.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 109.0,
+        "growth": 7.214
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.07,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 252.0,
+      "atk_range": {
+        "min": 1.6,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "irithel_45",
+    "image_id": "irithel",
+    "name": {
+      "ru": "Иритель",
+      "en": "Irithel"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2300.0,
+        "growth": 160.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.229
+      },
+      "phys_atk": {
+        "base": 125.0,
+        "growth": 8.5
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 4.9,
+        "max": 4.9
+      },
+      "atk_speed_ratio": 0.8
+    }
+  },
+  {
+    "id": "kagura_46",
+    "image_id": "kagura",
+    "name": {
+      "ru": "Кагура",
+      "en": "Kagura"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2375.0,
+        "growth": 146.786
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.414
+      },
+      "phys_atk": {
+        "base": 118.0,
+        "growth": 8.0
+      },
+      "phys_def": {
+        "base": 19.0,
+        "growth": 3.857
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.02,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "kadita_47",
+    "image_id": "kadita",
+    "name": {
+      "ru": "Кадита",
+      "en": "Kadita"
+    },
+    "roles": {
+      "ru": [
+        "Убийца",
+        "Маг"
+      ],
+      "en": [
+        "Assassin",
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2370.0,
+        "growth": 169.643
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.314
+      },
+      "phys_atk": {
+        "base": 105.0,
+        "growth": 5.214
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "kaja_48",
+    "image_id": "kaja",
+    "name": {
+      "ru": "Кайя",
+      "en": "Kaja"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка",
+        "Боец"
+      ],
+      "en": [
+        "Support",
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2431.0,
+        "growth": 225.0
+      },
+      "hp_regen": {
+        "base": 10.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 120.0,
+        "growth": 7.0
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.05,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 270.0,
+      "atk_range": {
+        "min": 2.8,
+        "max": 4.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "kalea_49",
+    "image_id": "kalea",
+    "name": {
+      "ru": "Калеа",
+      "en": "Kalea"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка",
+        "Боец"
+      ],
+      "en": [
+        "Support",
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2500.0,
+        "growth": 240.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 126.0,
+        "growth": 9.214
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 5.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.14,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.4,
+        "max": 3.2
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "karina_50",
+    "image_id": "karina",
+    "name": {
+      "ru": "Карина",
+      "en": "Karina"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2474.0,
+        "growth": 202.786
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 121.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.12,
+        "growth": 0.03
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 2.9
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "carmilla_51",
+    "image_id": "carmilla",
+    "name": {
+      "ru": "Кармилла",
+      "en": "Carmilla"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2419.0,
+        "growth": 242.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 126.0,
+        "growth": 9.214
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 7.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.13,
+        "growth": 0.031
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.6,
+        "max": 1.6
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "karrie_52",
+    "image_id": "karrie",
+    "name": {
+      "ru": "Керри",
+      "en": "Karrie"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2278.0,
+        "growth": 165.0
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 120.0,
+        "growth": 12.5
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.04,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.4,
+        "max": 4.4
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "kimmy_53",
+    "image_id": "kimmy",
+    "name": {
+      "ru": "Кимми",
+      "en": "Kimmy"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Energy",
+    "stats": {
+      "hp": {
+        "base": 2450.0,
+        "growth": 117.5
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.229
+      },
+      "phys_atk": {
+        "base": 90.0,
+        "growth": 9.0
+      },
+      "phys_def": {
+        "base": 22.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": -0.002
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 5.3,
+        "max": 5.3
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "claude_54",
+    "image_id": "claude",
+    "name": {
+      "ru": "Клауд",
+      "en": "Claude"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2250.0,
+        "growth": 133.0
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.229
+      },
+      "phys_atk": {
+        "base": 100.0,
+        "growth": 7.0
+      },
+      "phys_def": {
+        "base": 14.0,
+        "growth": 3.857
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.2,
+        "max": 4.2
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "clint_55",
+    "image_id": "clint",
+    "name": {
+      "ru": "Клинт",
+      "en": "Clint"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2285.0,
+        "growth": 145.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 120.0,
+        "growth": 12.0
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.05,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.8,
+        "max": 7.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "xavier_56",
+    "image_id": "xavier",
+    "name": {
+      "ru": "Ксавьер",
+      "en": "Xavier"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2495.0,
+        "growth": 155.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 111.0,
+        "growth": 6.214
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.6,
+        "max": 4.6
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "jawhead_57",
+    "image_id": "jawhead",
+    "name": {
+      "ru": "Кусака",
+      "en": "Jawhead"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2480.0,
+        "growth": 238.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.514
+      },
+      "phys_atk": {
+        "base": 119.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 24.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.12,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.5,
+        "max": 1.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "lancelot_58",
+    "image_id": "lancelot",
+    "name": {
+      "ru": "Ланселот",
+      "en": "Lancelot"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2390.0,
+        "growth": 162.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 124.0,
+        "growth": 11.786
+      },
+      "phys_def": {
+        "base": 16.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.7,
+        "max": 1.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "lapulapu_59",
+    "image_id": "lapulapu",
+    "name": {
+      "ru": "Лапу-Лапу",
+      "en": "Lapu-Lapu"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2450.0,
+        "growth": 228.286
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.4
+      },
+      "phys_atk": {
+        "base": 119.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.12,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 3.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "layla_60",
+    "image_id": "layla",
+    "name": {
+      "ru": "Лейла",
+      "en": "Layla"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2250.0,
+        "growth": 152.0
+      },
+      "hp_regen": {
+        "base": 5.4,
+        "growth": 0.2
+      },
+      "phys_atk": {
+        "base": 133.0,
+        "growth": 10.0
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.3,
+        "max": 7.1
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "leomord_61",
+    "image_id": "leomord",
+    "name": {
+      "ru": "Леоморд",
+      "en": "Leomord"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2560.0,
+        "growth": 230.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 126.0,
+        "growth": 10.214
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.05,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 1.6,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "lesley_62",
+    "image_id": "lesley",
+    "name": {
+      "ru": "Лесли",
+      "en": "Lesley"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Energy",
+    "stats": {
+      "hp": {
+        "base": 2280.0,
+        "growth": 140.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.229
+      },
+      "phys_atk": {
+        "base": 145.0,
+        "growth": 7.0
+      },
+      "phys_def": {
+        "base": 14.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.04,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.9,
+        "max": 6.0
+      },
+      "atk_speed_ratio": 0.8
+    }
+  },
+  {
+    "id": "yisunshin_63",
+    "image_id": "yisunshin",
+    "name": {
+      "ru": "Ли Сун-Син",
+      "en": "Yi Sun-shin"
+    },
+    "roles": {
+      "ru": [
+        "Убийца",
+        "Стрелок"
+      ],
+      "en": [
+        "Assassin",
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2570.0,
+        "growth": 132.5
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.229
+      },
+      "phys_atk": {
+        "base": 95.0,
+        "growth": 8.0
+      },
+      "phys_def": {
+        "base": 22.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 0.4
+    }
+  },
+  {
+    "id": "lylia_64",
+    "image_id": "lylia",
+    "name": {
+      "ru": "Лилия",
+      "en": "Lylia"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2380.0,
+        "growth": 147.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 113.0,
+        "growth": 6.714
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "ling_65",
+    "image_id": "ling",
+    "name": {
+      "ru": "Линг",
+      "en": "Ling"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Energy",
+    "stats": {
+      "hp": {
+        "base": 2369.0,
+        "growth": 150.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 125.0,
+        "growth": 6.0
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 6.2
+      },
+      "atk_speed_ratio": 0.4
+    }
+  },
+  {
+    "id": "luoyi_66",
+    "image_id": "luoyi",
+    "name": {
+      "ru": "Ло Йи",
+      "en": "Luo Yi"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2480.0,
+        "growth": 195.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 107.0,
+        "growth": 6.143
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.99,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "lolita_67",
+    "image_id": "lolita",
+    "name": {
+      "ru": "Лолита",
+      "en": "Lolita"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2342.0,
+        "growth": 183.0
+      },
+      "hp_regen": {
+        "base": 9.6,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 6.857
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 6.643
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 3.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "lukas_68",
+    "image_id": "lukas",
+    "name": {
+      "ru": "Лукас",
+      "en": "Lukas"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2550.0,
+        "growth": 202.0
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 119.0,
+        "growth": 9.214
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.429
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 3.4
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "lunox_69",
+    "image_id": "lunox",
+    "name": {
+      "ru": "Люнокс",
+      "en": "Lunox"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2621.0,
+        "growth": 151.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 6.214
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 3.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 5.0,
+        "max": 5.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "martis_70",
+    "image_id": "martis",
+    "name": {
+      "ru": "Мартис",
+      "en": "Martis"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2560.0,
+        "growth": 219.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.4
+      },
+      "phys_atk": {
+        "base": 128.0,
+        "growth": 8.714
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "mathilda_71",
+    "image_id": "mathilda",
+    "name": {
+      "ru": "Матильда",
+      "en": "Mathilda"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка",
+        "Убийца"
+      ],
+      "en": [
+        "Support",
+        "Assassin"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2530.0,
+        "growth": 201.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.286
+      },
+      "phys_atk": {
+        "base": 120.0,
+        "growth": 6.714
+      },
+      "phys_def": {
+        "base": 22.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.005
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 252.0,
+      "atk_range": {
+        "min": 4.1,
+        "max": 4.1
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "masha_72",
+    "image_id": "masha",
+    "name": {
+      "ru": "Маша",
+      "en": "Masha"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Танк"
+      ],
+      "en": [
+        "Fighter",
+        "Tank"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2000.0,
+        "growth": 78.571
+      },
+      "hp_regen": {
+        "base": 3.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 90.0,
+        "growth": 9.714
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 3.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.96,
+        "growth": 0.035
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "melissa_73",
+    "image_id": "melissa",
+    "name": {
+      "ru": "Мелисса",
+      "en": "Melissa"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2288.0,
+        "growth": 160.0
+      },
+      "hp_regen": {
+        "base": 6.6,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 123.0,
+        "growth": 7.0
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.93,
+        "growth": 0.011
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 248.0,
+      "atk_range": {
+        "min": 4.6,
+        "max": 4.6
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "minotaur_74",
+    "image_id": "minotaur",
+    "name": {
+      "ru": "Минотавр",
+      "en": "Minotaur"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2750.0,
+        "growth": 264.0
+      },
+      "hp_regen": {
+        "base": 8.8,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 123.0,
+        "growth": 5.143
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 5.5
+      },
+      "mag_def": {
+        "base": 10.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.91,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "minsitthar_75",
+    "image_id": "minsitthar",
+    "name": {
+      "ru": "Минситтар",
+      "en": "Minsitthar"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2520.0,
+        "growth": 213.0
+      },
+      "hp_regen": {
+        "base": 7.4,
+        "growth": 0.414
+      },
+      "phys_atk": {
+        "base": 121.0,
+        "growth": 9.214
+      },
+      "phys_def": {
+        "base": 23.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.03
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 5.0
+      },
+      "atk_speed_ratio": 0.8
+    }
+  },
+  {
+    "id": "miya_76",
+    "image_id": "miya",
+    "name": {
+      "ru": "Мия",
+      "en": "Miya"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2225.0,
+        "growth": 153.0
+      },
+      "hp_regen": {
+        "base": 6.0,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 8.0
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.8,
+        "max": 4.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "moskov_77",
+    "image_id": "moskov",
+    "name": {
+      "ru": "Москов",
+      "en": "Moskov"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2255.0,
+        "growth": 143.0
+      },
+      "hp_regen": {
+        "base": 6.4,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 125.0,
+        "growth": 10.0
+      },
+      "phys_def": {
+        "base": 16.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.005
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "nana_78",
+    "image_id": "nana",
+    "name": {
+      "ru": "Нана",
+      "en": "Nana"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2380.0,
+        "growth": 142.5
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 7.286
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 3.857
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "natalia_79",
+    "image_id": "natalia",
+    "name": {
+      "ru": "Наталья",
+      "en": "Natalia"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2480.0,
+        "growth": 179.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 121.0,
+        "growth": 8.714
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.1,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 3.8
+      },
+      "atk_speed_ratio": 0.6
+    }
+  },
+  {
+    "id": "natan_80",
+    "image_id": "natan",
+    "name": {
+      "ru": "Натан",
+      "en": "Natan"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2285.0,
+        "growth": 160.0
+      },
+      "hp_regen": {
+        "base": 6.0,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 12.0
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.87,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 4.6,
+        "max": 4.6
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "novaria_81",
+    "image_id": "novaria",
+    "name": {
+      "ru": "Новария",
+      "en": "Novaria"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2280.0,
+        "growth": 143.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 6.214
+      },
+      "phys_def": {
+        "base": 12.0,
+        "growth": 3.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 5.0,
+        "max": 5.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "nolan_82",
+    "image_id": "nolan",
+    "name": {
+      "ru": "Нолан",
+      "en": "Nolan"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Energy",
+    "stats": {
+      "hp": {
+        "base": 2390.0,
+        "growth": 162.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 124.0,
+        "growth": 11.786
+      },
+      "phys_def": {
+        "base": 16.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.016
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 3.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "odette_83",
+    "image_id": "odette",
+    "name": {
+      "ru": "Одетта",
+      "en": "Odette"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2370.0,
+        "growth": 154.643
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 105.0,
+        "growth": 5.214
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "paquito_84",
+    "image_id": "paquito",
+    "name": {
+      "ru": "Пакито",
+      "en": "Paquito"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Убийца"
+      ],
+      "en": [
+        "Fighter",
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2620.0,
+        "growth": 205.0
+      },
+      "hp_regen": {
+        "base": 9.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 121.0,
+        "growth": 10.071
+      },
+      "phys_def": {
+        "base": 22.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.22,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.6,
+        "max": 1.6
+      },
+      "atk_speed_ratio": 0.8
+    }
+  },
+  {
+    "id": "popolandkupa_85",
+    "image_id": "popolandkupa",
+    "name": {
+      "ru": "Пополь И Купа",
+      "en": "Popol and Kupa"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2300.0,
+        "growth": 140.0
+      },
+      "hp_regen": {
+        "base": 6.0,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 100.0,
+        "growth": 7.0
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 3.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "rafaela_86",
+    "image_id": "rafaela",
+    "name": {
+      "ru": "Рафаэль",
+      "en": "Rafaela"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка"
+      ],
+      "en": [
+        "Support"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2320.0,
+        "growth": 143.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 117.0,
+        "growth": 7.214
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.99,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "roger_87",
+    "image_id": "roger",
+    "name": {
+      "ru": "Роджер",
+      "en": "Roger"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Стрелок"
+      ],
+      "en": [
+        "Fighter",
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2530.0,
+        "growth": 168.5
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 128.0,
+        "growth": 13.5
+      },
+      "phys_def": {
+        "base": 22.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.05,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 1.7,
+        "max": 4.1
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "ruby_88",
+    "image_id": "ruby",
+    "name": {
+      "ru": "Руби",
+      "en": "Ruby"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2331.0,
+        "growth": 185.0
+      },
+      "hp_regen": {
+        "base": 6.0,
+        "growth": 0.571
+      },
+      "phys_atk": {
+        "base": 129.0,
+        "growth": 6.929
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.07,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "saber_89",
+    "image_id": "saber",
+    "name": {
+      "ru": "Сабер",
+      "en": "Saber"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2440.0,
+        "growth": 180.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 118.0,
+        "growth": 9.714
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 2.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "sun_90",
+    "image_id": "sun",
+    "name": {
+      "ru": "Сан",
+      "en": "Sun"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2500.0,
+        "growth": 210.0
+      },
+      "hp_regen": {
+        "base": 8.2,
+        "growth": 0.543
+      },
+      "phys_atk": {
+        "base": 114.0,
+        "growth": 6.643
+      },
+      "phys_def": {
+        "base": 23.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.13,
+        "growth": 0.021
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "selena_91",
+    "image_id": "selena",
+    "name": {
+      "ru": "Селена",
+      "en": "Selena"
+    },
+    "roles": {
+      "ru": [
+        "Убийца",
+        "Маг"
+      ],
+      "en": [
+        "Assassin",
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2280.0,
+        "growth": 197.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 110.0,
+        "growth": 6.714
+      },
+      "phys_def": {
+        "base": 15.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 4.3
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "cecilion_92",
+    "image_id": "cecilion",
+    "name": {
+      "ru": "Сесилион",
+      "en": "Cecilion"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2335.0,
+        "growth": 155.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 105.0,
+        "growth": 4.714
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 5.0,
+        "max": 5.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "silvanna_93",
+    "image_id": "silvanna",
+    "name": {
+      "ru": "Сильвана",
+      "en": "Silvanna"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2650.0,
+        "growth": 212.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 126.0,
+        "growth": 9.214
+      },
+      "phys_def": {
+        "base": 22.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.13,
+        "growth": 0.031
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "suyou_94",
+    "image_id": "suyou",
+    "name": {
+      "ru": "Су Ё",
+      "en": "Suyou"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Убийца"
+      ],
+      "en": [
+        "Fighter",
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2390.0,
+        "growth": 162.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 124.0,
+        "growth": 11.786
+      },
+      "phys_def": {
+        "base": 16.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 225.0,
+      "atk_range": {
+        "min": 1.7,
+        "max": 2.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "thamuz_95",
+    "image_id": "thamuz",
+    "name": {
+      "ru": "Тамуз",
+      "en": "Thamuz"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2580.0,
+        "growth": 228.0
+      },
+      "hp_regen": {
+        "base": 7.4,
+        "growth": 0.4
+      },
+      "phys_atk": {
+        "base": 107.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.05,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 3.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "terizla_96",
+    "image_id": "terizla",
+    "name": {
+      "ru": "Теризла",
+      "en": "Terizla"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Танк"
+      ],
+      "en": [
+        "Fighter",
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2619.0,
+        "growth": 230.0
+      },
+      "hp_regen": {
+        "base": 10.8,
+        "growth": 0.486
+      },
+      "phys_atk": {
+        "base": 129.0,
+        "growth": 12.714
+      },
+      "phys_def": {
+        "base": 19.0,
+        "growth": 7.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.0
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 2.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "tigreal_97",
+    "image_id": "tigreal",
+    "name": {
+      "ru": "Тигрил",
+      "en": "Tigreal"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2581.0,
+        "growth": 307.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 112.0,
+        "growth": 6.786
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 8.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "uranus_98",
+    "image_id": "uranus",
+    "name": {
+      "ru": "Уранус",
+      "en": "Uranus"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2380.0,
+        "growth": 195.0
+      },
+      "hp_regen": {
+        "base": 6.4,
+        "growth": 0.571
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 7.286
+      },
+      "phys_def": {
+        "base": 14.0,
+        "growth": 6.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.04,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.5,
+        "max": 1.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "fanny_99",
+    "image_id": "fanny",
+    "name": {
+      "ru": "Фанни",
+      "en": "Fanny"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Energy",
+    "stats": {
+      "hp": {
+        "base": 2267.0,
+        "growth": 156.0
+      },
+      "hp_regen": {
+        "base": 6.6,
+        "growth": 0.414
+      },
+      "phys_atk": {
+        "base": 126.0,
+        "growth": 10.214
+      },
+      "phys_def": {
+        "base": 16.0,
+        "growth": 3.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.11,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 265.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "faramis_100",
+    "image_id": "faramis",
+    "name": {
+      "ru": "Фарамис",
+      "en": "Faramis"
+    },
+    "roles": {
+      "ru": [
+        "Маг",
+        "Поддержка"
+      ],
+      "en": [
+        "Mage",
+        "Support"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2422.0,
+        "growth": 181.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.286
+      },
+      "phys_atk": {
+        "base": 118.0,
+        "growth": 7.0
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 3.8,
+        "max": 3.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "pharsa_101",
+    "image_id": "pharsa",
+    "name": {
+      "ru": "Фаша",
+      "en": "Pharsa"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2300.0,
+        "growth": 143.5
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 109.0,
+        "growth": 6.429
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "floryn_102",
+    "image_id": "floryn",
+    "name": {
+      "ru": "Флорин",
+      "en": "Floryn"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка"
+      ],
+      "en": [
+        "Support"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2280.0,
+        "growth": 145.0
+      },
+      "hp_regen": {
+        "base": 7.6,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 119.0,
+        "growth": 7.357
+      },
+      "phys_def": {
+        "base": 12.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.97,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "phoveus_103",
+    "image_id": "phoveus",
+    "name": {
+      "ru": "Фовиус",
+      "en": "Phoveus"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2650.0,
+        "growth": 220.0
+      },
+      "hp_regen": {
+        "base": 10.8,
+        "growth": 0.486
+      },
+      "phys_atk": {
+        "base": 132.0,
+        "growth": 7.714
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 4.429
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.02,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 252.0,
+      "atk_range": {
+        "min": 2.3,
+        "max": 4.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "franco_104",
+    "image_id": "franco",
+    "name": {
+      "ru": "Франко",
+      "en": "Franco"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2600.0,
+        "growth": 281.0
+      },
+      "hp_regen": {
+        "base": 9.2,
+        "growth": 0.671
+      },
+      "phys_atk": {
+        "base": 116.0,
+        "growth": 7.214
+      },
+      "phys_def": {
+        "base": 25.0,
+        "growth": 7.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "fredrinn_105",
+    "image_id": "fredrinn",
+    "name": {
+      "ru": "Фредрин",
+      "en": "Fredrinn"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Танк"
+      ],
+      "en": [
+        "Fighter",
+        "Tank"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2600.0,
+        "growth": 255.0
+      },
+      "hp_regen": {
+        "base": 6.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 125.0,
+        "growth": 8.214
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 5.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 4.4
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "freya_106",
+    "image_id": "freya",
+    "name": {
+      "ru": "Фрея",
+      "en": "Freya"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2623.0,
+        "growth": 220.0
+      },
+      "hp_regen": {
+        "base": 9.8,
+        "growth": 0.457
+      },
+      "phys_atk": {
+        "base": 109.0,
+        "growth": 8.714
+      },
+      "phys_def": {
+        "base": 22.0,
+        "growth": 4.357
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.04,
+        "growth": 0.035
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.5,
+        "max": 3.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "khaleed_107",
+    "image_id": "khaleed",
+    "name": {
+      "ru": "Халид",
+      "en": "Khaleed"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2600.0,
+        "growth": 225.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 109.0,
+        "growth": 9.5
+      },
+      "phys_def": {
+        "base": 23.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.05,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 5.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "hanabi_108",
+    "image_id": "hanabi",
+    "name": {
+      "ru": "Ханаби",
+      "en": "Hanabi"
+    },
+    "roles": {
+      "ru": [
+        "Стрелок"
+      ],
+      "en": [
+        "Marksman"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2260.0,
+        "growth": 128.0
+      },
+      "hp_regen": {
+        "base": 6.0,
+        "growth": 0.214
+      },
+      "phys_atk": {
+        "base": 111.0,
+        "growth": 7.0
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.071
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 4.8,
+        "max": 4.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "hanzo_109",
+    "image_id": "hanzo",
+    "name": {
+      "ru": "Ханзо",
+      "en": "Hanzo"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2435.0,
+        "growth": 160.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 108.0,
+        "growth": 11.429
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.08,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "harith_110",
+    "image_id": "harith",
+    "name": {
+      "ru": "Харит",
+      "en": "Harith"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2348.0,
+        "growth": 160.929
+      },
+      "hp_regen": {
+        "base": 7.5,
+        "growth": 0.15
+      },
+      "phys_atk": {
+        "base": 100.0,
+        "growth": 8.071
+      },
+      "phys_def": {
+        "base": 19.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.05,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.3,
+        "max": 4.3
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "harley_111",
+    "image_id": "harley",
+    "name": {
+      "ru": "Харли",
+      "en": "Harley"
+    },
+    "roles": {
+      "ru": [
+        "Убийца",
+        "Маг"
+      ],
+      "en": [
+        "Assassin",
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2380.0,
+        "growth": 145.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 114.0,
+        "growth": 6.214
+      },
+      "phys_def": {
+        "base": 19.0,
+        "growth": 3.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "hayabusa_112",
+    "image_id": "hayabusa",
+    "name": {
+      "ru": "Хаябуса",
+      "en": "Hayabusa"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Energy",
+    "stats": {
+      "hp": {
+        "base": 2270.0,
+        "growth": 171.5
+      },
+      "hp_regen": {
+        "base": 7.4,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 117.0,
+        "growth": 9.571
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.06,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "helcurt_113",
+    "image_id": "helcurt",
+    "name": {
+      "ru": "Хелкарт",
+      "en": "Helcurt"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2440.0,
+        "growth": 176.0
+      },
+      "hp_regen": {
+        "base": 7.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 121.0,
+        "growth": 11.0
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.15,
+        "growth": 0.021
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 1.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "hylos_114",
+    "image_id": "hylos",
+    "name": {
+      "ru": "Хилос",
+      "en": "Hylos"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2600.0,
+        "growth": 310.0
+      },
+      "hp_regen": {
+        "base": 18.4,
+        "growth": 1.543
+      },
+      "phys_atk": {
+        "base": 105.0,
+        "growth": 6.643
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 5.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 2.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "hilda_115",
+    "image_id": "hilda",
+    "name": {
+      "ru": "Хильда",
+      "en": "Hilda"
+    },
+    "roles": {
+      "ru": [
+        "Боец",
+        "Танк"
+      ],
+      "en": [
+        "Fighter",
+        "Tank"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2680.0,
+        "growth": 255.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.629
+      },
+      "phys_atk": {
+        "base": 123.0,
+        "growth": 6.786
+      },
+      "phys_def": {
+        "base": 24.0,
+        "growth": 7.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.05,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 2.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "khufra_116",
+    "image_id": "khufra",
+    "name": {
+      "ru": "Хуфра",
+      "en": "Khufra"
+    },
+    "roles": {
+      "ru": [
+        "Танк"
+      ],
+      "en": [
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2670.0,
+        "growth": 255.0
+      },
+      "hp_regen": {
+        "base": 9.4,
+        "growth": 0.629
+      },
+      "phys_atk": {
+        "base": 117.0,
+        "growth": 6.214
+      },
+      "phys_def": {
+        "base": 19.0,
+        "growth": 7.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 4.9
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "zetian_117",
+    "image_id": "zetian",
+    "name": {
+      "ru": "Цзетянь",
+      "en": "Zetian"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2550.0,
+        "growth": 135.0
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 95.0,
+        "growth": 5.0
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 3.857
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.9,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 5.0,
+        "max": 5.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "cyclops_118",
+    "image_id": "cyclops",
+    "name": {
+      "ru": "Циклоп",
+      "en": "Cyclops"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2400.0,
+        "growth": 175.071
+      },
+      "hp_regen": {
+        "base": 7.6,
+        "growth": 0.314
+      },
+      "phys_atk": {
+        "base": 112.0,
+        "growth": 5.786
+      },
+      "phys_def": {
+        "base": 18.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "change_119",
+    "image_id": "change",
+    "name": {
+      "ru": "Чан'Э",
+      "en": "Chang'e"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2180.0,
+        "growth": 145.5
+      },
+      "hp_regen": {
+        "base": 6.8,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 7.643
+      },
+      "phys_def": {
+        "base": 16.0,
+        "growth": 3.643
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.01,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "zhuxin_120",
+    "image_id": "zhuxin",
+    "name": {
+      "ru": "Чжусинь",
+      "en": "Zhuxin"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2280.0,
+        "growth": 145.0
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 6.429
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 3.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 0.98,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "chip_121",
+    "image_id": "chip",
+    "name": {
+      "ru": "Чип",
+      "en": "Chip"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка",
+        "Танк"
+      ],
+      "en": [
+        "Support",
+        "Tank"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2481.0,
+        "growth": 207.0
+      },
+      "hp_regen": {
+        "base": 8.4,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 112.0,
+        "growth": 6.786
+      },
+      "phys_def": {
+        "base": 20.0,
+        "growth": 5.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 1.03,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 3.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "cici_122",
+    "image_id": "cici",
+    "name": {
+      "ru": "Чичи",
+      "en": "Cici"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2431.0,
+        "growth": 195.0
+      },
+      "hp_regen": {
+        "base": 6.0,
+        "growth": 0.571
+      },
+      "phys_atk": {
+        "base": 100.0,
+        "growth": 9.0
+      },
+      "phys_def": {
+        "base": 23.0,
+        "growth": 4.0
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.07,
+        "growth": 0.02
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 3.8,
+        "max": 3.8
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "yuzhong_123",
+    "image_id": "yuzhong",
+    "name": {
+      "ru": "Чонг",
+      "en": "Yu Zhong"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2520.0,
+        "growth": 210.0
+      },
+      "hp_regen": {
+        "base": 11.8,
+        "growth": 0.486
+      },
+      "phys_atk": {
+        "base": 129.0,
+        "growth": 11.714
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 4.5
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 245.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 4.2
+      },
+      "atk_speed_ratio": 0.8
+    }
+  },
+  {
+    "id": "chou_124",
+    "image_id": "chou",
+    "name": {
+      "ru": "Чу",
+      "en": "Chou"
+    },
+    "roles": {
+      "ru": [
+        "Боец"
+      ],
+      "en": [
+        "Fighter"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2530.0,
+        "growth": 217.0
+      },
+      "hp_regen": {
+        "base": 7.8,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 121.0,
+        "growth": 10.071
+      },
+      "phys_def": {
+        "base": 23.0,
+        "growth": 4.571
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.1,
+        "growth": 0.025
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 260.0,
+      "atk_range": {
+        "min": 1.4,
+        "max": 1.4
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "edith_125",
+    "image_id": "edith",
+    "name": {
+      "ru": "Эдит",
+      "en": "Edith"
+    },
+    "roles": {
+      "ru": [
+        "Танк",
+        "Стрелок"
+      ],
+      "en": [
+        "Tank",
+        "Marksman"
+      ]
+    },
+    "resource": "None",
+    "stats": {
+      "hp": {
+        "base": 2440.0,
+        "growth": 225.0
+      },
+      "hp_regen": {
+        "base": 9.0,
+        "growth": 0.6
+      },
+      "phys_atk": {
+        "base": 110.0,
+        "growth": 5.714
+      },
+      "phys_def": {
+        "base": 17.0,
+        "growth": 6.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 4.0
+      },
+      "atk_speed": {
+        "base": 0.93,
+        "growth": 0.001
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 255.0,
+      "atk_range": {
+        "min": 1.8,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "eudora_126",
+    "image_id": "eudora",
+    "name": {
+      "ru": "Эйдора",
+      "en": "Eudora"
+    },
+    "roles": {
+      "ru": [
+        "Маг"
+      ],
+      "en": [
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2403.0,
+        "growth": 173.0
+      },
+      "hp_regen": {
+        "base": 7.6,
+        "growth": 0.314
+      },
+      "phys_atk": {
+        "base": 112.0,
+        "growth": 5.786
+      },
+      "phys_def": {
+        "base": 19.0,
+        "growth": 4.143
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 4.5,
+        "max": 4.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "aamon_127",
+    "image_id": "aamon",
+    "name": {
+      "ru": "Эймон",
+      "en": "Aamon"
+    },
+    "roles": {
+      "ru": [
+        "Убийца"
+      ],
+      "en": [
+        "Assassin"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2455.0,
+        "growth": 167.0
+      },
+      "hp_regen": {
+        "base": 8.0,
+        "growth": 0.443
+      },
+      "phys_atk": {
+        "base": 115.0,
+        "growth": 10.0
+      },
+      "phys_def": {
+        "base": 19.0,
+        "growth": 4.286
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.09,
+        "growth": 0.015
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 250.0,
+      "atk_range": {
+        "min": 2.0,
+        "max": 3.0
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "esmeralda_128",
+    "image_id": "esmeralda",
+    "name": {
+      "ru": "Эсмеральда",
+      "en": "Esmeralda"
+    },
+    "roles": {
+      "ru": [
+        "Танк",
+        "Маг"
+      ],
+      "en": [
+        "Tank",
+        "Mage"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2464.0,
+        "growth": 206.5
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 114.0,
+        "growth": 5.5
+      },
+      "phys_def": {
+        "base": 21.0,
+        "growth": 5.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 2.5,
+        "max": 2.5
+      },
+      "atk_speed_ratio": 1.0
+    }
+  },
+  {
+    "id": "estes_129",
+    "image_id": "estes",
+    "name": {
+      "ru": "Эстес",
+      "en": "Estes"
+    },
+    "roles": {
+      "ru": [
+        "Поддержка"
+      ],
+      "en": [
+        "Support"
+      ]
+    },
+    "resource": "Mana",
+    "stats": {
+      "hp": {
+        "base": 2221.0,
+        "growth": 123.5
+      },
+      "hp_regen": {
+        "base": 7.2,
+        "growth": 0.3
+      },
+      "phys_atk": {
+        "base": 120.0,
+        "growth": 7.214
+      },
+      "phys_def": {
+        "base": 13.0,
+        "growth": 3.786
+      },
+      "mag_def": {
+        "base": 15.0,
+        "growth": 2.5
+      },
+      "atk_speed": {
+        "base": 1.0,
+        "growth": 0.01
+      },
+      "mag_power": {
+        "base": 0.0,
+        "growth": 0
+      },
+      "move_speed": 240.0,
+      "atk_range": {
+        "min": 4.7,
+        "max": 4.7
+      },
+      "atk_speed_ratio": 1.0
+    }
+  }
+]

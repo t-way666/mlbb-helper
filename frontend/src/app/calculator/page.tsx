@@ -1,27 +1,16 @@
 import { Hero, Item, Emblem } from "@/types/hero";
 import CalculatorClient from "@/components/CalculatorClient";
 
-// Универсальная функция загрузки
-async function fetchData<T>(endpoint: string): Promise<T> {
-  // Обращаемся к API
-  const res = await fetch(`http://127.0.0.1:8080/api/${endpoint}`, { 
-    cache: 'no-store' // Всегда свежие данные (можно изменить на 'force-cache' для продакшена)
-  });
-  
-  if (!res.ok) {
-    throw new Error(`Failed to fetch ${endpoint}`);
-  }
-  
-  return res.json();
-}
+// Прямой импорт JSON данных
+import heroesData from "@/data/heroes.json";
+import itemsData from "@/data/items.json";
+import emblemsData from "@/data/emblems.json";
 
 export default async function CalculatorPage() {
-  // Загружаем все данные ПАРАЛЛЕЛЬНО для скорости
-  const [heroes, items, emblems] = await Promise.all([
-    fetchData<Hero[]>('heroes'),
-    fetchData<Item[]>('items'),
-    fetchData<Emblem[]>('emblems')
-  ]);
+  // Приводим данные к типам (casting)
+  const heroes = heroesData as unknown as Hero[];
+  const items = itemsData as unknown as Item[];
+  const emblems = emblemsData as unknown as Emblem[];
 
   return (
     <main className="min-h-screen bg-background text-foreground p-4 md:p-8 pt-36 md:pt-40">

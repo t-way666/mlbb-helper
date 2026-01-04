@@ -11,8 +11,8 @@ interface StatDisplayProps {
   baseValue: number;
   items: (Item | null)[];
   emblem: Emblem | null;
-  statKey: keyof Item; // Какой стат искать в предметах (например, 'phys_attack')
-  emblemStatKey?: keyof Emblem; // Если в эмблеме ключ отличается (опционально)
+  statKey: keyof Item['stats']; // Теперь берем из вложенного объекта stats
+  emblemStatKey?: keyof Emblem['stats']; 
   isPercent?: boolean;
 }
 
@@ -36,33 +36,30 @@ export function StatDisplay({
 
   // Предметы
   items.forEach(item => {
-    if (item && item[statKey]) {
-      const val = Number(item[statKey]); 
+    if (item && item.stats) {
+      const val = Number(item.stats[statKey]); 
       if (val > 0) {
-        const itemImageName = (item.item_name_en || item.item_name_ru)
-          .toLowerCase()
-          .replace(/[ .'-_]/g, '');
-
         breakdown.push({
-          source: item.item_name_ru,
+          source: item.name.ru,
           value: val,
-          srcBase: `/assets/images/equipments/${itemImageName}`
+          srcBase: `/assets/images/equipments/${item.image_id}`
         });
       }
     }
   });
 
   // Эмблема
-  const eKey = emblemStatKey || (statKey as keyof Emblem);
-  if (emblem && emblem[eKey]) {
-    const val = Number(emblem[eKey]);
+  const eKey = emblemStatKey || (statKey as keyof Emblem['stats']);
+  if (emblem && emblem.stats) {
+    const val = Number(emblem.stats[eKey]);
     if (val > 0) {
-      breakdown.push({
-        source: `Эмблема (${emblem.emblem_name_ru})`,
-        value: val,
-        srcBase: `/assets/images/emblems/${emblem.emblem_name_ru}`,
-        isEmblem: true
-      });
+              breakdown.push({
+                source: `Эмблема (${emblem.name.ru})`,
+                value: val,
+                srcBase: `/assets/images/emblems/${emblem.image_id}`,
+                isEmblem: true
+              });
+      
     }
   }
 

@@ -32,10 +32,9 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
 
   // --- ЛОГИКА РАСЧЕТОВ ---
 
-  const getStatFromGrowth = (base: number | undefined, growth: number | undefined, level: number) => {
-    const b = Number(base) || 0;
-    const g = Number(growth) || 0;
-    return Math.round(b + g * (level - 1));
+  const getStatValue = (stat: { base: number; growth: number } | undefined, level: number) => {
+    if (!stat) return 0;
+    return stat.base + stat.growth * (level - 1);
   };
 
   // Функция "нормализации" эмблемы (превращает адаптивку в конкретный стат)
@@ -48,22 +47,22 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
     let bonusPhys = 0;
     let bonusMag = 0;
     items.forEach(i => {
-        if (i) {
-            bonusPhys += i.phys_atk || 0;
-            bonusMag += i.mag_power || 0;
+        if (i && i.stats) {
+            bonusPhys += i.stats.phys_atk || 0;
+            bonusMag += i.stats.mag_power || 0;
         }
     });
 
-    const effective = { ...emblem };
+    const effective = { ...emblem, stats: { ...emblem.stats } };
 
     // Адаптивная Атака
-    if (effective.adaptive_attack) {
+    if (effective.stats.adaptive_attack) {
         if (bonusPhys >= bonusMag) {
-            effective.phys_attack = (effective.phys_attack || 0) + effective.adaptive_attack;
+            effective.stats.phys_attack = (effective.stats.phys_attack || 0) + effective.stats.adaptive_attack;
         } else {
-            effective.mag_power = (effective.mag_power || 0) + effective.adaptive_attack;
+            effective.stats.mag_power = (effective.stats.mag_power || 0) + effective.stats.adaptive_attack;
         }
-        effective.adaptive_attack = 0;
+        effective.stats.adaptive_attack = 0;
     }
 
     return effective;
@@ -72,7 +71,6 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
   const attackerEffectiveEmblem = getEffectiveEmblem(attackerEmblem, attackerItems);
   const defenderEffectiveEmblem = getEffectiveEmblem(defenderEmblem, defenderItems);
 
-
   // Сбор статов
   const calculateTotalStats = (
     hero: Hero | null, 
@@ -80,50 +78,48 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
     currentItems: (Item | null)[], 
     effectiveEmblem: Emblem | null
   ) => {
-    // Базовые
-    const basePhysAtk = getStatFromGrowth(hero?.phys_attack, hero?.growth_phys_attack, level);
-    const baseMagPower = hero?.mag_power || 0;
-    const basePhysDef = getStatFromGrowth(hero?.phys_def, hero?.growth_phys_def, level);
-    const baseMagDef = getStatFromGrowth(hero?.mag_def, hero?.growth_mag_def, level);
+    // Базовые статы из новой структуры
+    const basePhysAtk = getStatValue(hero?.stats.phys_atk, level);
+    const baseMagPower = getStatValue(hero?.stats.mag_power, level);
+    const basePhysDef = getStatValue(hero?.stats.phys_def, level);
+    const baseMagDef = getStatValue(hero?.stats.mag_def, level);
 
-    // Дополнительные
     let extraPhysAtk = 0;
     let extraMagPower = 0;
     let extraPhysDef = 0;
     let extraMagDef = 0;
 
     // Проникновение
-    let flatPhysPen = hero?.phys_penetration || 0;
-    let percentPhysPen = hero?.phys_penetration_fraction || 0;
-    let flatMagPen = hero?.mag_penetration || 0;
-    let percentMagPen = hero?.mag_penetration_fraction || 0;
+    let flatPhysPen = 0;
+    let percentPhysPen = 0;
+    let flatMagPen = 0;
+    let percentMagPen = 0;
 
     // Сбор с предметов
     currentItems.forEach(item => {
-      if (!item) return;
-      extraPhysAtk += item.phys_atk || 0;
-      extraMagPower += item.mag_power || 0;
-      extraPhysDef += item.phys_def || 0;
-      extraMagDef += item.mag_def || 0;
+      if (!item || !item.stats) return;
+      extraPhysAtk += item.stats.phys_atk || 0;
+      extraMagPower += item.stats.mag_power || 0;
+      extraPhysDef += item.stats.phys_def || 0;
+      extraMagDef += item.stats.mag_def || 0;
       
-      flatPhysPen += item.phys_penetration_flat || 0;
-      percentPhysPen += item.phys_penetration_fraction || 0;
-      flatMagPen += item.mag_penetration_flat || 0;
-      percentMagPen += item.mag_penetration_fraction || 0;
+      flatPhysPen += item.stats.phys_penetration_flat || 0;
+      percentPhysPen += item.stats.phys_penetration_fraction || 0;
+      flatMagPen += item.stats.mag_penetration_flat || 0;
+      percentMagPen += item.stats.mag_penetration_fraction || 0;
     });
 
     // Сбор с эмблем
-    if (effectiveEmblem) {
-      extraPhysAtk += effectiveEmblem.phys_attack || 0;
-      extraMagPower += effectiveEmblem.mag_power || 0;
+    if (effectiveEmblem && effectiveEmblem.stats) {
+      extraPhysAtk += effectiveEmblem.stats.phys_attack || 0;
+      extraMagPower += effectiveEmblem.stats.mag_power || 0;
       
-      flatPhysPen += effectiveEmblem.phys_penetration || 0;
-      flatMagPen += effectiveEmblem.mag_penetration || 0;
+      flatPhysPen += effectiveEmblem.stats.phys_penetration || 0;
+      flatMagPen += effectiveEmblem.stats.mag_penetration || 0;
       
-      // Гибридное проникновение дает и физ, и маг
-      if (effectiveEmblem.hybrid_penetration) {
-          flatPhysPen += effectiveEmblem.hybrid_penetration;
-          flatMagPen += effectiveEmblem.hybrid_penetration;
+      if (effectiveEmblem.stats.hybrid_penetration) {
+          flatPhysPen += effectiveEmblem.stats.hybrid_penetration;
+          flatMagPen += effectiveEmblem.stats.hybrid_penetration;
       }
     }
 
@@ -136,7 +132,7 @@ export default function CalculatorClient({ heroes, items, emblems }: CalculatorC
       flatPhysPen, percentPhysPen,
       flatMagPen, percentMagPen,
 
-      basePhysAtk, baseMagPower, basePhysDef, baseMagDef // Для UI
+      basePhysAtk, baseMagPower, basePhysDef, baseMagDef 
     };
   };
 

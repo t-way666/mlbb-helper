@@ -22,18 +22,6 @@ const CATEGORIES = [
   { id: 'Прочее', label: 'Прочее', icon: '📦' },
 ];
 
-const getItemIconPath = (item: Item | null) => {
-  if (!item) return '';
-  
-  // Приоритет - английское название из БД
-  const nameToNormalize = item.item_name_en || item.item_name_ru;
-  const normalized = nameToNormalize
-    .toLowerCase()
-    .replace(/[ .'-_]/g, ''); // Удаляем пробелы, точки, апострофы, дефисы и подчеркивания
-    
-  return `/assets/images/equipments/${normalized}`;
-};
-
 export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuilderProps) {
   const [activeSlotIndex, setActiveSlotIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
@@ -42,7 +30,8 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
   // Отфильтрованные предметы для модалки
   const filteredItems = items.filter(item => {
     const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
-    const matchesSearch = item.item_name_ru.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = item.name.ru.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.name.en.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -85,10 +74,10 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
             {item ? (
               <>
                 <ImageWithFallback 
-                  srcBase={getItemIconPath(item)} 
-                  alt={item.item_name_ru}
+                  srcBase={`/assets/images/equipments/${item.image_id}`} 
+                  alt={item.name.ru}
                   className="w-full h-full object-cover rounded-full"
-                  title={item.item_name_ru}
+                  title={item.name.ru}
                 />
                 {/* Кнопка удаления (появляется при наведении) */}
                 <button 
@@ -107,7 +96,7 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
 
       {/* МОДАЛЬНОЕ ОКНО ВЫБОРА */}
       {activeSlotIndex !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+        <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
           <div className="bg-card rounded-2xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-2xl border border-foreground/10 overflow-hidden">
             
             {/* Заголовок модалки */}
@@ -155,19 +144,19 @@ export function ItemBuilder({ items, selectedItems, onUpdate, label }: ItemBuild
             <div className="flex-1 overflow-y-auto p-4 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3 min-h-[300px]">
               {filteredItems.map(item => (
                 <div 
-                  key={item.item_id}
+                  key={item.id}
                   className="flex flex-col items-center gap-1 group cursor-pointer"
                   onClick={() => handleSelect(item)}
                 >
                   <div className="aspect-square w-full bg-background rounded-full border border-foreground/5 hover:border-blue-400 hover:scale-105 transition-all relative">
                     <ImageWithFallback 
-                      srcBase={getItemIconPath(item)}
-                      alt={item.item_name_ru}
+                      srcBase={`/assets/images/equipments/${item.image_id}`}
+                      alt={item.name.ru}
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
                   <span className="text-[10px] text-foreground/50 text-center leading-tight truncate w-full group-hover:text-blue-500">
-                    {item.item_name_ru}
+                    {item.name.ru}
                   </span>
                 </div>
               ))}

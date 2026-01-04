@@ -18,7 +18,8 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
 
   // Фильтрация героев по поиску
   const filteredHeroes = heroes.filter(hero => 
-    hero.hero_name.toLowerCase().includes(searchTerm.toLowerCase())
+    hero.name.ru.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    hero.name.en.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -35,12 +36,12 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
         {selectedHero ? (
           <div className="flex flex-col items-center p-2 text-center">
             <ImageWithFallback 
-              srcBase={`/assets/images/hero_base_avatar_icons/${(selectedHero.hero_name_en || '').toLowerCase().replace(/[^a-z0-9]/g, '')}`} 
-              alt={selectedHero.hero_name}
+              srcBase={`/assets/images/hero_base_avatar_icons/${selectedHero.image_id}`} 
+              alt={selectedHero.name.ru}
               className="w-20 h-20 rounded-full border-2 border-blue-500 mb-1 object-cover"
             />
-            <div className="text-sm font-bold truncate max-w-[120px]">{selectedHero.hero_name}</div>
-            <div className="text-[10px] text-foreground/50 uppercase tracking-tighter">{selectedHero.main_role}</div>
+            <div className="text-sm font-bold truncate max-w-[120px]">{selectedHero.name.ru}</div>
+            <div className="text-[10px] text-foreground/50 uppercase tracking-tighter">{selectedHero.roles.ru.join(' / ')}</div>
           </div>
         ) : (
           <div className="flex flex-col items-center text-center p-4">
@@ -70,7 +71,7 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
           <div className="overflow-y-auto flex-1">
             {filteredHeroes.map(hero => (
               <div 
-                key={hero.hero_name}
+                key={hero.id}
                 className="p-3 hover:bg-foreground/5 cursor-pointer flex items-center gap-3 border-b border-foreground/5 last:border-0"
                 onClick={() => {
                   onSelect(hero);
@@ -79,13 +80,13 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
                 }}
               >
                 <ImageWithFallback 
-                  srcBase={`/assets/images/hero_base_avatar_icons/${(hero.hero_name_en || '').toLowerCase().replace(/[ .'-]/g, '_').replace(/__/g, '_')}`} 
+                  srcBase={`/assets/images/hero_base_avatar_icons/${hero.image_id}`} 
                   alt=""
                   className="w-10 h-10 rounded-lg object-cover"
                 />
                 <div className="flex-1">
-                    <div className="font-medium">{hero.hero_name}</div>
-                    <div className="text-xs text-foreground/40">{hero.main_role}</div>
+                    <div className="font-medium">{hero.name.ru}</div>
+                    <div className="text-xs text-foreground/40">{hero.roles.ru.join(' / ')}</div>
                 </div>
               </div>
             ))}

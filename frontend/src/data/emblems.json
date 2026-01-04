@@ -1,0 +1,93 @@
+[
+  {
+    "id": "basiccommonemblem_1",
+    "image_id": "basiccommonemblem",
+    "name": {
+      "ru": "Базовая обычная эмблема",
+      "en": "basic common emblem"
+    },
+    "stats": {
+      "hp": 275,
+      "hybrid_regen": 12,
+      "adaptive_attack": 22
+    }
+  },
+  {
+    "id": "tankemblem_2",
+    "image_id": "tankemblem",
+    "name": {
+      "ru": "Эмблемы танка",
+      "en": "tank emblem"
+    },
+    "stats": {
+      "hp": 500,
+      "regen_hp": 4,
+      "hybrid_def": 10
+    }
+  },
+  {
+    "id": "assassinemblem_3",
+    "image_id": "assassinemblem",
+    "name": {
+      "ru": "Эмблемы убийцы",
+      "en": "assassin emblem"
+    },
+    "stats": {
+      "adaptive_attack": 10,
+      "adaptive_penetration": 14,
+      "move_speed_fraction": 0.03
+    }
+  },
+  {
+    "id": "mageemblem_4",
+    "image_id": "mageemblem",
+    "name": {
+      "ru": "Эмблемы мага",
+      "en": "mage emblem"
+    },
+    "stats": {
+      "mag_power": 30,
+      "mag_penetration": 8,
+      "cooldown_reduction_fraction": 0.05
+    }
+  },
+  {
+    "id": "fighteremblem_5",
+    "image_id": "fighteremblem",
+    "name": {
+      "ru": "Эмблемы бойца",
+      "en": "fighter emblem"
+    },
+    "stats": {
+      "adaptive_attack": 22,
+      "hybrid_def": 8,
+      "spell_vamp_fraction": 0.12
+    }
+  },
+  {
+    "id": "supportemblem_6",
+    "image_id": "supportemblem",
+    "name": {
+      "ru": "Эмблемы поддержки",
+      "en": "support emblem"
+    },
+    "stats": {
+      "move_speed_fraction": 0.06,
+      "cooldown_reduction_fraction": 0.1,
+      "healing_effect_fraction": 0.12
+    }
+  },
+  {
+    "id": "marksmanemblem_7",
+    "image_id": "marksmanemblem",
+    "name": {
+      "ru": "Эмблемы стрелка",
+      "en": "marksman emblem"
+    },
+    "stats": {
+      "adaptive_attack": 16,
+      "lifesteal_fraction": 0.05,
+      "attack_speed_fraction": 0.15
+    }
+  }
+]

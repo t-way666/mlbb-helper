@@ -12,8 +12,8 @@ interface EmblemSelectorProps {
 
 export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: EmblemSelectorProps) {
   const getEmblemColor = (emblem: Emblem) => {
-    const n = emblem.emblem_name_ru.toLowerCase();
-    const e = emblem.emblem_name_en.toLowerCase();
+    const n = emblem.name.ru.toLowerCase();
+    const e = emblem.name.en.toLowerCase();
     
     if (n.includes('боец') || e.includes('fighter')) return { border: 'border-red-500', shadow: 'shadow-[0_0_20px_rgba(239,68,68,0.8)]', bg: 'bg-red-500/20' };
     if (n.includes('маг') || e.includes('mage')) return { border: 'border-blue-500', shadow: 'shadow-[0_0_20px_rgba(59,130,246,0.8)]', bg: 'bg-blue-500/20' };
@@ -30,12 +30,12 @@ export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: Emb
       <h3 className="text-sm font-semibold text-foreground/50 mb-2">{label}</h3>
       <div className="flex flex-wrap gap-2">
         {emblems.map((emblem) => {
-          const isSelected = selectedEmblem?.emblem_id === emblem.emblem_id;
+          const isSelected = selectedEmblem?.id === emblem.id;
           const colors = isSelected ? getEmblemColor(emblem) : null;
           
           return (
             <div
-              key={emblem.emblem_id}
+              key={emblem.id}
               className={`
                 w-12 h-12 rounded-full border-2 cursor-pointer transition-all flex items-center justify-center p-1
                 ${isSelected 
@@ -43,11 +43,11 @@ export function EmblemSelector({ emblems, selectedEmblem, onSelect, label }: Emb
                   : 'border-foreground/10 bg-card hover:border-foreground/30'}
               `}
               onClick={() => onSelect(emblem)}
-              title={emblem.emblem_name_ru}
+              title={emblem.name.ru}
             >
                   <ImageWithFallback 
-                    srcBase={emblem.emblem_name_en ? `/assets/images/emblems/${emblem.emblem_name_en.toLowerCase().replace(/[^a-z0-9]/g, '')}` : ''} 
-                    alt={emblem.emblem_name_ru}
+                    srcBase={`/assets/images/emblems/${emblem.image_id}`} 
+                    alt={emblem.name.ru}
                     className="w-full h-full object-contain"
                   />
             </div>
