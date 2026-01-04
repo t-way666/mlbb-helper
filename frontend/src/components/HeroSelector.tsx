@@ -45,10 +45,10 @@ export function HeroSelector({ label, heroes, onSelect, selectedHero }: HeroSele
 
       {/* Модальное окно выбора (выпадающий список) */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full mt-2 bg-card border border-foreground/10 rounded-lg shadow-2xl z-50 max-h-96 flex flex-col transition-colors">
+        <div className="absolute top-full left-0 w-full mt-2 bg-background border-2 border-foreground/20 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-[100] max-h-96 flex flex-col overflow-hidden">
           
           {/* Поле поиска */}
-          <div className="p-2 border-b border-foreground/10 sticky top-0 bg-card rounded-t-lg">
+          <div className="p-3 border-b border-foreground/10 sticky top-0 bg-background z-20">
             <input 
               type="text" 
               placeholder="Поиск героя..." 

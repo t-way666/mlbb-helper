@@ -24,12 +24,11 @@ export default async function CalculatorPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-background text-foreground p-4 md:p-8 pt-24">
-      <header className="mb-8 text-center">
-        <h1 className="text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
-          Калькулятор Урона
+    <main className="min-h-screen bg-background text-foreground p-4 md:p-8 pt-28">
+      <header className="mb-12 text-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent uppercase tracking-tight">
+          Калькулятор урона
         </h1>
-        <p className="text-foreground/60 mt-2 font-medium">v2.0: Next.js + Tailwind CSS</p>
       </header>
 
       {/* Передаем ВСЕ данные в клиентский компонент */}

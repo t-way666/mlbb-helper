@@ -73,7 +73,7 @@ export interface Item {
 export interface Emblem {
     emblem_id: number;
     emblem_name_ru: string;
-    // Базовые статы эмблемы
+    emblem_name_en: string;
     adaptive_attack?: number;
     phys_attack?: number;
     mag_power?: number;

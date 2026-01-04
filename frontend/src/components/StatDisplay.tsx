@@ -37,7 +37,6 @@ export function StatDisplay({
   // Предметы
   items.forEach(item => {
     if (item && item[statKey]) {
-      // @ts-expect-error: dynamic key access
       const val = Number(item[statKey]); 
       if (val > 0) {
         const itemImageName = (item.item_name_en || item.item_name_ru)
@@ -56,7 +55,6 @@ export function StatDisplay({
   // Эмблема
   const eKey = emblemStatKey || (statKey as keyof Emblem);
   if (emblem && emblem[eKey]) {
-     // @ts-expect-error: dynamic key access
     const val = Number(emblem[eKey]);
     if (val > 0) {
       breakdown.push({
