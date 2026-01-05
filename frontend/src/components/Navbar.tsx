@@ -33,10 +33,11 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // SVG Path Props
   const pathProps: SVGMotionProps<SVGPathElement> = {
     strokeWidth: "3",
-    stroke: "currentColor",
     strokeLinecap: "round",
+    className: "neon-stroke"
   };
 
   return (

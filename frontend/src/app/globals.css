@@ -233,6 +233,20 @@ body {
   animation: pulse-subtle 3s infinite ease-in-out;
 }
 
+/* Анимация для неоновых линий (stroke) */
+.neon-stroke {
+  filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.5));
+  animation: neon-stroke-cycle 10s linear infinite;
+}
+
+@keyframes neon-stroke-cycle {
+  0%, 100% { stroke: var(--neon-color-1); filter: drop-shadow(0 0 8px var(--neon-color-1)); }
+  20% { stroke: var(--neon-color-2); filter: drop-shadow(0 0 8px var(--neon-color-2)); }
+  40% { stroke: var(--neon-color-3); filter: drop-shadow(0 0 8px var(--neon-color-3)); }
+  60% { stroke: var(--neon-color-4); filter: drop-shadow(0 0 8px var(--neon-color-4)); }
+  80% { stroke: var(--neon-color-5); filter: drop-shadow(0 0 8px var(--neon-color-5)); }
+}
+
 /* Скрытие скроллбара */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
