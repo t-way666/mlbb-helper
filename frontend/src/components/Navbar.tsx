@@ -1,10 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
+import { motion, AnimatePresence, SVGMotionProps } from 'framer-motion';
 
 const MENU_ITEMS = [
+  { title: 'Главная', href: '/' },
   { title: 'Калькулятор урона', href: '/calculator' },
   { title: 'Калькулятор защиты', href: '/defense' },
   { title: 'Винрейт', href: '/winrate' },
@@ -14,79 +17,128 @@ const MENU_ITEMS = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Блокируем скролл body
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
+  useEffect(() => { setIsOpen(false); }, [pathname]);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const pathProps: SVGMotionProps<SVGPathElement> = {
+    strokeWidth: "3",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md neon-line-bottom">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-xl md:text-2xl font-black neon-text-active uppercase tracking-tighter">
-              MLBB Helper
-            </Link>
-          </div>
+    <>
+      {/* 1. Navbar (Logo + Actions) */}
+      <nav className="fixed top-0 left-0 right-0 z-[60] h-20 flex items-center justify-between px-6 md:px-12 bg-background/50 backdrop-blur-sm border-b border-foreground/5">
+        
+        {/* Logo */}
+        <Link href="/" className="text-xl md:text-2xl font-black uppercase tracking-tighter hover:opacity-80 transition-opacity z-[60] neon-text-active">
+          MLBB Helper
+        </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-baseline space-x-2">
-              {MENU_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="neon-text-active px-3 py-2 rounded-md text-sm font-black uppercase tracking-tighter"
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-            <ThemeToggle />
-          </div>
+        {/* Desktop Actions */}
+        <div className="flex items-center gap-6">
+           <div className="hidden md:block">
+             <ThemeToggle />
+           </div>
+           {/* Placeholder for button to keep layout spacing, actual button is fixed below */}
+           <div className="w-12 h-12"></div>
+        </div>
+      </nav>
 
-          {/* Burger Button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+      {/* 2. Floating Burger Button (FIXED on top of everything) */}
+      <button 
+        onClick={toggleMenu}
+        className="fixed top-4 right-6 md:right-12 z-[110] w-12 h-12 flex items-center justify-center focus:outline-none group text-foreground"
+      >
+        <motion.svg
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          className="group-hover:text-primary transition-colors duration-300"
+        >
+          <motion.path {...pathProps} variants={{ closed: { d: "M 2 6 L 22 6" }, open: { d: "M 3 16.5 L 17 2.5" } }} />
+          <motion.path {...pathProps} d="M 2 12 L 22 12" variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }} transition={{ duration: 0.1 }} />
+          <motion.path {...pathProps} variants={{ closed: { d: "M 2 18 L 22 18" }, open: { d: "M 3 2.5 L 17 16.5" } }} />
+        </motion.svg>
+      </button>
+
+      {/* 3. Drawer & Backdrop */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop (z-90) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={toggleMenu}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90]"
+            />
+
+            {/* Drawer (z-100) */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 bottom-0 w-full md:w-[450px] bg-background border-l-2 border-primary/30 shadow-[-10px_0_40px_rgba(6,182,212,0.2)] z-[100] flex flex-col justify-center px-8 md:px-16"
             >
-              <span className="sr-only">Open main menu</span>
-              {isOpen ? (
-                <div 
-                  className="w-8 h-8 neon-icon-mask"
-                  style={{ 
-                    WebkitMaskImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke-width=\'2.5\' stroke=\'currentColor\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M6 18L18 6M6 6l12 12\' /%3E%3C/svg%3E")'
-                  }}
-                />
-              ) : (
-                <div 
-                  className="w-8 h-8 neon-icon-mask"
-                  style={{ 
-                    WebkitMaskImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke-width=\'2.5\' stroke=\'currentColor\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5\' /%3E%3C/svg%3E")'
-                  }}
-                />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
+              <div className="flex flex-col space-y-6">
+                 <div className="md:hidden absolute top-6 left-6">
+                    <ThemeToggle />
+                 </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-b border-foreground/10 slide-in">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-            {MENU_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="neon-text-active block px-3 py-4 rounded-md text-lg font-black uppercase tracking-tighter"
+                {MENU_ITEMS.map((item, idx) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <motion.div
+                      key={item.href}
+                      initial={{ x: 50, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.1 + idx * 0.1 }}
+                    >
+                      <Link 
+                        href={item.href}
+                        className={`text-3xl md:text-4xl font-black uppercase tracking-tighter transition-all hover:pl-4
+                          ${isActive ? 'text-primary neon-text-active' : 'text-muted hover:text-foreground'}
+                        `}
+                      >
+                         {item.title}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="absolute bottom-8 left-8 right-8 text-xs text-muted uppercase tracking-widest border-t border-foreground/10 pt-4"
               >
-                {item.title}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </nav>
+                <p>MLBB Helper v2.0</p>
+                <p>Created by T-Way</p>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

@@ -14,7 +14,7 @@ export default function Footer() {
             MLBB Helper
           </h3>
           <p className="text-[10px] text-muted font-bold uppercase tracking-[0.2em]">
-            © {new Date().getFullYear()} • Created by Wayer
+            © {new Date().getFullYear()} • Created by T-Way
           </p>
         </div>
 
