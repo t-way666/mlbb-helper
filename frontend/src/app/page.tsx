@@ -83,7 +83,7 @@ export default async function Home() {
           <div className="grid gap-6">
             {news.map((item: NewsItem, idx: number) => (
               <Reveal key={idx} direction="left" delay={0.5 + (idx * 0.1)}>
-                <article className="bg-card rounded-2xl p-6 border-2 border-foreground/5 transition-colors">
+                <article className="bg-card rounded-2xl p-6 border-2 border-foreground/5">
                   <div className="flex justify-between items-start mb-4">
                     <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">{item.date}</span>
                   </div>
