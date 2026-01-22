@@ -2,6 +2,7 @@ import { Reveal } from '@/components/Reveal';
 import { ShareCard } from '@/components/ShareCard';
 import fs from 'fs';
 import path from 'path';
+import Image from 'next/image';
 
 // Типы данных
 interface NewsItem {
@@ -39,15 +40,30 @@ export default async function Home() {
     <main className="min-h-screen bg-background text-foreground pb-20">
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 text-center bg-gradient-to-b from-primary/20 to-transparent">
-        <div className="max-w-4xl mx-auto">
+      <section className="pt-20 pb-12 px-4 text-center bg-gradient-to-b from-primary/5 to-transparent overflow-hidden">
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center relative z-10">
           <Reveal direction="down" delay={0.1}>
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600 dark:from-blue-400 dark:via-cyan-400 dark:to-indigo-400 bg-clip-text text-transparent uppercase tracking-tight">
-              Mobile Legends Helper 2.0
-            </h1>
+            <div className="relative w-full max-w-6xl mx-auto aspect-[16/10] md:aspect-[17/9] mb-8 group perspective-1000">
+              {/* Poisonous Neon Glow Effect */}
+              <div className="neon-hero-glow rounded-[2rem]" />
+              
+              {/* Image Container with Rounding */}
+              <div className="relative w-full h-full rounded-[2rem] overflow-hidden">
+                <Image 
+                  src="/hero-banner.png" 
+                  alt="MLBB Helper Banner" 
+                  fill
+                  priority
+                  className="object-cover hover:scale-[1.02] transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 95vw, 1400px"
+                />
+              </div>
+            </div>
           </Reveal>
-          <Reveal delay={0.3}>
-            <p className="text-xl text-muted font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+
+          <Reveal delay={0.2}>
+            <h1 className="sr-only">Mobile Legends Helper 2.0</h1>
+            <p className="text-xl md:text-2xl text-muted font-medium mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
               Ваш надежный спутник в мире MLBB. Точные расчеты урона, база знаний и аналитика для победных матчей.
             </p>
           </Reveal>
@@ -67,11 +83,11 @@ export default async function Home() {
           <div className="grid gap-6">
             {news.map((item: NewsItem, idx: number) => (
               <Reveal key={idx} direction="left" delay={0.5 + (idx * 0.1)}>
-                <article className="bg-card rounded-2xl p-6 border-2 border-foreground/5 hover:border-primary/30 transition-all group">
+                <article className="bg-card rounded-2xl p-6 border-2 border-foreground/5 transition-colors">
                   <div className="flex justify-between items-start mb-4">
                     <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">{item.date}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors text-foreground">{item.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 text-foreground">{item.title}</h3>
                   <p className="text-muted leading-relaxed text-sm font-medium">{item.content}</p>
                 </article>
               </Reveal>

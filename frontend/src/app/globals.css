@@ -255,3 +255,26 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.neon-hero-glow {
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(45deg, 
+    var(--neon-color-1), var(--neon-color-2), var(--neon-color-3), 
+    var(--neon-color-4), var(--neon-color-5), var(--neon-color-1), 
+    var(--neon-color-2), var(--neon-color-3), var(--neon-color-4), 
+    var(--neon-color-5)
+  );
+  background-size: 400%;
+  animation: neon-animate 20s linear infinite;
+  filter: blur(40px);
+  opacity: 0.5;
+  border-radius: 2rem;
+  z-index: -1;
+  transition: opacity 0.5s;
+}
+
+.group:hover .neon-hero-glow {
+  opacity: 0.8;
+  filter: blur(60px);
+}

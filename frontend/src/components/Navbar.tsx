@@ -29,7 +29,12 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  useEffect(() => { setIsOpen(false); }, [pathname]);
+  useEffect(() => {
+    // Using setTimeout to avoid "Calling setState synchronously within an effect" warning.
+    // This allows the current render to finish before updating state.
+    const timer = setTimeout(() => setIsOpen(false), 0);
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -116,7 +121,7 @@ export default function Navbar() {
                     >
                       <Link 
                         href={item.href}
-                        className={`text-3xl md:text-4xl font-black uppercase tracking-tighter transition-all hover:pl-4
+                        className={`text-3xl md:text-4xl font-black uppercase tracking-tighter transition-transform duration-300 hover:translate-x-4 inline-block
                           ${isActive ? 'text-primary neon-text-active' : 'text-muted hover:text-foreground'}
                         `}
                       >

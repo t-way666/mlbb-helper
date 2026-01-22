@@ -29,7 +29,7 @@ export function ThemeToggle() {
             ? '0 0 15px rgba(30, 41, 59, 0.5)' 
             : '0 0 15px rgba(96, 165, 250, 0.5)'
         }}
-        className="relative w-[80px] h-[40px] rounded-full p-1 border-2 focus:outline-none overflow-hidden"
+        className="relative w-[80px] h-[40px] rounded-full p-1 border-2 focus:outline-none overflow-hidden flex items-center"
         aria-label="Toggle theme"
         whileTap={{ scale: 0.95 }}
       >
@@ -84,7 +84,7 @@ export function ThemeToggle() {
             x: isDark ? 40 : 0,
             backgroundColor: isDark ? '#94a3b8' : '#ffffff',
           }}
-          className="relative w-[32px] h-[32px] rounded-full shadow-lg border-2 border-transparent z-10"
+          className="relative w-[28px] h-[28px] rounded-full shadow-lg border-2 border-transparent z-10"
         />
       </motion.button>
     </div>

@@ -16,8 +16,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MLBB Helper",
-  description: "Advanced Mobile Legends Helper",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  ),
+  title: {
+    default: "MLBB Helper 2.0",
+    template: "%s | MLBB Helper",
+  },
+  description:
+    "Advanced Mobile Legends: Bang Bang Helper with damage calculators, winrate tools, and detailed hero statistics.",
+  openGraph: {
+    title: "MLBB Helper 2.0",
+    description:
+      "Modern helper for MLBB players. Calculate damage, analyze stats, and track progress.",
+    siteName: "MLBB Helper",
+    locale: "ru_RU",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -38,9 +53,7 @@ export default function RootLayout({
         >
           <div className="min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-grow">
-              {children}
-            </main>
+            <main className="flex-grow">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
